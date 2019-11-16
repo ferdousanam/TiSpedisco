@@ -37,6 +37,12 @@ class ShipComparatorController extends Controller
         //
     }
 
+    public function selectedCarrier(Request $request)
+    {
+        session(['selected_carrier' => $request->selected_carrier]);
+        return redirect(route('ship-details.index'));
+    }
+
     /**
      * Store a newly created resource in storage.
      *

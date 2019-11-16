@@ -83,7 +83,14 @@
                                             </div>
                                         </div>
                                         <div class="btn-box">
-                                            <a href="{{ route('ship-details.index') }}" class="btn bg-white text-green btn-c carrier" data-id="15">Prenota</a>
+                                            <form action="{{ route('selected-carrier') }}" method="post">
+                                                @csrf
+                                                <input type="hidden" name="selected_carrier" value="{{ $carrier->id }}">
+                                                <button href="{{ route('ship-details.index') }}"
+                                                        class="btn bg-white text-green btn-c carrier" data-id="{{ $carrier->id }}">
+                                                    Prenota
+                                                </button>
+                                            </form>
                                         </div>
                                     </div>
                                     <div class="full-box">

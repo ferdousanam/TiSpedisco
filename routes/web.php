@@ -20,6 +20,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['namespace' => 'FrontEndCon'], function () {
     Route::resource('ship-comparator', 'ShipComparatorController');
+    Route::post('selected-carrier', 'ShipComparatorController@selectedCarrier')->name('selected-carrier');
     Route::resource('ship-details', 'ShipDetailsController');
     Route::resource('ship-address', 'ShipAddressController');
 });
