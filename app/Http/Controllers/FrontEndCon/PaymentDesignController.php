@@ -36,10 +36,10 @@ class PaymentDesignController extends Controller
      */
     public function store(Request $request)
     {
-        $shippingAddress = $request->all();
-        unset($shippingAddress['_token']);
-        session(['shippingAddress' => $shippingAddress]);
-        return session('shippingAddress');
+        $paymentDetails = $request->all();
+        unset($paymentDetails['_token']);
+        session(['paymentDetails' => $paymentDetails]);
+        return session('paymentDetails');
     }
 
     /**
