@@ -26,6 +26,8 @@ class CreateRatesTable extends Migration
             $table->double('height_from');
             $table->double('height_to');
             $table->double('price');
+            $table->string('estimate_time');
+            $table->double('vat');
             $table->unsignedBigInteger('type_id');
             $table->foreign('type_id')->references('id')->on('types')->onDelete('cascade');
             $table->unsignedBigInteger('carrier_id');

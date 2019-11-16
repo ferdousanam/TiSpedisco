@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="309c7f2a-6688-47ec-ba71-35aa0e61f66f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/laravel-plugin.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FrontEndCon/ShipComparatorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FrontEndCon/ShipComparatorController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FrontEndCon/ShipDetailsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FrontEndCon/ShipDetailsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/User/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/User/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_23_094316_create_rates_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_23_094316_create_rates_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/User/ship-details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/User/ship-details.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/User/shipComparator.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/User/shipComparator.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -121,20 +118,20 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/database/migrations" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/User" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\xampp\htdocs\laravel6\database\migrations" />
-      <recent name="D:\xampp\htdocs\laravel6\app" />
-      <recent name="D:\xampp\htdocs\laravel6\resources\views\User" />
-      <recent name="D:\xampp\htdocs\laravel6\app\Http\Controllers\FrontEndCon" />
-      <recent name="D:\xampp\htdocs\laravel6\public\js" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\xampp\htdocs\laravel6\app\Http\Controllers\FrontEndCon" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\xampp\htdocs\laravel6\resources\views\User" />
+      <recent name="D:\xampp\htdocs\laravel6\app\Http\Controllers\FrontEndCon" />
+      <recent name="D:\xampp\htdocs\laravel6\database\migrations" />
+      <recent name="D:\xampp\htdocs\laravel6\app" />
+      <recent name="D:\xampp\htdocs\laravel6\public\js" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -170,7 +167,7 @@
       <workItem from="1573799820906" duration="4043000" />
       <workItem from="1573808808089" duration="13020000" />
       <workItem from="1573873622055" duration="2192000" />
-      <workItem from="1573876200067" duration="3366000" />
+      <workItem from="1573876200067" duration="7455000" />
     </task>
     <servers />
   </component>

@@ -19,8 +19,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['namespace' => 'FrontEndCon'], function () {
-    Route::resource('ship-details', 'ShipDetailsController');
     Route::resource('ship-comparator', 'ShipComparatorController');
+    Route::resource('ship-details', 'ShipDetailsController');
+    Route::resource('ship-address', 'ShipAddressController');
 });
 
 Route::group(['namespace' => 'BackEndCon'], function () {

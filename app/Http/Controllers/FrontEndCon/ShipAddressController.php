@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 
-class ShipDetailsController extends Controller
+class ShipAddressController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class ShipDetailsController extends Controller
      */
     public function index()
     {
-        return view('User.ship-details');
+        return view('User.ship-address');
     }
 
     /**
@@ -39,7 +39,7 @@ class ShipDetailsController extends Controller
         $shipDetails = $request->all();
         unset($shipDetails['_token']);
         session(['shipDetails' => $shipDetails]);
-        return redirect(route('ship-address.index'));
+        return session('shipDetails');
     }
 
     /**
