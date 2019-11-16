@@ -6,7 +6,7 @@
 @endpush
 
 @section('content')
-{{--        {{ dd(session()->all()) }}--}}
+        {{ dd(session()->all()) }}
     <div class="page-content">
         <div class="container">
             <div class="row">
