@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="309c7f2a-6688-47ec-ba71-35aa0e61f66f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FrontEndCon/ShipComparatorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FrontEndCon/ShipComparatorController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FrontEndCon/ShipDetailsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FrontEndCon/ShipDetailsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/User/shipComparator.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/User/shipComparator.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FrontEndCon/ShipAddressController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FrontEndCon/ShipAddressController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/User/ship-address.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/User/ship-address.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -167,7 +166,7 @@
       <workItem from="1573799820906" duration="4043000" />
       <workItem from="1573808808089" duration="13020000" />
       <workItem from="1573873622055" duration="2192000" />
-      <workItem from="1573876200067" duration="8451000" />
+      <workItem from="1573876200067" duration="10283000" />
     </task>
     <servers />
   </component>

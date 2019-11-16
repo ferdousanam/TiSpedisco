@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 
-class ShipAddressController extends Controller
+class PaymentDesignController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class ShipAddressController extends Controller
      */
     public function index()
     {
-        return view('User.ship-address');
+        return view('User.payment-design');
     }
 
     /**
@@ -39,7 +39,7 @@ class ShipAddressController extends Controller
         $shippingAddress = $request->all();
         unset($shippingAddress['_token']);
         session(['shippingAddress' => $shippingAddress]);
-        return redirect(route('payment-design.index'));
+        return session('shippingAddress');
     }
 
     /**

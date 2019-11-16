@@ -23,6 +23,7 @@ Route::group(['namespace' => 'FrontEndCon'], function () {
     Route::post('selected-carrier', 'ShipComparatorController@selectedCarrier')->name('selected-carrier');
     Route::resource('ship-details', 'ShipDetailsController');
     Route::resource('ship-address', 'ShipAddressController');
+    Route::resource('payment-design', 'PaymentDesignController');
 });
 
 Route::group(['namespace' => 'BackEndCon'], function () {
