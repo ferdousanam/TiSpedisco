@@ -18,7 +18,9 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-text">Calcolo della spedizione</div>
-                    <div class="page-sub-text">Fornisci ulteriori dettagli per avere un prezzo della spedizione accurata</div>
+                    <div class="page-sub-text">Fornisci ulteriori dettagli per avere un prezzo della spedizione
+                        accurata
+                    </div>
                 </div>
             </div>
             <div class="content-wrapper">
@@ -76,7 +78,7 @@
                         <div class="form-group margin-btm-input-lg">
                             <div class="mb-1">
                                 <label for="">Servizi aggiuntivi</label>
-                                <select  class="form-control custom-select input-gray profile-input" name="" id="">
+                                <select class="form-control custom-select input-gray profile-input" name="" id="">
                                     <option value="">Assicurazione - 5€</option>
                                     <option value="">Assicurazione - 5€</option>
                                 </select>
@@ -87,7 +89,9 @@
                         <div class="form-group margin-btm-input-lg">
                             <div class="mb-1">
                                 <label for="">Contenuto</label>
-                                <textarea name="" id="" cols="30" rows="9" class="form-control custom-select input-gray profile-input" placeholder="Descrivi il contenuto che desideri spedire"></textarea>
+                                <textarea name="" id="" cols="30" rows="9"
+                                          class="form-control custom-select input-gray profile-input"
+                                          placeholder="Descrivi il contenuto che desideri spedire"></textarea>
                                 <small class="text-ash">*Consulta l'elenco delle restrizioni</small>
                             </div>
                         </div>
@@ -101,77 +105,83 @@
                         <div class="text-xl text-ash"><strong>Assegna un nome alla spedizione</strong></div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="margin-30"></div>
-                    <div class="col-md-3">
-                        <div class="form-group margin-btm-input-lg">
-                            <div class="mb-1">
-                                <label for="">Dimensioni</label>
-                                <input type="text" class="form-control input-gray profile-input"
-                                       placeholder="Lunghezza">
+                <section class="ship-name">
+                    <div class="row">
+                        <div class="margin-30"></div>
+                        <div class="col-md-3">
+                            <div class="form-group margin-btm-input-lg">
+                                <div class="mb-1">
+                                    <label for="">Dimensioni</label>
+                                    <input type="text" class="form-control input-gray profile-input"
+                                           placeholder="Lunghezza" name="length[]">
+                                </div>
+                            </div>
+                            <div class="form-group margin-btm-input-lg">
+                                <div class="mb-1">
+                                    <input type="text" class="form-control input-gray profile-input"
+                                           placeholder="Lunghezza" name="length2[]">
+                                </div>
+                            </div>
+                            <div class="form-group margin-btm-input-lg">
+                                <div class="mb-1">
+                                    <label for="">Valore della merce</label>
+                                    <input type="text" class="form-control input-gray profile-input"
+                                           placeholder="€" name="amount[]">
+                                </div>
                             </div>
                         </div>
-                        <div class="form-group margin-btm-input-lg">
-                            <div class="mb-1">
-                                <input type="text" class="form-control input-gray profile-input"
-                                       placeholder="Lunghezza">
+                        <div class="col-md-3">
+                            <div class="form-group margin-btm-input-lg">
+                                <div class="mb-1">
+                                    <label for="">&nbsp;</label>
+                                    <input type="text" class="form-control input-gray profile-input"
+                                           placeholder="Altezza" name="height[]">
+                                </div>
+                            </div>
+                            <div class="form-group margin-btm-input-lg">
+                                <div class="mb-1">
+                                    <input type="text" class="form-control input-gray profile-input"
+                                           placeholder="Peso" name="weight[]">
+                                </div>
+                            </div>
+                            <div class="form-group margin-btm-input-lg">
+                                <div class="mb-1">
+                                    <label for="">Servizi aggiuntivi</label>
+                                    <select class="form-control custom-select input-gray profile-input"
+                                            name="additional_service[]" id="">
+                                        <option value="">Assicurazione - 5€</option>
+                                        <option value="">Assicurazione - 5€</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
-                        <div class="form-group margin-btm-input-lg">
-                            <div class="mb-1">
-                                <label for="">Valore della merce</label>
-                                <input type="text" class="form-control input-gray profile-input"
-                                       placeholder="€">
+                        <div class="col-md-5">
+                            <div class="form-group margin-btm-input-lg">
+                                <div class="mb-1">
+                                    <label for="">Contenuto</label>
+                                    <textarea name="" id="" cols="30" rows="9"
+                                              class="form-control custom-select input-gray profile-input"
+                                              placeholder="Descrivi il contenuto che desideri spedire"></textarea>
+                                    <small class="text-ash">*Consulta l'elenco delle restrizioni</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="btn-wrapper">
+                                <button class="btn p-form-logo bg-green">
+                                    <i class="mdi mdi-checkbox-multiple-blank-outline"></i>
+                                </button>
+                                <button class="btn p-form-logo bg-green">
+                                    <i class="mdi mdi-close"></i>
+                                </button>
+                                <button class="btn p-form-logo bg-green">
+                                    <i class="mdi mdi-plus"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="form-group margin-btm-input-lg">
-                            <div class="mb-1">
-                                <label for="">&nbsp;</label>
-                                <input type="text" class="form-control input-gray profile-input"
-                                       placeholder="Altezza">
-                            </div>
-                        </div>
-                        <div class="form-group margin-btm-input-lg">
-                            <div class="mb-1">
-                                <input type="text" class="form-control input-gray profile-input"
-                                       placeholder="Peso">
-                            </div>
-                        </div>
-                        <div class="form-group margin-btm-input-lg">
-                            <div class="mb-1">
-                                <label for="">Servizi aggiuntivi</label>
-                                <select  class="form-control custom-select input-gray profile-input" name="" id="">
-                                    <option value="">Assicurazione - 5€</option>
-                                    <option value="">Assicurazione - 5€</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <div class="form-group margin-btm-input-lg">
-                            <div class="mb-1">
-                                <label for="">Contenuto</label>
-                                <textarea name="" id="" cols="30" rows="9" class="form-control custom-select input-gray profile-input" placeholder="Descrivi il contenuto che desideri spedire"></textarea>
-                                <small class="text-ash">*Consulta l'elenco delle restrizioni</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-1">
-                        <div class="btn-wrapper">
-                            <button class="btn p-form-logo bg-green">
-                                <i class="mdi mdi-checkbox-multiple-blank-outline"></i>
-                            </button>
-                            <button class="btn p-form-logo bg-green">
-                                <i class="mdi mdi-close"></i>
-                            </button>
-                            <button class="btn p-form-logo bg-green">
-                                <i class="mdi mdi-plus"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                </section>
+                <section id="add-row"></section>
                 <div class="row">
                     <div class="col-md-12 text-right">
                         <div class="margin-30"></div>
@@ -185,4 +195,13 @@
 
 @push('scripts')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
+    <script>
+        $('.mdi-checkbox-multiple-blank-outline').click(function (e) {
+            let html = '<section class="ship-name">';
+            html += $(this).closest('.ship-name').html();
+            html += '</section>';
+            console.log(html);
+            $('#add-row').append(html);
+        })
+    </script>
 @endpush

@@ -16,7 +16,15 @@ class ShipComparatorController extends Controller
      */
     public function index()
     {
-        return view('User.shipComparator');
+        $locations = array(
+            'from' => 0,
+            'to' => 1,
+            'size' => 20,
+        );
+        session(['locations' => $locations]);
+        $locations = session('locations');
+        $carriers = Carrier::with('rates')->get();
+        return view('User.shipComparator', compact('locations', 'carriers'));
     }
 
     /**

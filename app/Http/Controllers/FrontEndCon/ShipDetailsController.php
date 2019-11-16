@@ -15,7 +15,7 @@ class ShipDetailsController extends Controller
      */
     public function index()
     {
-        return view('User.shipComparator');
+        return view('User.ship-details');
     }
 
     /**

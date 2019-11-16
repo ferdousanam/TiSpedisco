@@ -54,12 +54,6 @@
         altFormat: 'F j, Y'
     });
     $(".select2").select2({});
-
-    $('.carrier').click(function (e) {
-        e.preventDefault();
-        let carrier_id = $(this).attr('data-id');
-        localStorage.setItem('carrier_id', carrier_id);
-    })
 </script>
 @stack('scripts')
 

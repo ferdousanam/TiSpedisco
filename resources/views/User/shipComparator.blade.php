@@ -51,7 +51,6 @@
                             </div>
                         </div>
                         <div class="margin-30"></div>
-                        {{--                        {{ dd($carriers) }}--}}
                         @foreach($carriers as $carrier)
                             <div class="company-comparator-box-wrapper">
                                 <div class="box-header"></div>
@@ -64,7 +63,7 @@
                                     </div>
                                     <div class="box-2">
                                         <div class="text-xs font-bold">{{ $carrier->title }}</div>
-                                        <div>Tra 1 e 2 giorni di consegna</div>
+                                        <div>{{ $carrier->rates->first()->estimate_time }}</div>
                                     </div>
                                     <div class="box-3">
                                         <div class="text-xs font-bold">Ritirato da casa o dal luogo di lavoro</div>
@@ -79,11 +78,12 @@
                                     <div class="box-5">
                                         <div class="text-box text-left">
                                             <div class="text-xs font-bold"> {{ $carrier->rates->first()->price }}€</div>
-                                            <div>29,23 € Inc. IVA</div>
+                                            <div>{{ $carrier->rates->first()->price * (($carrier->rates->first()->vat) ? $carrier->rates->first()->vat / 100 : 1) }}
+                                                € Inc. IVA
+                                            </div>
                                         </div>
                                         <div class="btn-box">
-                                            <button class="btn bg-white text-green btn-c carrier" data-id="15">Prenota
-                                            </button>
+                                            <a href="{{ route('ship-details.index') }}" class="btn bg-white text-green btn-c carrier" data-id="15">Prenota</a>
                                         </div>
                                     </div>
                                     <div class="full-box">
@@ -165,10 +165,16 @@
 @push('scripts')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
     <script>
-        new Vue({
-            el: '#home_view_wrapper',
-            data: {},
-            methods: {},
+
+        $('.carrier').click(function (e) {
+            let carrier_id = $(this).attr('data-id');
+            localStorage.setItem('carrier_id', carrier_id);
+            window.location = "{{ route('ship-details.index') }}";
         });
+        // new Vue({
+        //     el: '#home_view_wrapper',
+        //     data: {},
+        //     methods: {},
+        // });
     </script>
 @endpush

@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="309c7f2a-6688-47ec-ba71-35aa0e61f66f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/User/layouts/app.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/laravel-plugin.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FrontEndCon/ShipComparatorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FrontEndCon/ShipComparatorController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FrontEndCon/ShipDetailsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FrontEndCon/ShipDetailsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/User/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/User/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/User/ship-details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/User/ship-details.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/User/shipComparator.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/User/shipComparator.blade.php" afterDir="false" />
     </list>
@@ -165,7 +168,9 @@
       <workItem from="1573799364661" duration="348000" />
       <workItem from="1573799740129" duration="49000" />
       <workItem from="1573799820906" duration="4043000" />
-      <workItem from="1573808808089" duration="12678000" />
+      <workItem from="1573808808089" duration="13020000" />
+      <workItem from="1573873622055" duration="2192000" />
+      <workItem from="1573876200067" duration="3366000" />
     </task>
     <servers />
   </component>
@@ -177,7 +182,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
