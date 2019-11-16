@@ -274,6 +274,7 @@
                         data: {shipmentInfo: self.shipmentInfo, _token : '{{csrf_token()}}'},
                         success: function (res) {
                             console.log(res);
+                            window.location = '{{ route('ship-address.index') }}'
                         }
                     })
                 },
