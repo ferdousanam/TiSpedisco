@@ -25,29 +25,9 @@ class ShipDetailsController extends Controller
      */
     public function store(Request $request)
     {
-        foreach ($request->length as $key => $i){
-            $shipItems[$key]['length'] = $request->length[$key];
-            $shipItems[$key]['length2'] = $request->length2[$key];
-            $shipItems[$key]['amount'] = $request->amount[$key];
-            $shipItems[$key]['height'] = $request->height[$key];
-            $shipItems[$key]['weight'] = $request->weight[$key];
-            $shipItems[$key]['additional_service'] = $request->additional_service[$key];
-            $shipItems[$key]['content'] = $request->input('content')[$key];
-        }
-        $shipDetails = array(
-            "collection_date" => $request->collection_date,
-            "total_length" => $request->total_length,
-            "total_length2" => $request->total_length2,
-            "total_amount" => $request->total_amount,
-            "total_height" => $request->total_height,
-            "total_weight" => $request->total_weight,
-            "total_additional_service" => $request->total_additional_service,
-            "total_content" => $request->total_content,
-            "ship_items" => $shipItems,
-        );
-        unset($shipDetails['_token']);
-        $data = session(['shipDetails' => $shipDetails]);
-        return ($data) ? true : false;
+        $shipDetails = $request->input();
+        session(['shipDetails' => $shipDetails['shipmentInfo']]);
+        return response()->json(['status'=>200, 'msg'=>'Data has been stored successfully'], 200);
     }
 
     /**

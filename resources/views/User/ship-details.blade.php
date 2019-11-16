@@ -37,6 +37,7 @@
                                     <div class="form-group">
                                         <input class="form-control input-gray check_in" type="text"
                                                name="collection_date"
+                                               v-model="shipmentInfo.collection_date"
                                                required>
                                     </div>
                                     <span class="calender-down"><i class="mdi mdi-chevron-down"></i></span>
@@ -49,20 +50,23 @@
                                     <div class="mb-1">
                                         <label for="">Dimensioni</label>
                                         <input type="text" class="form-control input-gray profile-input"
-                                               placeholder="Lunghezza" name="total_length">
+                                               placeholder="Lunghezza" name="total_length"
+                                               v-model="shipmentInfo.total_length">
                                     </div>
                                 </div>
                                 <div class="form-group margin-btm-input-lg">
                                     <div class="mb-1">
                                         <input type="text" class="form-control input-gray profile-input"
-                                               placeholder="Lunghezza" name="total_length2">
+                                               placeholder="Lunghezza" name="total_width"
+                                               v-model="shipmentInfo.total_width">
                                     </div>
                                 </div>
                                 <div class="form-group margin-btm-input-lg">
                                     <div class="mb-1">
                                         <label for="">Valore della merce</label>
                                         <input type="text" class="form-control input-gray profile-input"
-                                               placeholder="€" name="total_amount">
+                                               placeholder="€" name="total_amount"
+                                               v-model="shipmentInfo.total_amount">
                                     </div>
                                 </div>
                             </div>
@@ -71,20 +75,22 @@
                                     <div class="mb-1">
                                         <label for="">&nbsp;</label>
                                         <input type="text" class="form-control input-gray profile-input"
-                                               placeholder="Altezza" name="total_height">
+                                               placeholder="Altezza" name="total_height"
+                                               v-model="shipmentInfo.total_height">
                                     </div>
                                 </div>
                                 <div class="form-group margin-btm-input-lg">
                                     <div class="mb-1">
                                         <input type="text" class="form-control input-gray profile-input"
-                                               placeholder="Peso" name="total_weight">
+                                               placeholder="Peso" name="total_weight"
+                                               v-model="shipmentInfo.total_weight">
                                     </div>
                                 </div>
                                 <div class="form-group margin-btm-input-lg">
                                     <div class="mb-1">
                                         <label for="">Servizi aggiuntivi</label>
                                         <select class="form-control custom-select input-gray profile-input"
-                                                name="total_additional_service" id="">
+                                                v-model="shipmentInfo.total_additional_service">
                                             <option value="">Assicurazione - 5€</option>
                                             <option value="">Assicurazione - 5€</option>
                                         </select>
@@ -105,7 +111,7 @@
                         </div>
                         <div class="form-divider"></div>
 
-                        <section v-for="(shipment,index) in shipments" class="ship-name">
+                        <section v-for="(shipment,index) in shipmentInfo.shipments" class="ship-name">
                             <div class="row">
                                 <div class="margin-30"></div>
                                 <div class="margin-15"></div>
@@ -196,7 +202,9 @@
                         <div class="row">
                             <div class="col-md-12 text-right">
                                 <div class="margin-30"></div>
-                                <button class="btn btn-success btn-padding-65">Continua</button>
+                                <button type="button" @click="submitShipment" class="btn btn-success btn-padding-65">
+                                    Continua
+                                </button>
                             </div>
                         </div>
                     </form>
@@ -222,13 +230,21 @@
         new Vue({
             el: '#app-ship',
             data: {
-                shipments: [
-                    {width: '', height: '', length: '', weight: '', price: '', additional_cost: ''},
-                ]
+                shipmentInfo: {
+                    collection_date: '',
+                    total_length: '',
+                    total_height: '',
+                    total_width: '',
+                    total_weight: '',
+                    total_additional_service: '',
+                    shipments: [
+                        {width: '', height: '', length: '', weight: '', price: '', additional_cost: ''},
+                    ]
+                }
             },
             methods: {
                 DuplicateShipment(shipment) {
-                    this.shipments.push({
+                    this.shipmentInfo.shipments.push({
                         width: shipment.width,
                         height: shipment.height,
                         length: shipment.length,
@@ -238,22 +254,37 @@
                     })
                 },
                 DeleteShipment(index) {
-                    this.shipments.splice(index, 1);
+                    this.shipmentInfo.shipments.splice(index, 1);
                 },
                 AddNewShipment() {
-                    this.shipments.push({width: '', height: '', length: '', weight: '', price: '', additional_cost: ''})
+                    this.shipmentInfo.shipments.push({
+                        width: '',
+                        height: '',
+                        length: '',
+                        weight: '',
+                        price: '',
+                        additional_cost: ''
+                    })
                 },
                 submitShipment() {
                     let self = this;
                     $.ajax({
-                        url: '{{ route('api.ship-details.index') }};',
+                        url: '{{ route('ship-details.index') }}',
                         type: 'post',
-                        data: self.shipments,
+                        data: {shipmentInfo: self.shipmentInfo, _token : '{{csrf_token()}}'},
                         success: function (res) {
                             console.log(res);
                         }
                     })
                 },
+            },
+            mounted() {
+                $(".check_in").flatpickr({
+                    defaultDate: 'today',
+                    minDate: 'today',
+                    altInput: true,
+                    altFormat: 'F j, Y'
+                });
             }
         })
     </script>

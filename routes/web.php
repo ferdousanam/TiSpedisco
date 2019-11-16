@@ -29,3 +29,10 @@ Route::group(['namespace' => 'FrontEndCon'], function () {
 Route::group(['namespace' => 'BackEndCon'], function () {
     Route::get('/', 'HomeController@index');
 });
+
+
+
+
+Route::group(['prefix' => 'api/v0.1'], function () {
+    Route::resource('ship-details', 'Api\ShipDetailsController');
+});

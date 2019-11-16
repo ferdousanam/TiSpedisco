@@ -48,12 +48,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.3/flatpickr.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
 <script>
-    $(".check_in").flatpickr({
-        defaultDate: 'today',
-        minDate: 'today',
-        altInput: true,
-        altFormat: 'F j, Y'
-    });
     $(".select2").select2({});
 </script>
 @stack('scripts')
