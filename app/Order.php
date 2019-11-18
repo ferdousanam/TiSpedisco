@@ -8,6 +8,8 @@ class Order extends Model
 {
     protected $guarded = ['id'];
 
+    protected $dates = ['collection_date'];
+
     /**
      * Get the user that owns the order.
      */

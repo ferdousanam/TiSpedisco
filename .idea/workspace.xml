@@ -5,9 +5,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FrontEndCon/PaymentDesignController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FrontEndCon/PaymentDesignController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_09_090912_create_orders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_09_090912_create_orders_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/User/payment-design.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/User/payment-design.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/User/ship-address.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/User/ship-address.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -119,20 +119,20 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/User" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers/FrontEndCon" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\xampp\htdocs\laravel6\resources\views\User" />
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\xampp\htdocs\laravel6\app\Http\Controllers\FrontEndCon" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\xampp\htdocs\laravel6\app\Http\Controllers\FrontEndCon" />
+      <recent name="D:\xampp\htdocs\laravel6\resources\views\User" />
       <recent name="D:\xampp\htdocs\laravel6\database\migrations" />
       <recent name="D:\xampp\htdocs\laravel6\app" />
       <recent name="D:\xampp\htdocs\laravel6\public\js" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\xampp\htdocs\laravel6\app\Http\Controllers\FrontEndCon" />
     </key>
   </component>
   <component name="RunDashboard">

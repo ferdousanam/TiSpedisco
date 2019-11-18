@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Order;
 use App\orderItem;
 use App\Rate;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 
@@ -52,6 +53,7 @@ class PaymentDesignController extends Controller
      */
     public function store(Request $request)
     {
+        $success = false;
         $paymentDetails = $request->all();
         unset($paymentDetails['_token']);
         session(['paymentDetails' => $paymentDetails]);
@@ -60,6 +62,7 @@ class PaymentDesignController extends Controller
         $paymentDetails = session('paymentDetails');
         $total_costs = session('total_costs');
         $order_data = array(
+            'collection_date' => $shipDetails['collection_date'],
             'length' => $shipDetails['total_length'],
             'width' => $shipDetails['total_width'],
             'height' => $shipDetails['total_height'],
@@ -80,23 +83,35 @@ class PaymentDesignController extends Controller
         );
         $order = Order::create($order_data);
         if ($order) {
-            $order_items_data = [];
-            foreach ($shipDetails['shipments'] as $key => $shipment) {
-                $data = array(
-                    'length' => $shipment['length'],
-                    'height' => $shipment['height'],
-                    'width' => $shipment['width'],
-                    'volume' => $shipment['length'] * $shipment['height'] * $shipment['width'],
-                    'weight' => $shipment['weight'],
-                    'price' => $shipment['price'],
-                    'additional_cost' => $shipment['additional_cost'],
-                    'total_cost' => $total_costs[$key],
-                );
-                $order_items_data[] = new OrderItem($data);
+            $updated_order = Order::find($order->id)->update(['order_code' => Carbon::now()->format('YmdHis') . $order->id]);
+            if ($updated_order) {
+                session(['order' => $order]);
+                $order_items_data = [];
+                foreach ($shipDetails['shipments'] as $key => $shipment) {
+                    $data = array(
+                        'length' => $shipment['length'],
+                        'height' => $shipment['height'],
+                        'width' => $shipment['width'],
+                        'volume' => $shipment['length'] * $shipment['height'] * $shipment['width'],
+                        'weight' => $shipment['weight'],
+                        'price' => $shipment['price'],
+                        'additional_cost' => $shipment['additional_cost'],
+                        'total_cost' => $total_costs[$key],
+                    );
+                    $order_items_data[] = new OrderItem($data);
+                }
+                $order_items = $order->items()->saveMany($order_items_data, true);
+                if ($order_items) {
+                    $success = true;
+                }
             }
-            $order_items = $order->items()->saveMany($order_items_data, true);
         }
-        return session('paymentDetails');
+        if ($success) {
+            session()->flash('success', 'Doctor Created Successfully');
+        } else {
+            session()->flash('error', 'Whoops! Something Went Wrong');
+        }
+        return redirect(route('order-confirm.index'));
     }
 
     /**

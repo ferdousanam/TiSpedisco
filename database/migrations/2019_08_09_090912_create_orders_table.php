@@ -18,7 +18,8 @@ class CreateOrdersTable extends Migration
             $table->string('order_code')->nullable();
             $table->integer('itemsequenceno')->nullable();
             $table->string('itemtype')->nullable();
-            $table->string('itemreference')->nullable();
+            $table->string('item_reference')->nullable();
+            $table->date('collection_date');
             $table->double('volume');
             $table->double('weight');
             $table->double('length');

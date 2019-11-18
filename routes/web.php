@@ -36,6 +36,7 @@ Route::group(['namespace' => 'FrontEndCon'], function () {
     Route::resource('ship-details', 'ShipDetailsController');
     Route::resource('ship-address', 'ShipAddressController');
     Route::resource('payment-design', 'PaymentDesignController');
+    Route::resource('order-confirm', 'OrderConfirmController');
 });
 
 Route::group(['namespace' => 'BackEndCon'], function () {
