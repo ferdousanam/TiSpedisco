@@ -11,16 +11,17 @@
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+Route::get('/sess', function () {
+    dd(session()->all());
+    return session()->all();
+});
 
 Auth::routes(['verify' => true]);
 
 Route::middleware('guest', function () {
     Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
     Route::get('/register', 'Auth\RegisterController@register')->name('register');
-    
+
     Route::get('/password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
     Route::get('/password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 });
@@ -42,7 +43,7 @@ Route::group(['namespace' => 'BackEndCon'], function () {
 });
 
 Route::group(['prefix' => 'api/v0.1'], function () {
-    Route::resource('ship-details', 'Api\ShipDetailsController');
+    Route::resource('api.ship-details', 'Api\ShipDetailsController');
 });
 
 // Custom page route goes here

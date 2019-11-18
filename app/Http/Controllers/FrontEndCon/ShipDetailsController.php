@@ -36,7 +36,9 @@ class ShipDetailsController extends Controller
      */
     public function store(Request $request)
     {
-        return redirect(route('ship-address.index'));
+        session(['selected_carrier' => $request->selected_carrier]);
+        $selected_carrier = session('selected_carrier');
+        return view('User.ship-details');
     }
 
     /**

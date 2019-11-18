@@ -61,23 +61,12 @@ class ShipComparatorController extends Controller
         );
         session(['locations' => $locations]);
         $locations = session('locations');
-        $carriers = Carrier::with(['rates' => function($rates) use ($locations){
+        $carriers = Carrier::with(['rates' => function ($rates) use ($locations) {
             $rates->where('distance_from', '<=', $locations['distance']);
             $rates->where('distance_to', '>=', $locations['distance']);
-            $rates->where('volume', '<=', $locations['size']);
-        }])
-            ->get();
+            $rates->where('volume', '>=', $locations['size']);
+        }])->get();
 
-        dd($carriers->first->rates->toArray());
-        $data = Rate::where('distance_from', '<=', 10)
-            ->Where('distance_to', '>=', 10)
-            ->get()->toArray();
-        dd($data);
-        dd($carriers->first()->rates->count());
-        foreach ($carriers->first()->rates as $rate){
-            dump($rate);
-        }
-//        dd($carriers->first);
         return view('User.shipComparator', compact('locations', 'carriers'));
     }
 
