@@ -15,29 +15,33 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('itemsequenceno');
-            $table->string('itemtype');
-            $table->string('itemreference');
+            $table->string('order_code')->nullable();
+            $table->integer('itemsequenceno')->nullable();
+            $table->string('itemtype')->nullable();
+            $table->string('itemreference')->nullable();
             $table->double('volume');
             $table->double('weight');
             $table->double('length');
             $table->double('height');
             $table->double('width');
-            $table->integer('quantity');
-            $table->string('itemaction');
-            $table->string('receiver_address');
-            $table->string('receiver_postcode');
-            $table->string('receiver_phone');
-            $table->string('receiver_country');
-            $table->string('receiver_town');
-            $table->string('receiver_contactname');
-            $table->string('receiver_email');
-            $table->string('receiver_province');
+            $table->integer('quantity')->nullable();
+            $table->string('itemaction')->nullable();
+            $table->string('receiver_address')->nullable();
+            $table->string('receiver_postcode')->nullable();
+            $table->string('receiver_phone')->nullable();
+            $table->string('receiver_country')->nullable();
+            $table->string('receiver_town')->nullable();
+            $table->string('receiver_contactname')->nullable();
+            $table->string('receiver_email')->nullable();
+            $table->string('receiver_province')->nullable();
             $table->double('price');
-            $table->unsignedBigInteger('user_id');
+            $table->double('additional_cost')->nullable();
+            $table->double('total_cost');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->unsignedBigInteger('address_id');
+            $table->unsignedBigInteger('address_id')->nullable();
             $table->foreign('address_id')->references('id')->on('addresses')->onDelete('cascade');
+            $table->text('possible_notes')->nullable();
             $table->timestamps();
         });
     }

@@ -44,11 +44,15 @@
                                                     @endphp
                                                     <tr>
                                                         <td>Spedizione per ufficio</td>
-                                                        <td class="text-ash">{{ $rates[$key]->price }} €</td>
+                                                        <td class="text-ash">{{ $total_costs[$key] = $rates[$key]->price }} €</td>
                                                         <td class="text-right"><i
                                                                 class="text-ash mdi mdi-dots-horizontal"></i></td>
                                                     </tr>
                                                 @endforeach
+                                                @php
+                                                    session(['total_costs' => $total_costs]);
+                                                    session(['order_total_cost' => $total]);
+                                                @endphp
                                                 <tr>
                                                     <td><strong>TOTALE</strong></td>
                                                     <td><strong>{{ $total }} €</strong></td>

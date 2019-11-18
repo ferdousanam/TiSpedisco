@@ -4,7 +4,10 @@
     <list default="true" id="309c7f2a-6688-47ec-ba71-35aa0e61f66f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FrontEndCon/PaymentDesignController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FrontEndCon/PaymentDesignController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_09_090912_create_orders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_09_090912_create_orders_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/User/payment-design.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/User/payment-design.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/User/ship-address.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/User/ship-address.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
