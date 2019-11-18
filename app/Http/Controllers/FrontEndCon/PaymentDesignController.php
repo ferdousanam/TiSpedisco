@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\FrontEndCon;
 
 use App\Http\Controllers\Controller;
+use App\Rate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 
@@ -15,7 +16,20 @@ class PaymentDesignController extends Controller
      */
     public function index()
     {
-        return view('User.payment-design');
+        $shipDetails = session('shipDetails');
+        $locations = session('locations');
+        $volumes = [];
+        $rates = [];
+        foreach ($shipDetails['shipments'] as $shipment){
+            $volumes[] = $shipment['width'] * $shipment['height'] * $shipment['length'];
+            $rates[] = Rate::select('price')
+                ->where('distance_from', '<=', $locations['distance'])
+                ->where('distance_to', '>=', $locations['distance'])
+                ->where('carrier_id', session('selected_carrier'))
+                ->where('volume', '>=', $volumes)->orderBy('volume')->first();
+        }
+        session(['order_rates' => $rates]);
+        return view('User.payment-design', compact('rates'));
     }
 
     /**

@@ -38,13 +38,13 @@
                                                 @php
                                                     $total = 0;
                                                 @endphp
-                                                @foreach(session('shipDetails')['shipments'] as $row)
+                                                @foreach(session('shipDetails')['shipments'] as $key => $row)
                                                     @php
-                                                        $total += (float)$row['price'];
+                                                        $total += (float)$rates[$key]->price;
                                                     @endphp
                                                     <tr>
                                                         <td>Spedizione per ufficio</td>
-                                                        <td class="text-ash">{{ $row['price'] }} €</td>
+                                                        <td class="text-ash">{{ $rates[$key]->price }} €</td>
                                                         <td class="text-right"><i
                                                                 class="text-ash mdi mdi-dots-horizontal"></i></td>
                                                     </tr>
