@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <div class="content-wrapper">
-                    <form action="{{ route('ship-details.store') }}" method="post">
+                    <form action="{{ route('api.ship-details.store') }}" method="post">
                         @csrf
                         <div class="row">
                             <div class="col-md-9">
@@ -269,7 +269,7 @@
                 submitShipment() {
                     let self = this;
                     $.ajax({
-                        url: '{{ route('ship-details.index') }}',
+                        url: '{{ route('api.ship-details.index') }}',
                         type: 'post',
                         data: {shipmentInfo: self.shipmentInfo, _token : '{{csrf_token()}}'},
                         success: function (res) {
