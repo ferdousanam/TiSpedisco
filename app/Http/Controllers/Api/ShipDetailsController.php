@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\FrontEndCon;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cookie;
 
 class ShipDetailsController extends Controller
 {
@@ -14,16 +13,6 @@ class ShipDetailsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('User.ship-details');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
     {
         //
     }
@@ -36,7 +25,9 @@ class ShipDetailsController extends Controller
      */
     public function store(Request $request)
     {
-        return redirect(route('ship-address.index'));
+        $shipDetails = $request->input();
+        session(['shipDetails' => $shipDetails['shipmentInfo']]);
+        return response()->json(['status'=>200, 'msg'=>'Data has been stored successfully'], 200);
     }
 
     /**
@@ -46,17 +37,6 @@ class ShipDetailsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
     {
         //
     }

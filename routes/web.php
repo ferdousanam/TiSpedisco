@@ -41,5 +41,9 @@ Route::group(['namespace' => 'BackEndCon'], function () {
     Route::get('/', 'HomeController@index');
 });
 
+Route::group(['prefix' => 'api/v0.1'], function () {
+    Route::resource('ship-details', 'Api\ShipDetailsController');
+});
+
 // Custom page route goes here
 Route::get('/{slug}', 'HomeController@slug')->name('page.show');

@@ -6,7 +6,6 @@
 @endpush
 
 @section('content')
-{{--        {{ dd(session()->all()) }}--}}
     <div class="page-content">
         <div class="container">
             <div class="row">
@@ -39,13 +38,13 @@
                                                 @php
                                                     $total = 0;
                                                 @endphp
-                                                @foreach(session('shipDetails')['ship_items'] as $row)
+                                                @foreach(session('shipDetails')['shipments'] as $row)
                                                     @php
-                                                        $total += (float)$row['amount'];
+                                                        $total += (float)$row['price'];
                                                     @endphp
                                                     <tr>
                                                         <td>Spedizione per ufficio</td>
-                                                        <td class="text-ash">{{ 0 }} €</td>
+                                                        <td class="text-ash">{{ $row['price'] }} €</td>
                                                         <td class="text-right"><i
                                                                 class="text-ash mdi mdi-dots-horizontal"></i></td>
                                                     </tr>
