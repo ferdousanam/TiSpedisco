@@ -19,7 +19,7 @@ class CreateOrdersTable extends Migration
             $table->integer('itemsequenceno')->nullable();
             $table->string('itemtype')->nullable();
             $table->string('item_reference')->nullable();
-            $table->date('collection_date');
+            $table->date('collection_date')->nullable();
             $table->double('volume');
             $table->double('weight');
             $table->double('length');
@@ -27,14 +27,35 @@ class CreateOrdersTable extends Migration
             $table->double('width');
             $table->integer('quantity')->nullable();
             $table->string('itemaction')->nullable();
-            $table->string('receiver_address')->nullable();
-            $table->string('receiver_postcode')->nullable();
+
+            $table->string('sender_full_name')->nullable();
+            $table->string('sender_phone')->nullable();
+            $table->string('sender_email')->nullable();
+            $table->string('sender_address_1')->nullable();
+            $table->string('sender_address_2')->nullable();
+            $table->string('sender_city')->nullable();
+            $table->string('sender_province')->nullable();
+            $table->string('sender_postcode')->nullable();
+            $table->string('sender_country')->nullable();
+
+            $table->string('departure_phone')->nullable();
+            $table->string('departure_address_1')->nullable();
+            $table->string('departure_address_2')->nullable();
+            $table->string('departure_city')->nullable();
+            $table->string('departure_province')->nullable();
+            $table->string('departure_postcode')->nullable();
+            $table->string('departure_country')->nullable();
+
+            $table->string('receiver_full_name')->nullable();
             $table->string('receiver_phone')->nullable();
-            $table->string('receiver_country')->nullable();
-            $table->string('receiver_town')->nullable();
-            $table->string('receiver_contactname')->nullable();
             $table->string('receiver_email')->nullable();
+            $table->string('receiver_address_1')->nullable();
+            $table->string('receiver_address_2')->nullable();
+            $table->string('receiver_city')->nullable();
             $table->string('receiver_province')->nullable();
+            $table->string('receiver_postcode')->nullable();
+            $table->string('receiver_country')->nullable();
+
             $table->double('price');
             $table->double('additional_cost')->nullable();
             $table->double('total_cost');

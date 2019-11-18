@@ -25,7 +25,7 @@
 
                                         <p>Data di ritiro: {{ \Carbon\Carbon::parse($order->collection_date)->format('d/m/Y') }}</p>
 
-                                        <p>Referente: {{ $order->receiver_contactname }}</p>
+                                        <p>Referente: {{ $order->receiver_full_name }}</p>
                                         <div class="margin-15"></div>
                                         <div class="text-green text-20">Crea un account e conserva lo storico delle
                                             spedizioni

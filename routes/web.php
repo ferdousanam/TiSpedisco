@@ -31,6 +31,7 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('verified'
 
 Route::get('/email/verify', 'Auth\VerificationController@show')->name('verification.notice');
 Route::group(['namespace' => 'FrontEndCon'], function () {
+    Route::get('/', 'HomeController@index');
     Route::resource('ship-comparator', 'ShipComparatorController');
     Route::post('selected-carrier', 'ShipComparatorController@selectedCarrier')->name('selected-carrier');
     Route::resource('ship-details', 'ShipDetailsController');
@@ -40,7 +41,6 @@ Route::group(['namespace' => 'FrontEndCon'], function () {
 });
 
 Route::group(['namespace' => 'BackEndCon'], function () {
-    Route::get('/', 'HomeController@index');
 });
 
 Route::group(['prefix' => 'api/v0.1', 'as' => 'api.'], function () {

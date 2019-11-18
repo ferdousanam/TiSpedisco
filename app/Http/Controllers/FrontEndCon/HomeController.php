@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\BackEndCon;
+namespace App\Http\Controllers\FrontEndCon;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -24,6 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+//        session()->flush();
         return view('User.home');
     }
 }
