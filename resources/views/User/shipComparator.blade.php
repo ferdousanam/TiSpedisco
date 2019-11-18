@@ -14,6 +14,7 @@
                     <div class="page-text">Risultati della ricerca</div>
                     <div class="page-sub-text">Da {{ $locations['from'] }} a {{ $locations['to'] }} -
                         Peso: {{ $locations['size'] }}kg
+                        Distance: {{ $locations['distance'] }}
                     </div>
                 </div>
                 <div class="col-md-4">
