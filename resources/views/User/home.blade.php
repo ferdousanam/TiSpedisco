@@ -56,7 +56,7 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand brand-custom" href="#"><img src="{{asset('images/home-img/w-logo.png')}}"
+                            <a class="navbar-brand brand-custom" href="{{route('landing')}}"><img src="{{asset('images/home-img/w-logo.png')}}"
                                                                                alt=""></a>
                         </div>
 
@@ -131,9 +131,9 @@
                                             <div class="form-group">
                                                 <input class="form-check-input styled-checkbox" type="checkbox" value=""
                                                        id="check-input" required>
-                                                <label for="check-input"></label>
+                                                <label for="check-input"> <span class="form-check-label text-black"> Accetto la privacy policy del sito web</span></label>
                                                 <label class="form-check-label text-black">
-                                                    Accetto la privacy policy del sito web
+
                                                 </label>
                                             </div>
                                         </div>
@@ -177,8 +177,8 @@
             </div>
             <div class="row mb-5">
                 <div class="col-md-12 text-center">
-                    <button class="btn btn-success">Calcola preventivo</button>
-                    <button class="btn btn-outline-success">Maggiori informazioni</button>
+                    <button class="btn btn-success margin-top-botton-5">Calcola preventivo</button>
+                    <button class="btn btn-outline-success margin-top-botton-5">Maggiori informazioni</button>
                 </div>
             </div>
             <div class="g-text-2">Collega il tuo ecommerce</div>
