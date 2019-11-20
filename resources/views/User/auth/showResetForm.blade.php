@@ -34,7 +34,7 @@
                     <div class="form-flex">
                         <div class="form-box">
                             <div class="logo-green text-center">
-                                <a href="{{route('landing')}}"><img src="{{asset('images/home-img/logo-green.png')}}" alt=""></a>
+                                <a href="{{ url('/') }}"><img src="{{asset('images/home-img/logo-green.png')}}" alt=""></a>
                             </div>
                             <div class="margin-30"></div>
                             <div class="margin-30"></div>
