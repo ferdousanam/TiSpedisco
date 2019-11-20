@@ -12,7 +12,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand brand-custom" href="{{ url('/') }}"><img src="{{asset('images/home-img/w-logo.png')}}"
+                        <a class="navbar-brand brand-custom" href="{{ route('home') }}"><img src="{{asset('images/home-img/w-logo.png')}}"
                                                                            alt=""></a>
                     </div>
 

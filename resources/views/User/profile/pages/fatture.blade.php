@@ -4,7 +4,7 @@
 <div id="fattureVue">
     <div class="state-order">
         <div class="row">
-            <div class="col-md-21">
+            <div class="col-md-12">
                 <table class="table table-theme">
                     <thead>
                     <tr>

@@ -93,7 +93,7 @@
                             </div>
                             <div class="margin-30"></div><div class="margin-30"></div><div class="margin-30"></div><div class="margin-30"></div>
                             <div class="form-group text-center">
-                                <a class="btn btn-outline-success btn-padding-65" href="{{ route('landing') }}">Torna alla Home</a>
+                                <a class="btn btn-outline-success btn-padding-65" href="{{ url('/') }}">Torna alla Home</a>
                             </div>
                         </div>
                     </div>

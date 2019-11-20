@@ -31,7 +31,7 @@
         <div class="container padding-top-responsive">
             <div class="row">
                 <div class="col-md-4">
-                    <div class="form-flex">
+                    <div class="form-flex display-flex">
                         <div class="form-box">
                             <div class="logo-green text-center">
                                 <a href="{{ url('/') }}"><img src="{{asset('images/home-img/logo-green.png')}}" alt=""></a>

@@ -103,31 +103,25 @@
                                                 id="password_confirmation" name="password_confirmation" required autocomplete="new-password">
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group d-table">
                                         <span class="toggle-logo">
                                             <label class="switch">
                                                 <input type="checkbox" checked name="is_subscribed" id="is_subscribed">
                                                 <span class="slider round"></span>
                                             </label>
                                         </span>
-                                        &nbsp;
-                                        &nbsp;
-                                        &nbsp;
+
                                         <label class="form-check-label login-toggle-check text-black">
                                             <span class="font-400">Desidero ricevere occasionalmente comunicazioni di marketing tramite e-mail</span>
                                         </label>
                                     </div>
-                                    <br>
-                                    <div class="form-group">
+                                    <div class="form-group d-table">
                                         <span class="toggle-logo">
                                             <label class="switch">
                                                 <input type="checkbox" {{ old('accept_terms') ? 'checked' : '' }} name="accept_terms" id="accept_terms">
                                                 <span class="slider round"></span>
                                             </label>
                                         </span>
-                                        &nbsp;
-                                        &nbsp;
-                                        &nbsp;
                                         <label class="form-check-label login-toggle-check text-black">
                                             <span class="font-400">Dichiaro di aver letto e di accettare tutti i punti dei <a
                                                         href="#" class="text-green">Termini e Condizioni</a></span>
@@ -146,9 +140,9 @@
                             <div class="text-center">
                                 <small><a href="{{ route('login') }}" class="text-green text-center text-unstyle">Hai già un account? Entra!</a></small>
                             </div>
-                            <div class="margin-30"></div><div class="margin-30"></div>
+                            <div class="margin-30"></div>
                             <div class="form-group text-center">
-                                <a class="btn btn-outline-success btn-padding-65" href="{{ route('landing') }}">Torna alla Home</a>
+                                <a class="btn btn-outline-success btn-padding-65" href="{{ url('/') }}">Torna alla Home</a>
                             </div>
                         </div>
                     </div>

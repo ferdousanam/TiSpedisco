@@ -4,7 +4,7 @@
 <div id="passChangeVue">
     <div class="state-pass-change">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 mb-5">
                 <div class="pass-box">
                     <div class="pass-text-1">Cambia password</div>
                     <div class="form-group margin-btm-input-lg">
@@ -30,7 +30,7 @@
     
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 mb-5">
                 <div class="pass-box">
                     <div class="pass-text-1">Cambia email</div>
                     <div class="form-group margin-btm-input-lg">
