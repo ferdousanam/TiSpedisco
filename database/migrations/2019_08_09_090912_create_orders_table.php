@@ -31,6 +31,10 @@ class CreateOrdersTable extends Migration
             $table->string('sender_full_name')->nullable();
             $table->string('sender_phone')->nullable();
             $table->string('sender_email')->nullable();
+            $table->string('sender_company_name')->nullable();
+            $table->string('sender_pec_address')->nullable();
+            $table->string('sender_sdi_code')->nullable();
+            $table->string('sender_vat_no')->nullable();
             $table->string('sender_address_1')->nullable();
             $table->string('sender_address_2')->nullable();
             $table->string('sender_city')->nullable();
@@ -59,6 +63,7 @@ class CreateOrdersTable extends Migration
             $table->double('price');
             $table->double('additional_cost')->nullable();
             $table->double('total_cost');
+            $table->text('description')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('address_id')->nullable();

@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return "Dashboard";
+Route::get('/dash', function () {
+    $order = session('order');
+    return $order->id;
 });

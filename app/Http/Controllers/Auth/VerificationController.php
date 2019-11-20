@@ -44,6 +44,6 @@ class VerificationController extends Controller
         if(auth()->user()->hasVerifiedEmail()) {
             return redirect($this->redirectPath())->with('verified', true);
         }
-        return view('User.auth.emailVerify');
+        return view('user.auth.emailVerify');
     }
 }

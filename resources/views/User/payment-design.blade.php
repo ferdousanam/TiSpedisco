@@ -18,7 +18,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="ship-address payment">
-                            <form action="{{ route('payment-design.store') }}" method="post">
+                            <form action="{{ route('invoice.store') }}" method="post">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-6">
@@ -38,21 +38,27 @@
                                                 @php
                                                     $total = 0;
                                                 @endphp
-                                                @foreach(session('shipDetails')['shipments'] as $key => $row)
+                                                @if (session('shipDetails'))
+                                                    @foreach(session('shipDetails')['shipments'] as $key => $row)
+                                                        @php
+                                                            $total += (float)$rates[$key]->price;
+                                                        @endphp
+                                                        <tr>
+                                                            <td>Spedizione per ufficio</td>
+                                                            <td class="text-ash">{{ $total_costs[$key] = $rates[$key]->price }}
+                                                                €
+                                                            </td>
+                                                            <td class="text-right"><i
+                                                                    class="text-ash mdi mdi-dots-horizontal"></i></td>
+                                                        </tr>
+                                                    @endforeach
                                                     @php
-                                                        $total += (float)$rates[$key]->price;
+                                                        session(['total_costs' => $total_costs]);
+                                                        session(['order_total_cost' => $total]);
                                                     @endphp
-                                                    <tr>
-                                                        <td>Spedizione per ufficio</td>
-                                                        <td class="text-ash">{{ $total_costs[$key] = $rates[$key]->price }} €</td>
-                                                        <td class="text-right"><i
-                                                                class="text-ash mdi mdi-dots-horizontal"></i></td>
-                                                    </tr>
-                                                @endforeach
-                                                @php
-                                                    session(['total_costs' => $total_costs]);
-                                                    session(['order_total_cost' => $total]);
-                                                @endphp
+
+
+                                                @endif
                                                 <tr>
                                                     <td><strong>TOTALE</strong></td>
                                                     <td><strong>{{ $total }} €</strong></td>
