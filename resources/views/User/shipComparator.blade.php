@@ -114,59 +114,8 @@
                                     </div>
 
                                 </div>
-
                             @endif
                         @endforeach
-                        <div class="company-comparator-box-wrapper">
-                            <div class="box-header"></div>
-                            <div class="box-body">
-                                <div class="box-1">
-                                    <div class="c-info">preferito</div>
-                                    <div class="c-logo">
-                                        <img src="{{asset('images/home-img/c-logo-1.png')}}" alt="">
-                                    </div>
-                                </div>
-                                <div class="box-2">
-                                    <div class="text-xs font-bold">Bartolini Standard</div>
-                                    <div>Tra 1 e 2 giorni di consegna</div>
-                                </div>
-                                <div class="box-3">
-                                    <div class="text-xs font-bold">Ritirato da casa o dal luogo di lavoro</div>
-                                    <div>Consegnato a casa o sul luogo di lavoro</div>
-                                </div>
-                                <div class="box-4">
-                                    <i class="mdi mdi-printer text-xl text-black"></i>
-                                </div>
-                                <div class="box-4">
-                                    <i class="mdi mdi-information-outline text-xl text-black"></i>
-                                </div>
-                                <div class="box-5">
-                                    <div class="text-box text-left">
-                                        <div class="text-xs font-bold">24,36 €</div>
-                                        <div>29,23 € Inc. IVA</div>
-                                    </div>
-                                    <div class="btn-box">
-                                        <button class="btn bg-white text-green btn-c">Prenota</button>
-                                    </div>
-                                </div>
-                                <div class="full-box">
-                                    <div class="sec-30">
-                                        <span style="color: goldenrod">
-                                            <i class="mdi mdi-star"></i>
-                                            <i class="mdi mdi-star"></i>
-                                            <i class="mdi mdi-star"></i>
-                                            <i class="mdi mdi-star"></i>
-                                            <i class="mdi mdi-star"></i>
-                                        </span>
-                                        <span>(89 recensioni)</span>
-                                    </div>
-                                    <div class="sec-70">
-                                        <i class="mdi mdi-bullseye"></i>&nbsp;&nbsp; <span>Copertura assicurativa opzionale disponibile fino a un valore di 1.000,00 €.</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
                     </div>
                 </div>
             </div>

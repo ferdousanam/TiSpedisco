@@ -15,3 +15,7 @@ Route::get('/dash', function () {
     $order = session('order');
     return $order->id;
 });
+
+Route::get('/h', function () {
+    return view('Admin.invoice.index');
+});
