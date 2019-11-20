@@ -102,7 +102,7 @@
                                     <form action="{{ route('ship-comparator.store') }}" method="POST">
                                         @csrf
                                         <div class="form-group margin-btm-input">
-                                            <div class="input-group  has-danger">
+                                            <div class="input-group">
                                                 <div class="input-group-addon home-input-group"><i
                                                         class="mdi mdi-md mdi-map-marker"></i></div>
                                                 <input type="text" class="form-control home-input"
@@ -131,10 +131,7 @@
                                             <div class="form-group">
                                                 <input class="form-check-input styled-checkbox" type="checkbox" value=""
                                                        id="check-input" required>
-                                                <label for="check-input"> <span class="form-check-label text-black"> Accetto la privacy policy del sito web</span></label>
-                                                <label class="form-check-label text-black">
-
-                                                </label>
+                                                <label for="check-input"> <span class="form-check-label font-responsive text-black"> Accetto la privacy policy del sito web</span></label>
                                             </div>
                                         </div>
                                         <div class="col-auto">
