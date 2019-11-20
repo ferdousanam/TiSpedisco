@@ -118,7 +118,7 @@ class InvoiceController extends Controller
             $xmlstring .= '</Fattura24 >';
 
             $xw = xmlwriter_open_memory();
-            xmlwriter_start_document($xw, '1.0', 'UTF - 8');
+            xmlwriter_start_document($xw, '1.0', 'UTF-8');
             xmlwriter_text($xw, $xmlstring);
 
             $xml = xmlwriter_output_memory($xw);
@@ -139,7 +139,7 @@ class InvoiceController extends Controller
             $invoice->save();
         }
 
-        return redirect(route('order - confirm . index'));
+        return redirect(route('order-confirm.index'));
     }
 
     /**
@@ -205,11 +205,11 @@ class InvoiceController extends Controller
         switch ($action) {
             // Create map with request parameters
             case 'test':
-                $action = ' / TestKey';
+                $action = '/TestKey';
                 $params = array('apiKey' => $efatt_api_key);
                 break;
             case 'creates':
-                $action = ' / SaveDocument';
+                $action = '/SaveDocument';
                 $params = array('apiKey' => $efatt_api_key, 'xml' => $xml);
                 break;
         }
@@ -248,7 +248,7 @@ class InvoiceController extends Controller
         $locations = session('locations');
         $rate = Rate::where('distance_from', '<=', $locations['distance'])
             ->where('distance_to', '>=', $locations['distance'])
-            ->where('volume', '>=', $locations['size'])->first;
+            ->where('volume', '>=', $locations['size'])->first();
         if ($rate) {
             if ($rate->vat != 0) {
                 $total_cost += $total_cost * $rate->vat / 100;
