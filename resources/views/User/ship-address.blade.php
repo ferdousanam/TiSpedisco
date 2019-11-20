@@ -26,7 +26,7 @@
                                                 <div class="profile-text-2"><span>Mi serve la fattura</span>
                                                     <span class="toggle-logo">
                                                         <label class="switch">
-                                                            <input type="checkbox" name="isInvoice">
+                                                            <input type="checkbox" name="isInvoice" value="1">
                                                             <span class="slider round"></span>
                                                         </label>
                                                     </span>

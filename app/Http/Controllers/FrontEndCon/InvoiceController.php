@@ -77,6 +77,12 @@ class InvoiceController extends Controller
                 $xml_order_item_rows .= "</Row>";
             }
 
+            if (isset($shippingAddress["isInvoice"]) && $shippingAddress["isInvoice"] == "1") {
+                $isInvoice = "true";
+            } else {
+                $isInvoice = "false";
+            }
+
             $xmlstring = '<Fattura24>';
             $xmlstring .= '<Document>';
             $xmlstring .= '<DocumentType>I</DocumentType>';
@@ -103,7 +109,7 @@ class InvoiceController extends Controller
             $xmlstring .= '<VatAmount>' . $vat . '</VatAmount>';
             $xmlstring .= '<Total>' . ((double)session("order_total_cost") + $vat) . '</Total>';
             $xmlstring .= '<FootNotes>' . $paymentDetails["possible_notes"] . '</FootNotes>';
-            $xmlstring .= '<SendEmail>true</SendEmail>';
+            $xmlstring .= '<SendEmail>' . $isInvoice . '</SendEmail>';
             $xmlstring .= '<UpdateStorage>1</UpdateStorage>';
             $xmlstring .= '<F24InvoiceId>12345</F24InvoiceId>';
             $xmlstring .= '<IdTemplate>123</IdTemplate>';
