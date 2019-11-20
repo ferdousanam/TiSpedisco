@@ -57,6 +57,7 @@ class InvoiceController extends Controller
         if ($order_success) {
             $shippingAddress = session('shippingAddress');
             $paymentDetails = session('paymentDetails');
+            $paymentMethod = $this->getPaymentMethod();
             $vat = $this->getVatAmount(session("order_total_cost"));
             $order = session('order');
             $order_items = OrderItem::where('order_id', $order->id)->get();
@@ -69,7 +70,7 @@ class InvoiceController extends Controller
                 $xml_order_item_rows .= "<Um></Um>";
                 $xml_order_item_rows .= "<Price>" . $order_item->price . "</Price>";
                 $xml_order_item_rows .= "<Discounts></Discounts>";
-                $xml_order_item_rows .= "<VatCode>22</VatCode>";
+                $xml_order_item_rows .= "<VatCode>" . $order['sender_vat_no'] . "</VatCode>";
                 $xml_order_item_rows .= "<VatDescription>IVA 22%</VatDescription>";
                 $xml_order_item_rows .= "</Row>";
             }
@@ -93,10 +94,10 @@ class InvoiceController extends Controller
             $xmlstring .= '<DeliveryCity>' . $shippingAddress["recipient_city"] . '</DeliveryCity>';
             $xmlstring .= '<DeliveryProvince>' . $shippingAddress["recipient_province"] . '</DeliveryProvince>';
             $xmlstring .= '<DeliveryCountry>' . $shippingAddress["recipient_country"] . '</DeliveryCountry>';
-            $xmlstring .= '<Object>Oggetto del documento</Object>';
+            $xmlstring .= '<Object>Object Name Goes Here</Object>';
             $xmlstring .= '<TotalWithoutTax>' . session("order_total_cost") . '</TotalWithoutTax>';
-            $xmlstring .= '<PaymentMethodName>Banca Popolare di.....</PaymentMethodName>';
-            $xmlstring .= '<PaymentMethodDescription>IBAN: IT02L1234512345123456789012</PaymentMethodDescription>';
+            $xmlstring .= '<PaymentMethodName>' . $paymentMethod->method_name . '</PaymentMethodName>';
+            $xmlstring .= '<PaymentMethodDescription>' . $paymentMethod->description . '</PaymentMethodDescription>';
             $xmlstring .= '<VatAmount>' . $vat . '</VatAmount>';
             $xmlstring .= '<Total>' . ((double)session("order_total_cost") + $vat) . '</Total>';
             $xmlstring .= '<FootNotes>' . $paymentDetails["possible_notes"] . '</FootNotes>';
@@ -129,7 +130,6 @@ class InvoiceController extends Controller
             /* LEGGO I DATI RICEVUTI DA FATTURA24 */
             $xml = simplexml_load_string($xml_res);
 
-            $order = session('order');
             $invoice = new Invoice();
             $invoice->returnCode = $xml->returnCode;
             $invoice->description = $xml->description;
@@ -255,5 +255,15 @@ class InvoiceController extends Controller
             }
         }
         return $total_cost;
+    }
+
+    private function getPaymentMethod()
+    {
+        $payment_method = array(
+            'method_name' => "Stripe",
+            "description" => "IBAN: IT02L1234512345123456789012",
+        );
+        $payment_method = collect([(object)$payment_method]);
+        return $payment_method[0];
     }
 }
