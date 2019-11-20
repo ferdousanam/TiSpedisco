@@ -122,6 +122,7 @@ class PaymentDesignController extends Controller
                 if ($shipDetails['shipments']) {
                     foreach ($shipDetails['shipments'] as $key => $shipment) {
                         $data = array(
+                            'shipment_name' => $shipment['name'],
                             'length' => $shipment['length'],
                             'height' => $shipment['height'],
                             'width' => $shipment['width'],
