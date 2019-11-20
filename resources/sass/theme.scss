@@ -447,6 +447,9 @@ $gray-light: #F6F6F9;
 }
 .btn-wrapper{
   padding: 40px 0;
+  @media only screen and (max-width: 767px) {
+    padding: 10px 0;
+  }
 }
 .btn-c{
   font-size: 19px;
