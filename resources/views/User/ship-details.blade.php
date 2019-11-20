@@ -285,11 +285,15 @@
                 },
             },
             mounted() {
+                let self = this;
                 $(".check_in").flatpickr({
                     defaultDate: 'today',
                     minDate: 'today',
                     altInput: true,
-                    altFormat: 'F j, Y'
+                    altFormat: 'F j, Y',
+                    onChange: function(selectedDates, dateStr, instance) {
+                        self.collection_date = dateStr;
+                    }
                 });
             }
         })

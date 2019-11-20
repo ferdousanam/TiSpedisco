@@ -130,7 +130,7 @@ class PaymentDesignController extends Controller
                             'price' => $shipment['price'],
                             'additional_cost' => $shipment['additional_cost'],
                             'total_cost' => $total_costs[$key],
-                            'description' => $shipDetails['content'],
+                            'description' => $shipment['content'],
                         );
                         $order_items_data[] = new OrderItem($data);
                     }
