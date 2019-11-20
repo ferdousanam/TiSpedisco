@@ -41,17 +41,22 @@ Route::group(['namespace' => 'FrontEndCon'], function () {
     Route::get('/home', 'UserController@home')->name('home');
     Route::group(['middlware' => 'verified', 'prefix' => 'user'], function () {
         Route::get('/', 'HomeController@index');
+        Route::get('/passChange', 'UserController@passChange')->name('user.passChange');
+        Route::post('/singleUpdate', 'UserController@singleUpdate')->name('profile.singleUpdate');
+
         Route::get('/dashboard', 'UserController@dashboard')->name('user.dashboard');
-        Route::get('/ticket', 'UserController@ticket')->name('user.ticket');
-        Route::get('/tickets', 'UserController@getTickets')->name('user.getTickets');
-        Route::post('/ticket', 'UserController@cruTicket')->name('cru.ticket');
         Route::get('/order', 'UserController@order')->name('user.order');
         Route::get('/address', 'UserController@address')->name('user.address');
         Route::get('/creditCard', 'UserController@creditCard')->name('user.creditCard');
         Route::get('/profile', 'UserController@profile')->name('user.profile');
-        Route::get('/passChange', 'UserController@passChange')->name('user.passChange');
         Route::get('/fatture', 'UserController@fatture')->name('user.fatture');
-        Route::post('/fileUpload', 'UserController@fileUpload')->name('user.fileUpload');
+        
+        Route::get('/ticket', 'TicketController@ticket')->name('user.ticket');
+        Route::get('/tickets', 'TicketController@getTickets')->name('user.getTickets');
+        Route::get('/singleTicket', 'TicketController@singleTicket')->name('user.singleTicket');
+        Route::post('/ticket', 'TicketController@cruTicket')->name('cru.ticket');
+        Route::post('/reply', 'TicketController@cruReply')->name('cru.reply');
+        Route::post('/fileUpload', 'TicketController@fileUpload')->name('ticket.fileUpload');
     });
 });
 

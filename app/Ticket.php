@@ -15,6 +15,11 @@ class Ticket extends Model
         'user_id', 'title', 'message', 'file', 'status', 'state', 'is_paralyzes'
     ];
 
+    public function creator()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
     public function replies()
     {
         return $this->hasMany(TicketReply::class);
