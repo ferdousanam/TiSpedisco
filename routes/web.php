@@ -30,13 +30,15 @@ Route::middleware('guest', function () {
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 
 Route::get('/email/verify', 'Auth\VerificationController@show')->name('verification.notice');
+
 Route::group(['namespace' => 'FrontEndCon'], function () {
-    Route::get('/', 'HomeController@index')->name('landing');
+    Route::get('/', 'HomeController@index');
     Route::resource('ship-comparator', 'ShipComparatorController');
     Route::post('selected-carrier', 'ShipComparatorController@selectedCarrier')->name('selected-carrier');
     Route::resource('ship-details', 'ShipDetailsController');
     Route::resource('ship-address', 'ShipAddressController');
     Route::resource('payment-design', 'PaymentDesignController');
+    Route::resource('invoice', 'InvoiceController');
     Route::resource('order-confirm', 'OrderConfirmController');
 });
 

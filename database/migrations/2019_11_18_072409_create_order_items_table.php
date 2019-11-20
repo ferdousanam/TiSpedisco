@@ -24,6 +24,7 @@ class CreateOrderItemsTable extends Migration
             $table->double('price');
             $table->double('additional_cost')->nullable();
             $table->double('total_cost');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

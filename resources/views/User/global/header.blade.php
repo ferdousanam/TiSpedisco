@@ -12,7 +12,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand brand-custom" href="#"><img src="{{asset('images/home-img/w-logo.png')}}"
+                        <a class="navbar-brand brand-custom" href="{{ url('/') }}"><img src="{{asset('images/home-img/w-logo.png')}}"
                                                                            alt=""></a>
                     </div>
 
@@ -28,7 +28,7 @@
                                 onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
                                 Disconnettersi
-                            </a>                            
+                            </a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                             </form>
