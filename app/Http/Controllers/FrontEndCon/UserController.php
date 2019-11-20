@@ -5,6 +5,7 @@ namespace App\Http\Controllers\FrontEndCon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Ticket;
+use App\User;
 
 class UserController extends Controller
 {
@@ -25,7 +26,8 @@ class UserController extends Controller
     }
     public function getTickets()
     {
-        $tickets = auth()->user()->tickets;
+        $user = auth()->user();
+        $tickets = User::with('tickets', 'tickets.replies', 'tickets.replies.replies')->find($user->id)->tickets;
         return response()->json(['success' => true, 'message' => "Successfull", 'tickets' => $tickets]);
     }
     public function cruTicket(Request $request)
@@ -45,6 +47,8 @@ class UserController extends Controller
                     'user_id' => auth()->user()->id,
                     'title' => $ticketData['title'],
                     'message' => $ticketData['message'],
+                    'file' => $ticketData['file'],
+                    'is_paralyzes' => $ticketData['is_paralyzes'] ?? false,
                     'status' => 'unread',
                     'state' => 'open'
                 ]);
@@ -95,5 +99,18 @@ class UserController extends Controller
     public function fatture()
     {
         return view('User.profile.pages.fatture');
+    }
+    public function fileUpload(Request $request)
+    {
+        $this->validate($request, [
+            'file' => 'required|file|mimes:jpeg,png,jpg,doc,docx,xl,xls,csv|max:5000',
+        ]);
+        $originalName = $name = $request->file->getClientOriginalName();
+        $getFileName = time() . '-' . $originalName;
+        $upload = $request->file->move(public_path('uploads/file'), $getFileName);
+        if ($upload) {
+            return response()->json(['success' => true, 'url' => 'uploads/file/'.$getFileName, 'message' => "Action successfull"]);
+        }
+        return response()->json(['success' => false, 'message' => "Action not completed"]);
     }
 }

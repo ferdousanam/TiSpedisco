@@ -34,8 +34,8 @@ Route::group(['namespace' => 'FrontEndCon'], function () {
     Route::resource('payment-design', 'PaymentDesignController');
 });
 
-Route::group(['namespace' => 'BackEndCon'], function () {
-    Route::get('/', 'HomeController@index');
+Route::get('/', 'BackEndCon\HomeController@index');
+Route::group(['namespace' => 'FrontEndCon'], function () {
     Route::get('/home', 'UserController@home')->name('home');
     Route::group(['middlware' => 'verified', 'prefix' => 'user'], function () {
         Route::get('/', 'HomeController@index');
@@ -49,6 +49,7 @@ Route::group(['namespace' => 'BackEndCon'], function () {
         Route::get('/profile', 'UserController@profile')->name('user.profile');
         Route::get('/passChange', 'UserController@passChange')->name('user.passChange');
         Route::get('/fatture', 'UserController@fatture')->name('user.fatture');
+        Route::post('/fileUpload', 'UserController@fileUpload')->name('user.fileUpload');
     });
 });
 

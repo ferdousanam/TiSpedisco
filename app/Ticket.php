@@ -14,4 +14,9 @@ class Ticket extends Model
     protected $fillable = [
         'user_id', 'title', 'message', 'file', 'status', 'state', 'is_paralyzes'
     ];
+
+    public function replies()
+    {
+        return $this->hasMany(TicketReply::class);
+    }
 }

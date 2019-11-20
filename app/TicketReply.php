@@ -14,4 +14,9 @@ class TicketReply extends Model
     protected $fillable = [
         'reply_id', 'user_id', 'message', 'file', 'status'
     ];
+
+    public function replies()
+    {
+        return $this->hasMany(InnerReply::class, 'reply_id');
+    }
 }
