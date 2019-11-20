@@ -9,11 +9,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        <div class="d-none alert alert-danger w-100" role="alert">
-                            Completa tutti i campi prima di continuare
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                                    aria-hidden="true">&times;</span></button>
-                        </div>
+                        {{--alert--}}
                     </div>
                 </div>
                 <div class="row">
@@ -117,7 +113,6 @@
                                 <div class="margin-30"></div>
                                 <div class="col-md-12">
                                     <input type="text" class="form-control w-100 text-xl text-ash font-bold ship-detail-input-1" placeholder="Assegna un nome alla spedizione">
-                                    <div class="text-xl text-ash"><strong> </strong></div>
                                 </div>
                             </div>
                             <div class="row">
@@ -182,7 +177,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-1">
+                                <div class="col-md-1 text-center">
                                     <div class="btn-wrapper">
                                         <button type="button" class="btn p-form-logo bg-green"
                                                 @click="DuplicateShipment(shipment)">
