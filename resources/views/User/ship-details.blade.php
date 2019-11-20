@@ -115,9 +115,9 @@
                         <section v-for="(shipment,index) in shipmentInfo.shipments" class="ship-name">
                             <div class="row">
                                 <div class="margin-30"></div>
-                                <div class="margin-15"></div>
                                 <div class="col-md-12">
-                                    <div class="text-xl text-ash"><strong>Assegna un nome alla spedizione</strong></div>
+                                    <input type="text" class="form-control w-100 text-xl text-ash font-bold ship-detail-input-1" placeholder="Assegna un nome alla spedizione">
+                                    <div class="text-xl text-ash"><strong> </strong></div>
                                 </div>
                             </div>
                             <div class="row">

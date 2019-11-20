@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-6">
                 <div class="address-box-wrapper">
                     <div class="address-box">
                         <div class="text-left"><i class="text-green mdi mdi-redo mdi-sm"></i> &nbsp;<span class="text-green text-sm">Spedisci</span></div>
@@ -27,7 +27,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-6">
                 <div class="address-box-wrapper">
                     <div class="address-box">
                         <div class="text-left"><i class="text-green mdi mdi-redo mdi-sm"></i> &nbsp;<span class="text-green text-sm">Spedisci</span></div>
@@ -38,7 +38,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-6">
                 <div class="address-box-wrapper">
                     <div class="address-box">
                         <div class="text-left"><i class="text-green mdi mdi-redo mdi-sm"></i> &nbsp;<span class="text-green text-sm">Spedisci</span></div>
@@ -49,7 +49,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-6">
                 <div class="address-box-wrapper">
                     <div class="address-box">
                         <div class="text-left"><i class="text-green mdi mdi-redo mdi-sm"></i> &nbsp;<span class="text-green text-sm">Spedisci</span></div>
@@ -60,7 +60,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-6">
                 <div class="address-box-wrapper">
                     <div class="address-box">
                         <div class="text-left"><i class="text-green mdi mdi-redo mdi-sm"></i> &nbsp;<span class="text-green text-sm">Spedisci</span></div>
@@ -71,7 +71,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-6">
                 <div class="address-box-wrapper">
                     <div class="address-box">
                         <div class="text-left"><i class="text-green mdi mdi-redo mdi-sm"></i> &nbsp;<span class="text-green text-sm">Spedisci</span></div>
