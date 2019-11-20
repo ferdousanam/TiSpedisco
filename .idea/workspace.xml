@@ -3,12 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="309c7f2a-6688-47ec-ba71-35aa0e61f66f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FrontEndCon/PaymentDesignController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FrontEndCon/PaymentDesignController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_09_090912_create_orders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_09_090912_create_orders_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/User/global/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/User/global/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/User/payment-design.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/User/payment-design.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FrontEndCon/InvoiceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FrontEndCon/InvoiceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/User/shipComparator.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/User/shipComparator.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -125,15 +122,15 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\xampp\htdocs\laravel6\app\Http\Controllers\FrontEndCon" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\xampp\htdocs\laravel6\app\Http\Controllers\FrontEndCon" />
       <recent name="D:\xampp\htdocs\laravel6\resources\views\User" />
       <recent name="D:\xampp\htdocs\laravel6\database\migrations" />
       <recent name="D:\xampp\htdocs\laravel6\app" />
       <recent name="D:\xampp\htdocs\laravel6\public\js" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\xampp\htdocs\laravel6\app\Http\Controllers\FrontEndCon" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -175,7 +172,8 @@
       <workItem from="1574142569097" duration="965000" />
       <workItem from="1574143855205" duration="1193000" />
       <workItem from="1574158346355" duration="9050000" />
-      <workItem from="1574219721648" duration="6234000" />
+      <workItem from="1574219721648" duration="6316000" />
+      <workItem from="1574226676618" duration="6716000" />
     </task>
     <servers />
   </component>

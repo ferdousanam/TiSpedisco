@@ -87,7 +87,7 @@ class InvoiceController extends Controller
             $xmlstring .= '<CustomerFiscalCode>MARROS66C44G217W</CustomerFiscalCode>';
             $xmlstring .= '<CustomerVatCode>' . $shippingAddress["sender_vat_no"] . '</CustomerVatCode>';
             $xmlstring .= '<CustomerCellPhone>' . $shippingAddress["sender_phone"] . '</CustomerCellPhone>';
-            $xmlstring .= '<CustomerEmail>smsadhin123@gmail.com</CustomerEmail>';
+            $xmlstring .= '<CustomerEmail>' . $shippingAddress["sender_email"] . '</CustomerEmail>';
             $xmlstring .= '<DeliveryName>' . $shippingAddress["recipient_first_name"] . ' ' . $shippingAddress["recipient_surname"] . '</DeliveryName>';
             $xmlstring .= '<DeliveryAddress>' . $shippingAddress["recipient_address_1"] . '</DeliveryAddress>';
             $xmlstring .= '<DeliveryPostcode>' . $shippingAddress["recipient_post_code"] . '</DeliveryPostcode>';
