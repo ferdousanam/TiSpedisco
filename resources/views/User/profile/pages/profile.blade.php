@@ -4,7 +4,7 @@
 <div id="profileVue">
     <div class="state-portfolio">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 mb-5">
                 <div class="pass-box">
                     <div class="text-box">
                         <div class="profile-text-1">Informazioni account</div>
@@ -100,7 +100,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 mb-5">
                 <div class="pass-box">
                     <div class="text-box">
                         <div class="profile-text-1">indirizzo per la fatturazione</div>

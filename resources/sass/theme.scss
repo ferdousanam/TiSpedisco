@@ -84,7 +84,6 @@ $gray-light: #F6F6F9;
 }
 .position-relative{
   position: relative;
-    background: #0f4bc6;
 }
 .w-bar{
   width: 100%;
@@ -193,6 +192,9 @@ $gray-light: #F6F6F9;
 }
 .mb-10{
   margin-bottom: 6rem;
+  @media only screen and (max-width: 767px) {
+    margin-bottom: 3rem;
+  }
 }
 .mb-35{
   margin-bottom: 35px;
@@ -215,6 +217,10 @@ $gray-light: #F6F6F9;
   width: 100%;
   display: block;
   height: 15px;
+}
+.margin-top-botton-5{
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 .d-flex{
   display: flex;
@@ -366,7 +372,8 @@ $gray-light: #F6F6F9;
 .btn-success{
   background-color: $green;
   border-color: $green!important;
-  margin: 0 3px;
+  margin-left: 3px;
+  margin-right: 3px;
   &:hover{
     background-color: #448459;
     color: #ffffff;
@@ -605,6 +612,9 @@ $gray-light: #F6F6F9;
             font-family: 'Lato', sans-serif;
             text-align: center;
             margin-bottom: 20px;
+            @media only screen and (max-width: 400px) {
+              font-size: 22px;
+            }
           }
           .home-input{
             border: 1px solid #ececee;
@@ -1009,11 +1019,17 @@ $gray-light: #F6F6F9;
 .page-content{
   width: 100%;
   padding: 70px 0;
+  @media only screen and (max-width: 767px) {
+    padding: 15px 0;
+  }
   .page-text{
     font-family: 'Lato', sans-serif;
     font-size: 35px;
     font-weight: 700;
     color: $text;
+    @media only screen and (max-width: 767px) {
+      font-size: 27px;
+    }
   }
   .page-text-2{
     font-family: 'Lato', sans-serif;
@@ -1029,7 +1045,7 @@ $gray-light: #F6F6F9;
     font-size: 20px;
     color: $text;
     @media only screen and (max-width: 767px) {
-      font-size: 16px;
+      font-size: 15px;
     }
   }
   .page-sub-text-2{
@@ -1075,6 +1091,9 @@ $gray-light: #F6F6F9;
   .content-wrapper{
     width: 100%;
     padding: 50px 0;
+    @media only screen and (max-width: 767px) {
+      padding: 25px 0;
+    }
     /*each-tab-design-page*/
     .state-dashboard{}
     .state-ticket{
@@ -1172,7 +1191,7 @@ $gray-light: #F6F6F9;
           border-radius: 4px;
           background-color: #f1f1f1;
           margin-bottom: 25px;
-          padding: 18px;
+          padding: 15px;
           .credit-info{
             width: 100%;
             display: table;
@@ -1186,7 +1205,7 @@ $gray-light: #F6F6F9;
               float: left;
               display: table;
               width: 85%;
-              padding: 5px 25px;
+              padding: 5px 18px;
               background-color: #e5e5e5;
               color: #98989c;
               border-radius: 4px;
@@ -1229,14 +1248,23 @@ $gray-light: #F6F6F9;
         padding: 20px;
         width: 100%;
         display: table;
+        @media only screen and (max-width: 767px) {
+          padding: 10px;
+        }
         .custom-p-input{
-          width: 85%;
+          width: 90%;
           float: left;
+          @media only screen and (max-width: 550px) {
+            width: 81%;
+          }
         }
         .custom-p-logo{
-          width: 15%;
+          width: 10%;
           float: left;
-          padding: 15px 0 0 27px;
+          padding: 15px 0 0 0;
+          @media only screen and (max-width: 550px) {
+            width: 19%;
+          }
           .p-form-logo{
             font-size: 23px;
             color: white;
@@ -1257,6 +1285,11 @@ $gray-light: #F6F6F9;
           width: 66%;
           float: left;
           display: table;
+          @media only screen and (max-width: 500px) {
+            width: 100%;
+            padding-bottom: 15px;
+            text-align: center;
+          }
         }
         .profile-text-2{
           color: #110f24;
@@ -1266,6 +1299,11 @@ $gray-light: #F6F6F9;
           float: left;
           display: table;
           padding-top: 4px;
+          @media only screen and (max-width: 500px) {
+            width: 100%;
+            text-align: center;
+            padding-bottom: 10px;
+          }
           .toggle-logo{
             margin-left: 12px;
           }
@@ -1531,20 +1569,26 @@ $gray-light: #F6F6F9;
           font-size: 35px;
           font-weight: 700;
           text-align: center;
+          @media only screen and (max-width: 500px) {
+            font-size: 26px;
+          }
         }
         .pass-text-2{
           color: #110f24;
           font-size: 16px;
           padding-bottom: 35px;
           text-align: center;
+          @media only screen and (max-width: 500px) {
+            font-size: 14px;
+          }
         }
         .login-toggle-check{
-          width: 85%;
+          width: 90%;
           display: inline-block;
           float: right;
           margin-top: -4px;
           @media only screen and (max-width: 400px) {
-            width: 81%;
+            width: 85%;
           }
         }
       }

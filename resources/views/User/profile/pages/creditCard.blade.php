@@ -4,7 +4,7 @@
 <div id="creditCardVue">
     <div class="state-credit">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="address-box-wrapper">
                     <div class="address-box">
                         <div class="credit-info">
@@ -19,7 +19,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="address-box-wrapper">
                     <div class="address-box">
                         <div class="credit-info">
@@ -34,7 +34,37 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="address-box-wrapper">
+                    <div class="address-box">
+                        <div class="credit-info">
+                            <div class="sec-logo">
+                                <i class="mdi mdi-lg  mdi-credit-card"></i>
+                            </div>
+                            <div class="sec-number"><span>**** **** **** 1123</span></div>
+                        </div>
+                        <div class="add-text">Intestata a:</div>
+                        <div  class="add-text">Simone Chinaglia</div>
+                        <div data-toggle="modal" data-target="#editCreditCard" class="text-right c-pointer"><span class="text-green text-sm ">Modifica</span> &nbsp;<i class="text-green mdi-sm  mdi mdi-wrench"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="address-box-wrapper">
+                    <div class="address-box">
+                        <div class="credit-info">
+                            <div class="sec-logo">
+                                <i class="mdi mdi-lg  mdi-credit-card"></i>
+                            </div>
+                            <div class="sec-number"><span>**** **** **** 1123</span></div>
+                        </div>
+                        <div class="add-text">Intestata a:</div>
+                        <div  class="add-text">Simone Chinaglia</div>
+                        <div data-toggle="modal" data-target="#editCreditCard" class="text-right c-pointer"><span class="text-green text-sm ">Modifica</span> &nbsp;<i class="text-green mdi-sm  mdi mdi-wrench"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="address-box-wrapper">
                     <div class="address-box">
                         <div class="credit-info">
