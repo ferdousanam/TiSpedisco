@@ -321,7 +321,9 @@ $gray-light: #F6F6F9;
 .btn{
   box-shadow: none!important;
   text-decoration: none;
-
+  &:focus{
+    color: #ffffff;
+  }
 }
 .btn-padding-65{
   padding-left: 65px;

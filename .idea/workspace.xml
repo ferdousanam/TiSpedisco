@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="309c7f2a-6688-47ec-ba71-35aa0e61f66f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/public/css/theme.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/theme.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/sass/theme.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/theme.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/User/profile/pages/address.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/User/profile/pages/address.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/User/ship-details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/User/ship-details.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,8 +53,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/User/ship-details.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="119" column="127" lean-forward="true" selection-start-line="119" selection-start-column="108" selection-end-line="119" selection-end-column="127" />
+            <state relative-caret-position="230">
+              <caret line="116" column="61" selection-start-line="116" selection-start-column="61" selection-end-line="116" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -100,8 +97,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/sass/theme.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="78" column="25" selection-start-line="78" selection-start-column="25" selection-end-line="78" selection-end-column="25" />
+            <state relative-caret-position="298">
+              <caret line="320" column="5" lean-forward="true" selection-start-line="320" selection-start-column="5" selection-end-line="320" selection-end-column="5" />
               <folding>
                 <element signature="e#154#269#0" />
                 <element signature="e#290#359#0" />
@@ -177,7 +174,6 @@
                 <element signature="e#4198#4227#0" />
                 <element signature="e#4247#4343#0" />
                 <element signature="e#4356#4451#0" />
-                <element signature="e#4474#4533#0" />
                 <element signature="e#4549#4597#0" />
                 <element signature="e#4608#4842#0" />
                 <element signature="e#4780#4805#0" />
@@ -309,6 +305,7 @@
                 <element signature="e#19218#19364#0" />
                 <element signature="e#19390#19537#0" />
                 <element signature="e#19564#19606#0" />
+                <element signature="e#19641#29948#0" />
                 <element signature="e#20181#20339#0" />
                 <element signature="e#20305#20335#0" />
                 <element signature="e#20354#21099#0" />
@@ -714,7 +711,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5313000" />
+    <option name="totallyTimeSpent" value="5990000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -844,15 +841,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/User/ship-details.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="119" column="127" lean-forward="true" selection-start-line="119" selection-start-column="108" selection-end-line="119" selection-end-column="127" />
+        <state relative-caret-position="230">
+          <caret line="116" column="61" selection-start-line="116" selection-start-column="61" selection-end-line="116" selection-end-column="61" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/sass/theme.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="78" column="25" selection-start-line="78" selection-start-column="25" selection-end-line="78" selection-end-column="25" />
+        <state relative-caret-position="298">
+          <caret line="320" column="5" lean-forward="true" selection-start-line="320" selection-start-column="5" selection-end-line="320" selection-end-column="5" />
           <folding>
             <element signature="e#154#269#0" />
             <element signature="e#290#359#0" />
@@ -928,7 +925,6 @@
             <element signature="e#4198#4227#0" />
             <element signature="e#4247#4343#0" />
             <element signature="e#4356#4451#0" />
-            <element signature="e#4474#4533#0" />
             <element signature="e#4549#4597#0" />
             <element signature="e#4608#4842#0" />
             <element signature="e#4780#4805#0" />
@@ -1060,6 +1056,7 @@
             <element signature="e#19218#19364#0" />
             <element signature="e#19390#19537#0" />
             <element signature="e#19564#19606#0" />
+            <element signature="e#19641#29948#0" />
             <element signature="e#20181#20339#0" />
             <element signature="e#20305#20335#0" />
             <element signature="e#20354#21099#0" />
