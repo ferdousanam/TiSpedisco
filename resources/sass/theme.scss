@@ -69,6 +69,18 @@ $gray-light: #F6F6F9;
     color: #ffffff;
   }
 }
+.ship-detail-input-1{
+  border: 1px solid transparent;
+  box-shadow: none;
+  padding: 30px 6px;
+  &::placeholder{
+    color: #ccced0;
+  }
+  &:focus{
+    border-color: #ececee;
+    box-shadow: none;
+  }
+}
 /*input end*/
 /*global*/
 .float-right{
