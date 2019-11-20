@@ -365,6 +365,7 @@
                                                 <div class="mb-1">
                                                     <label for="">Paese</label>
                                                     <input type="text" class="form-control input-gray profile-input"
+                                                           name="recipient_country"
                                                            placeholder="Seleziona il paese">
                                                 </div>
                                             </div>

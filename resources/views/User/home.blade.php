@@ -106,6 +106,7 @@
                                                 <div class="input-group-addon home-input-group"><i
                                                         class="mdi mdi-md mdi-map-marker"></i></div>
                                                 <input type="text" class="form-control home-input"
+                                                       id="autocomplete-input-from"
                                                        placeholder="Cerca il luogo di partenza" name="from">
                                             </div>
                                         </div>
@@ -114,6 +115,7 @@
                                                 <div class="input-group-addon home-input-group"><i
                                                         class="mdi mdi-md mdi-map-marker-outline"></i></div>
                                                 <input type="text" class="form-control home-input"
+                                                       id="autocomplete-input-to"
                                                        placeholder="Cerca il luogo di destinazione..." name="to">
                                             </div>
                                         </div>

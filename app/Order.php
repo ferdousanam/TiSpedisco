@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
+    protected $guarded = ['id'];
+
+    protected $dates = ['collection_date'];
+
     /**
      * Get the user that owns the order.
      */
@@ -20,5 +24,13 @@ class Order extends Model
     public function invoice()
     {
         return $this->hasOne('App\Invoice');
+    }
+
+    /**
+     * Get the order item record associated with the order.
+     */
+    public function items()
+    {
+        return $this->hasMany(OrderItem::class);
     }
 }

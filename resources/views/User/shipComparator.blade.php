@@ -14,6 +14,7 @@
                     <div class="page-text">Risultati della ricerca</div>
                     <div class="page-sub-text">Da {{ $locations['from'] }} a {{ $locations['to'] }} -
                         Peso: {{ $locations['size'] }}kg
+                        Distance: {{ $locations['distance'] }}
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -52,49 +53,51 @@
                         </div>
                         <div class="margin-30"></div>
                         @foreach($carriers as $carrier)
-                            <div class="company-comparator-box-wrapper">
-                                <div class="box-header"></div>
-                                <div class="box-body">
-                                    <div class="box-1">
-                                        <div class="c-info">preferito</div>
-                                        <div class="c-logo">
-                                            <img src="{{asset($carrier->logo)}}" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="box-2">
-                                        <div class="text-xs font-bold">{{ $carrier->title }}</div>
-                                        <div>{{ $carrier->rates->first()->estimate_time }}</div>
-                                    </div>
-                                    <div class="box-3">
-                                        <div class="text-xs font-bold">Ritirato da casa o dal luogo di lavoro</div>
-                                        <div>Consegnato a casa o sul luogo di lavoro</div>
-                                    </div>
-                                    <div class="box-4">
-                                        <i class="mdi mdi-printer text-xl text-black"></i>
-                                    </div>
-                                    <div class="box-4">
-                                        <i class="mdi mdi-information-outline text-xl text-black"></i>
-                                    </div>
-                                    <div class="box-5">
-                                        <div class="text-box text-left">
-                                            <div class="text-xs font-bold"> {{ $carrier->rates->first()->price }}€</div>
-                                            <div>{{ $carrier->rates->first()->price * (($carrier->rates->first()->vat) ? $carrier->rates->first()->vat / 100 : 1) }}
-                                                € Inc. IVA
+                            @if ($carrier->rates != null)
+                                <div class="company-comparator-box-wrapper">
+                                    <div class="box-header"></div>
+                                    <div class="box-body">
+                                        <div class="box-1">
+                                            <div class="c-info">preferito</div>
+                                            <div class="c-logo">
+                                                <img src="{{asset($carrier->logo)}}" alt="">
                                             </div>
                                         </div>
-                                        <div class="btn-box">
-                                            <form action="{{ route('selected-carrier') }}" method="post">
-                                                @csrf
-                                                <input type="hidden" name="selected_carrier" value="{{ $carrier->id }}">
-                                                <button href="{{ route('ship-details.index') }}"
-                                                        class="btn bg-white text-green btn-c carrier" data-id="{{ $carrier->id }}">
-                                                    Prenota
-                                                </button>
-                                            </form>
+                                        <div class="box-2">
+                                            <div class="text-xs font-bold">{{ $carrier->title }}</div>
+                                            <div>{{ $carrier->rates->estimate_time }}</div>
                                         </div>
-                                    </div>
-                                    <div class="full-box">
-                                        <div class="sec-30">
+                                        <div class="box-3">
+                                            <div class="text-xs font-bold">Ritirato da casa o dal luogo di lavoro</div>
+                                            <div>Consegnato a casa o sul luogo di lavoro</div>
+                                        </div>
+                                        <div class="box-4">
+                                            <i class="mdi mdi-printer text-xl text-black"></i>
+                                        </div>
+                                        <div class="box-4">
+                                            <i class="mdi mdi-information-outline text-xl text-black"></i>
+                                        </div>
+                                        <div class="box-5">
+                                            <div class="text-box text-left">
+                                                <div class="text-xs font-bold"> {{ $carrier->rates->price }}€</div>
+                                                <div>{{ $carrier->rates->price += $carrier->rates->price * $carrier->rates->vat / 100 }}
+                                                    € Inc. IVA
+                                                </div>
+                                            </div>
+                                            <div class="btn-box">
+                                                <form action="{{ route('ship-details.store') }}" method="post">
+                                                    @csrf
+                                                    <input type="hidden" name="selected_carrier"
+                                                           value="{{ $carrier->id }}">
+                                                    <button class="btn bg-white text-green btn-c carrier"
+                                                            data-id="{{ $carrier->id }}">
+                                                        Prenota
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="full-box">
+                                            <div class="sec-30">
                                        <span style="color: goldenrod">
                                             <i class="mdi mdi-star"></i>
                                             <i class="mdi mdi-star"></i>
@@ -102,15 +105,17 @@
                                             <i class="mdi mdi-star"></i>
                                             <i class="mdi mdi-star"></i>
                                         </span>
-                                            <span>(89 recensioni)</span>
-                                        </div>
-                                        <div class="sec-70">
-                                            <i class="mdi mdi-bullseye"></i>&nbsp;&nbsp; <span>Copertura assicurativa opzionale disponibile fino a un valore di 1.000,00 €.</span>
+                                                <span>(89 recensioni)</span>
+                                            </div>
+                                            <div class="sec-70">
+                                                <i class="mdi mdi-bullseye"></i>&nbsp;&nbsp; <span>Copertura assicurativa opzionale disponibile fino a un valore di 1.000,00 €.</span>
+                                            </div>
                                         </div>
                                     </div>
+
                                 </div>
 
-                            </div>
+                            @endif
                         @endforeach
                         <div class="company-comparator-box-wrapper">
                             <div class="box-header"></div>

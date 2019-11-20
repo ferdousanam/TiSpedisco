@@ -23,6 +23,6 @@ class Carrier extends Model
      */
     public function rates()
     {
-        return $this->hasMany('App\Rate');
+        return $this->hasOne('App\Rate');
     }
 }

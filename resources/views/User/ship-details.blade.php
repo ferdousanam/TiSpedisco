@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <div class="content-wrapper">
-                    <form action="{{ route('ship-details.store') }}" method="post">
+                    <form action="{{ route('api.ship-details.store') }}" method="post">
                         @csrf
                         <div class="row">
                             <div class="col-md-9">
@@ -103,7 +103,8 @@
                                         <label for="">Contenuto</label>
                                         <textarea name="total_content" id="" cols="30" rows="9"
                                                   class="form-control custom-select input-gray profile-input"
-                                                  placeholder="Descrivi il contenuto che desideri spedire"></textarea>
+                                                  placeholder="Descrivi il contenuto che desideri spedire"
+                                                  v-model="shipmentInfo.total_content"></textarea>
                                         <small class="text-ash">*Consulta l'elenco delle restrizioni</small>
                                     </div>
                                 </div>
@@ -175,7 +176,8 @@
                                             <label for="">Contenuto</label>
                                             <textarea name="content[]" id="" cols="30" rows="9"
                                                       class="form-control custom-select input-gray profile-input"
-                                                      placeholder="Descrivi il contenuto che desideri spedire"></textarea>
+                                                      placeholder="Descrivi il contenuto che desideri spedire"
+                                                      v-model="shipment.content"></textarea>
                                             <small class="text-ash">*Consulta l'elenco delle restrizioni</small>
                                         </div>
                                     </div>
@@ -237,8 +239,9 @@
                     total_width: '',
                     total_weight: '',
                     total_additional_service: '',
+                    total_content: '',
                     shipments: [
-                        {width: '', height: '', length: '', weight: '', price: '', additional_cost: ''},
+                        {width: '', height: '', length: '', weight: '', price: '', additional_cost: '', content: ''},
                     ]
                 }
             },
@@ -250,7 +253,8 @@
                         length: shipment.length,
                         weight: shipment.weight,
                         price: shipment.price,
-                        additional_cost: shipment.additional_cost
+                        additional_cost: shipment.additional_cost,
+                        content: shipment.content,
                     })
                 },
                 DeleteShipment(index) {
@@ -263,13 +267,14 @@
                         length: '',
                         weight: '',
                         price: '',
-                        additional_cost: ''
+                        additional_cost: '',
+                        content: '',
                     })
                 },
                 submitShipment() {
                     let self = this;
                     $.ajax({
-                        url: '{{ route('ship-details.index') }}',
+                        url: '{{ route('api.ship-details.index') }}',
                         type: 'post',
                         data: {shipmentInfo: self.shipmentInfo, _token : '{{csrf_token()}}'},
                         success: function (res) {

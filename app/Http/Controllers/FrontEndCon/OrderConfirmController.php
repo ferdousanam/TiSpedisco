@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\FrontEndCon;
 
 use App\Http\Controllers\Controller;
+use App\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 
-class ShipDetailsController extends Controller
+class OrderConfirmController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +16,9 @@ class ShipDetailsController extends Controller
      */
     public function index()
     {
-        return view('User.ship-details');
+        $order = session('order');
+        $order = Order::findOrFail($order['id']);
+        return view('User.order-confirm', compact('order'));
     }
 
     /**
@@ -36,9 +39,7 @@ class ShipDetailsController extends Controller
      */
     public function store(Request $request)
     {
-        session(['selected_carrier' => $request->selected_carrier]);
-        $selected_carrier = session('selected_carrier');
-        return view('User.ship-details');
+        return view('User.order-confirm');
     }
 
     /**

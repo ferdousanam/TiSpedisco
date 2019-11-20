@@ -4,8 +4,10 @@ namespace App\Http\Controllers\FrontEndCon;
 
 use App\Carrier;
 use App\Http\Controllers\Controller;
+use App\Rate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
+use function foo\func;
 
 class ShipComparatorController extends Controller
 {
@@ -55,10 +57,16 @@ class ShipComparatorController extends Controller
             'from' => $request->from,
             'to' => $request->to,
             'size' => $request->size,
+            'distance' => abs($request->from - $request->to),
         );
         session(['locations' => $locations]);
         $locations = session('locations');
-        $carriers = Carrier::with('rates')->get();
+        $carriers = Carrier::with(['rates' => function ($rates) use ($locations) {
+            $rates->where('distance_from', '<=', $locations['distance']);
+            $rates->where('distance_to', '>=', $locations['distance']);
+            $rates->where('volume', '>=', $locations['size']);
+        }])->get();
+
         return view('User.shipComparator', compact('locations', 'carriers'));
     }
 

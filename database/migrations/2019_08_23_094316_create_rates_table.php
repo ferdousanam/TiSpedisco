@@ -25,6 +25,7 @@ class CreateRatesTable extends Migration
             $table->double('width_to');
             $table->double('height_from');
             $table->double('height_to');
+            $table->double('volume');
             $table->double('price');
             $table->string('estimate_time');
             $table->double('vat');
