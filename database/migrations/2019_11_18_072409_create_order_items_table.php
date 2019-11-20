@@ -23,6 +23,7 @@ class CreateOrderItemsTable extends Migration
             $table->double('volume');
             $table->double('weight');
             $table->double('price');
+            $table->double('vat');
             $table->double('additional_cost')->nullable();
             $table->double('total_cost');
             $table->text('description')->nullable();

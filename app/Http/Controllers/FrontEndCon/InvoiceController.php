@@ -53,8 +53,8 @@ class InvoiceController extends Controller
      */
     public function store(Request $request)
     {
-//        $order_success = app('\App\Http\Controllers\FrontEndCon\PaymentDesignController')->storeSave($request->all());
-        $order_success = true;
+        $order_success = app('\App\Http\Controllers\FrontEndCon\PaymentDesignController')->storeSave($request->all());
+//        $order_success = true;
         if ($order_success) {
             $shippingAddress = session('shippingAddress');
             $paymentDetails = session('paymentDetails');
@@ -110,17 +110,17 @@ class InvoiceController extends Controller
             $xmlstring .= '<CustomField1></CustomField1>';
             $xmlstring .= '<CustomField2></CustomField2>';
             $xmlstring .= '<Payments>';
-            $xmlstring .= ' <Payment >';
-            $xmlstring .= '    <Date > ' . Carbon::now()->format("Y-m-d") . '</Date >';
-            $xmlstring .= '    <Amount > ' . ((double)session("order_total_cost") + $vat) . '</Amount >';
-            $xmlstring .= '    <Paid > true</Paid >';
-            $xmlstring .= '  </Payment >';
-            $xmlstring .= '</Payments >';
-            $xmlstring .= '<Rows >' . $xml_order_item_rows . '</Rows >';
-            $xmlstring .= '</Document >';
-            $xmlstring .= '</Fattura24 >';
+            $xmlstring .= ' <Payment>';
+            $xmlstring .= '    <Date> ' . Carbon::now()->format("Y-m-d") . '</Date>';
+            $xmlstring .= '    <Amount> ' . ((double)session("order_total_cost") + $vat) . '</Amount>';
+            $xmlstring .= '    <Paid> true</Paid>';
+            $xmlstring .= '  </Payment>';
+            $xmlstring .= '</Payments>';
+            $xmlstring .= '<Rows>' . $xml_order_item_rows . '</Rows>';
+            $xmlstring .= '</Document>';
+            $xmlstring .= '</Fattura24>';
 
-            return $xmlstring;
+//            return $xmlstring;
 
             $xw = xmlwriter_open_memory();
             xmlwriter_start_document($xw, '1.0', 'UTF-8');

@@ -87,8 +87,8 @@
                                         <label for="">Servizi aggiuntivi</label>
                                         <select class="form-control custom-select input-gray profile-input"
                                                 v-model="shipmentInfo.total_additional_service">
-                                            <option value="">Assicurazione - 5€</option>
-                                            <option value="">Assicurazione - 5€</option>
+                                            <option value="5">Assicurazione - 5€</option>
+                                            <option value="5">Assicurazione - 5€</option>
                                         </select>
                                     </div>
                                 </div>
@@ -160,8 +160,8 @@
                                             <select class="form-control custom-select input-gray profile-input"
                                                     name="additional_service[]" id=""
                                                     v-model="shipment.additional_cost">
-                                                <option value="">Assicurazione - 5€</option>
-                                                <option value="">Assicurazione - 5€</option>
+                                                <option value="5">Assicurazione - 5€</option>
+                                                <option value="5">Assicurazione - 5€</option>
                                             </select>
                                         </div>
                                     </div>
