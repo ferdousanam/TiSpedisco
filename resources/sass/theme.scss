@@ -1038,9 +1038,17 @@ $gray-light: #F6F6F9;
         font-weight: 600;
         padding-bottom: 10px;
         cursor: pointer;
+        a {
+          color: #110f244d;
+          text-decoration: none; /* no underline */
+        }
         &.active{
           border-bottom: 2px solid $green;
           color: $text;
+          a {
+            color: $text; /* blue colors for links too */
+            text-decoration: none; /* no underline */
+          }
         }
       }
     }
