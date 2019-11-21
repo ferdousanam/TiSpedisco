@@ -24,8 +24,8 @@
                         <tbody>
                         <tr v-for="(ticket, ticketIndex) in tickets">
                             <td>@{{ticketIndex+1}}</td>
-                            <td @click="activityChange('single'); getSingleTicket(ticket.id)">@{{ticket.title}}</td>
-                            <td class="text-ash">@{{moment(ticket.created_at).startOf('hour').fromNow()}}</td>
+                            <td class="c-pointer" @click="activityChange('single'); getSingleTicket(ticket.id)">@{{ticket.title}}</td>
+                            <td class="text-ash c-pointer">@{{moment(ticket.created_at).startOf('hour').fromNow()}}</td>
                             <td class="text-right">
                                 <span class="label label-orange" v-if="ticket.state == 'open'">Aperto</span>
                                 <span class="label label-green" v-if="ticket.state == 'closed'">Risolto</span>
@@ -88,23 +88,29 @@
     </template>
     <template v-if="activity=='single'">
         <div class="state-ticket">
+            <div class="row">
+                <div class="col-xs-12 text-right mobile-show w-100">
+                    <button type="button" class="btn btn-success" @click="activityChange('list')">lista dei biglietti</button>
+                </div>
+            </div>
             <div class="margin-30"></div>
             <div class="row mb-10">
                 <div class="col-md-7 col-sm-8 col-xs-12">
                     <p class=" text-sm"><strong>Oggetto: </strong> @{{ showTicket.title }}</p>
                     <div class="text-sm">@{{ showTicket.message }}</div>
                 </div>
-                <div class="col-md-offset-1 col-xs-12 col-md-3 col-sm-4">
+                <div class="mobile-hide col-md-offset-1 col-xs-12 col-md-3 col-sm-4">
                     <button type="button" class="btn btn-success w-100" @click="activityChange('list')">lista dei biglietti</button>
                     <div class="margin-30"></div>
                     <div class="ticket-box"></div>
                 </div>
             </div>
+            {{--ticket-replay--}}
             <div class="row" v-for="(reply, replyIndex) in showTicket.replies">
                 <div class="col-sm-9">
                     <div class="comment-box-ticket mb-5">
                         <div class="row">
-                            <div class="col-sm-3">
+                            <div class="col-sm-3 col-xs-4 resposive-col-padding text-comment-gray text-11-mobile">
                                <div class="left-box text-center">
                                    <div class="profile-pic"
                                         style="background-image: url('{{asset('images/home-img/Profile.png')}}')">
@@ -119,22 +125,21 @@
                                    <div>13.34</div>
                                </div>
                             </div>
-                            <div class="col-sm-9">
-                                <div class="text-sm">@{{reply.message}}</div>
+                            <div class="col-sm-9 col-xs-8 resposive-col-padding">
+                                <div class="text-sm min-height-comment">@{{reply.message}}</div>
                                 <div class="text-right">
-                                    <div class="text-green" @click="showComment(replyIndex)">Rispondi &nbsp; <span><i class="mdi mdi-redo"></i></span></div>
+                                    <div class="text-green c-pointer" @click="showComment(replyIndex)">Rispondi &nbsp; <span><i class="mdi mdi-redo"></i></span></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-offset-1 col-sm-11">
-                            <div class="comment-box-ticket mb-5" v-for="(innerReply, innerReplyIndex) in reply.replies">
+                        <div class="col-sm-offset-1 col-sm-11 col-xs-offset-1 col-xs-11">
+                            <div class="comment-box-ticket bg-comment-reply mb-5" v-for="(innerReply, innerReplyIndex) in reply.replies">
                                 <div class="row">
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-3 col-xs-4 text-comment-gray resposive-col-padding text-11-mobile">
                                         <div class="left-box text-center">
-                                            <div class="profile-pic"
-                                                style="background-image: url('{{asset('images/home-img/Profile.png')}}')">
+                                            <div class="profile-pic" style="background-image: url('{{asset('images/home-img/Profile.png')}}')">
                                                 <div class="profile-active"></div>
                                             </div>
                                             <div v-if="innerReply.creator">@{{ innerReply.creator.first_name+' '+innerReply.creator.last_name }}</div>
@@ -146,8 +151,8 @@
                                             <div>13.34</div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-9">
-                                        <div class="text-sm">@{{innerReply.message}}</div>
+                                    <div class="col-sm-9 col-xs-8 resposive-col-padding">
+                                        <div class="text-sm min-height-comment">@{{innerReply.message}}</div>
                                         <div class="text-right">
                                             <div class="text-green" @click="showComment(replyIndex)">Rispondi &nbsp; <span><i class="mdi mdi-redo"></i></span></div>
                                         </div>
@@ -162,12 +167,12 @@
                                 </div>
                                <div class="col-sm-12">
                                    <div class="row">
-                                       <div class="col-sm-6">
+                                       <div class="col-sm-6 col-xs-7">
                                         <label :for="'replyFile' + replyIndex" type="button" class="btn btn-success"><i class="mdi mdi-sm mdi-paperclip"></i> Carica un file</label>
                                             <div class="text-ash small-text mb-5">Massimo 5mb in totale</div>
                                             <input type="file" :id="'replyFile' + replyIndex" style="visibility:hidden" @change="handleFileUpload($event, 'inner')">
                                        </div>
-                                       <div class="col-sm-6 text-right">
+                                       <div class="col-sm-6 col-xs-5 text-right">
                                            <button class="btn btn-success btn-padding-65" @click="replyCru(innerReplyBoxes[replyIndex])">Rispondi</button>
                                        </div>
                                    </div>
@@ -177,6 +182,7 @@
                     </div>
                 </div>
             </div>
+            {{--ticket-replay end--}}
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-sub-text mb-1"><strong>Rispondi</strong></div>
@@ -192,12 +198,12 @@
             <div class="row">
                <div class="col-sm-9">
                    <div class="row">
-                       <div class="col-sm-6">
+                       <div class="col-sm-6 col-xs-7">
                            <label for="replyFile" type="button" class="btn btn-success"><i class="mdi mdi-sm mdi-paperclip"></i> Carica un file</label>
                            <div class="text-ash small-text mb-5">Massimo 5mb in totale</div>
                            <input type="file" id="replyFile" style="visibility:hidden" @change="handleFileUpload($event, 'reply')">
                        </div>
-                       <div class="col-sm-6 text-right">
+                       <div class="col-sm-6 col-xs-5 text-right">
                            <button class="btn btn-success btn-padding-65" @click="replyCru(reply)">Rispondi</button>
                        </div>
                    </div>
