@@ -12,6 +12,16 @@ class InnerReply extends Model
      * @var array
      */
     protected $fillable = [
-        'ticket_id', 'user_id', 'message', 'file', 'status'
+        'reply_id', 'user_id', 'message', 'file', 'status'
     ];
+
+    public function creator()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function replies()
+    {
+        return $this->hasMany(InnerReply::class, 'reply_id');
+    }
 }
