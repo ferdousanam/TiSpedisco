@@ -21,12 +21,12 @@
                         <ul class="tab-bar">
                             <li aria-controls="dashboard"><a href="{{route('user.dashboard')}}">Dashboard</a></li>
                             <li aria-controls="ticket"><a href="{{route('user.ticket')}}">Ticket</a></li>
-                            <li aria-controls="order"><a href="{{route('user.order')}}">Ordini</a></li>
+                            <li aria-controls="order"><a href="{{route('user.order.index')}}">Ordini</a></li>
                             <li aria-controls="address"><a href="{{route('user.address')}}">I miei indirizzi</a></li>
                             <li aria-controls="creditCard"><a href="{{route('user.creditCard')}}">Le mie carte</a></li>
                             <li aria-controls="profile"><a href="{{route('user.profile')}}">Profilo</a></li>
                             <li aria-controls="passChange"><a href="{{route('user.passChange')}}">Sicurezza</a></li>
-                            <li aria-controls="fatture"><a href="{{route('user.fatture')}}">Fatture</a></li>
+                            <li aria-controls="fatture"><a href="{{route('user.fatture.index')}}">Fatture</a></li>
                         </ul>
                     </div>
                 </div>

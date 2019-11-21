@@ -15,36 +15,13 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>#12345</td>
-                            <td class="text-ash">10 minuti fa</td>
-                            <td class="text-right"><i class="text-ash mdi mdi-dots-horizontal"></i></td>
-                        </tr>
-                        <tr>
-                            <td>#12345</td>
-                            <td class="text-ash">10 minuti fa</td>
-                            <td class="text-right"><i class="text-ash mdi mdi-dots-horizontal"></i></td>
-                        </tr>
-                        <tr>
-                            <td>#12345</td>
-                            <td class="text-ash">10 minuti fa</td>
-                            <td class="text-right"><i class="text-ash mdi mdi-dots-horizontal"></i></td>
-                        </tr>
-                        <tr>
-                            <td>#12345</td>
-                            <td class="text-ash">10 minuti fa</td>
-                            <td class="text-right"><i class="text-ash mdi mdi-dots-horizontal"></i></td>
-                        </tr>
-                        <tr>
-                            <td>#12345</td>
-                            <td class="text-ash">10 minuti fa</td>
-                            <td class="text-right"><i class="text-ash mdi mdi-dots-horizontal"></i></td>
-                        </tr>
-                        <tr>
-                            <td>#12345</td>
-                            <td class="text-ash">10 minuti fa</td>
-                            <td class="text-right"><i class="text-ash mdi mdi-dots-horizontal"></i></td>
-                        </tr>
+                        @foreach ($orders as $order)
+                            <tr>
+                                <td>#{{ $order->order_code }}</td>
+                                <td class="text-ash">{{ $order->created_at->diffForHumans() }}</td>
+                                <td class="text-right"><i class="text-ash mdi mdi-dots-horizontal"></i></td>
+                            </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>

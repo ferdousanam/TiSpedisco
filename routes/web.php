@@ -45,11 +45,11 @@ Route::group(['namespace' => 'FrontEndCon'], function () {
         Route::post('/singleUpdate', 'UserController@singleUpdate')->name('profile.singleUpdate');
 
         Route::get('/dashboard', 'UserController@dashboard')->name('user.dashboard');
-        Route::get('/order', 'UserController@order')->name('user.order');
+        Route::resource('order', 'UserOrderController', ['as' => 'user']);
         Route::get('/address', 'UserController@address')->name('user.address');
         Route::get('/creditCard', 'UserController@creditCard')->name('user.creditCard');
         Route::get('/profile', 'UserController@profile')->name('user.profile');
-        Route::get('/fatture', 'UserController@fatture')->name('user.fatture');
+        Route::resource('fatture', 'UserInvoiceController', ['as' => 'user']);
 
         Route::get('/ticket', 'TicketController@ticket')->name('user.ticket');
         Route::get('/tickets', 'TicketController@getTickets')->name('user.getTickets');
