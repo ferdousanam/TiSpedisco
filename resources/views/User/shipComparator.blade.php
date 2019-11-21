@@ -32,9 +32,9 @@
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <div class="row">
                                         <div class="col-md-6 col-xs-12">
-                                            <div class="form-group margin-0 position-relative">
+                                            <div class="form-group margin-0 mb-1 position-relative">
                                                 <select name="" id=""
-                                                        class="select2 form-control profile-input input-gray">
+                                                        class="form-control mb-1 profile-input input-gray">
                                                     <option value="">Filtra i risultati del preventivo</option>
                                                 </select>
                                             </div>
@@ -42,7 +42,7 @@
                                         <div class="col-md-6 col-xs-12">
                                             <div class="form-group margin-0 position-relative">
                                                 <select name="" id=""
-                                                        class="select2 form-control profile-input input-gray">
+                                                        class="form-control profile-input input-gray">
                                                     <option value="">Ordina i risultati del preventivoo</option>
                                                 </select>
                                             </div>

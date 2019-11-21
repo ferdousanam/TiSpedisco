@@ -337,8 +337,11 @@ $gray-light: #F6F6F9;
   line-height: 24px;
   padding: 5px 35px;
   cursor: pointer;
+  transition: 400ms;
   &:hover{
     color: #ffffff;
+    background-color: $primary;
+    transition: 400ms;
   }
   &:focus{
     color: #ffffff;
@@ -373,8 +376,11 @@ $gray-light: #F6F6F9;
   background-color: $green;
   color: #ffffff;
   position: relative;
+  transition: 400ms;
   &:hover{
     color: #ffffff;
+    background-color: $primary;
+    transition: 400ms;
   }
   .btn-logo{
     position: absolute;
@@ -385,16 +391,19 @@ $gray-light: #F6F6F9;
 }
 .btn-success{
   background-color: $green;
-  border-color: $green!important;
+  border-color: $green;
   margin-left: 3px;
   margin-right: 3px;
+  transition: 400ms;
   &:hover{
-    background-color: #448459;
+    background-color: $primary;
     color: #ffffff;
+    transition: 400ms;
+    border-color: $primary;
   }
   &:focus{
-    border-color: $green;
-    background-color: $green;
+    border-color: $primary;
+    background-color: $primary;
   }
 }
 .btn-outline-success{
@@ -403,9 +412,18 @@ $gray-light: #F6F6F9;
   margin: 0 3px;
   border: 2px solid;
   color: $green;
+  transition: 400ms;
   &:hover{
-    background-color: $green;
+    background-color: $primary;
     color: #ffffff;
+    transition: 400ms;
+    border-color: $primary;
+  }
+  &:focus{
+    background-color: $primary;
+    color: #ffffff;
+    transition: 400ms;
+    border-color: $primary;
   }
 }
 .btn-outline-success-login{
@@ -415,9 +433,11 @@ $gray-light: #F6F6F9;
   border: 2px solid;
   color: $green;
   text-decoration: none;
+  transition: 400ms;
   &:hover{
-    background-color: $green;
+    background-color: $primary;
     color: #ffffff;
+    transition: 400ms;
   }
 }
 .btn-primary{
@@ -432,11 +452,13 @@ $gray-light: #F6F6F9;
   border: 2px solid;
   font-size: 17px;
   font-family: 'Nunito', sans-serif;
+  transition: 400ms;
   &:hover{
     color: #fff;
-    background-color: $green;
+    background-color: $primary;
     border-color: #ffffff;
     border: 2px solid;
+    transition: 400ms;
   }
 }
 .btn-loading{
@@ -776,14 +798,14 @@ $gray-light: #F6F6F9;
     padding: 7.5rem 0;
     .footer-nav{
       .nav-item{
-        padding: 5px 0;
+        padding: 8px 0;
         .nav-link{
           color: rgba(255, 255, 255, 0.7);
           transition: all 0.2s ease-in-out;
           text-decoration: none;
           font-family: 'Nunito', sans-serif;
           font-weight: 600;
-          font-size: 17px;
+          font-size: 16px;
           &:hover{
             color: #ffffff;
           }
@@ -879,6 +901,10 @@ $gray-light: #F6F6F9;
   width: 15%;
   float: left;
   padding: 15px 0 0 27px;
+  @media only screen and (max-width: 500px) {
+    padding: 15px 0 0 4px;
+  }
+
   .p-form-logo{
     font-size: 23px;
     color: white;
@@ -1449,6 +1475,10 @@ $gray-light: #F6F6F9;
           width: 150px;
           display: table;
           float: left;
+          @media only screen and (max-width: 767px) {
+            width: 100%;
+            text-align: center;
+          }
           .c-info{
             background-color: #488b5e;
             padding: 5px 15px;
@@ -1459,6 +1489,10 @@ $gray-light: #F6F6F9;
           }
           .c-logo{
             padding: 30px 20px;
+            @media only screen and (max-width: 767px) {
+              padding: 10px 0px;
+              text-align: center;
+            }
           }
         }
         .box-2{
@@ -1466,18 +1500,33 @@ $gray-light: #F6F6F9;
           padding: 61px 0 0 40px;
           float: left;
           display: table;
+          @media only screen and (max-width: 767px) {
+            padding: 10px 0 0 0px;
+            width: 100%;
+            text-align: center;
+          }
         }
         .box-3{
           width: 280px;
           padding: 49px 0 0 40px;
           float: left;
           display: table;
+          @media only screen and (max-width: 767px) {
+            padding: 10px 0 0 0px;
+            width: 100%;
+            text-align: center;
+          }
         }
         .box-4{
           width: 86px;
           padding: 60px 0 0 35px;
           float: left;
           display: table;
+          @media only screen and (max-width: 767px) {
+            width: 50%;
+            text-align: center;
+            padding: 10px 0 10px 0;
+          }
         }
         .box-5{
           width: 305px;
@@ -1486,9 +1535,17 @@ $gray-light: #F6F6F9;
           background-color: #488b5e;
           display: table;
           color: #fff;
+          @media only screen and (max-width: 767px) {
+            width: 100%;
+            text-align: center;
+            padding: 50px;
+          }
           .text-box{
             width: 50%;
             float: left;
+            @media only screen and (max-width: 767px) {
+              text-align: center!important;
+            }
           }
           .btn-box{
             width: 50%;
@@ -1504,11 +1561,21 @@ $gray-light: #F6F6F9;
             width: 30%;
             float: left;
             display: table;
+            @media only screen and (max-width: 767px) {
+              width: 100%;
+              text-align: center;
+              padding: 5px 0;
+            }
           }
           .sec-70{
             width: 70%;
             float: left;
             display: table;
+            @media only screen and (max-width: 767px) {
+              width: 100%;
+              text-align: center;
+              padding: 5px 0;
+            }
           }
         }
       }

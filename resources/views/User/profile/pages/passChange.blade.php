@@ -1,61 +1,84 @@
 @extends('User.profile.profileMaster')
 
+@push('cssLib')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+@endpush
+
 @section('userContent')
 <div id="passChangeVue">
     <div class="state-pass-change">
         <div class="row">
             <div class="col-md-6 mb-5">
                 <div class="pass-box">
-                    <div class="pass-text-1">Cambia password</div>
-                    <div class="form-group margin-btm-input-lg">
-                        <div class="input-group mb-1">
-                            <div class="input-group-addon input-white home-input-group"><i
-                                        class="mdi text-ash mdi-md mdi-lock"></i></div>
-                            <input type="text" class="form-control input-white home-input"
-                                    placeholder="Scegli una password">
+                    <form action="{{route('profile.singleUpdate')}}" method="post">
+                        @csrf
+                        <input type="hidden" name="action" value="password">
+                        <div class="pass-text-1">Cambia password</div>
+                        <div class="form-group margin-btm-input-lg">
+                            <div class="input-group mb-1 @error('password') has-danger @enderror">
+                                <div class="input-group-addon input-white home-input-group"><i
+                                            class="mdi text-ash mdi-md mdi-lock"></i></div>
+                                <input type="password" class="form-control input-white home-input"
+                                        placeholder="Scegli una password" name="password">
+                            </div>
+                            @error('password')
+                                <small class="text-red">{{ $message }}</small><br>
+                            @enderror
+                            <small>La password deve essere composta da almeno 8 caratteri</small>
                         </div>
-                        <small>La password deve essere composta da almeno 8 caratteri</small>
-                    </div>
-                    <div class="form-group margin-btm-input-lg">
-                        <div class="input-group mb-1">
-                            <div class="input-group-addon input-white home-input-group"><i
-                                        class="mdi text-ash mdi-md mdi-lock"></i></div>
-                            <input type="text" class="form-control input-white home-input"
-                                    placeholder="Ripeti la password">
+                        <div class="form-group margin-btm-input-lg">
+                            <div class="input-group mb-1 @error('password_confirmation') has-danger @enderror">
+                                <div class="input-group-addon input-white home-input-group"><i
+                                            class="mdi text-ash mdi-md mdi-lock"></i></div>
+                                <input type="password" class="form-control input-white home-input"
+                                        placeholder="Ripeti la password" name="password_confirmation">
+                            </div>
+                            @error('password_confirmation')
+                                <small class="text-red">{{ $message }}</small>
+                            @enderror
                         </div>
-                    </div>
-                    <div class="form-group text-right">
-                        <button class="btn btn-success btn-padding-65">Salva modifiche</button>
-                    </div>
-    
+                        <div class="form-group text-right">
+                            <button class="btn btn-success btn-padding-65">Salva modifiche</button>
+                        </div>
+                    </form>
                 </div>
             </div>
             <div class="col-md-6 mb-5">
                 <div class="pass-box">
-                    <div class="pass-text-1">Cambia email</div>
-                    <div class="form-group margin-btm-input-lg">
-                        <div class="input-group mb-1">
-                            <div class="input-group-addon input-white home-input-group"><i
-                                        class="mdi text-ash mdi-md mdi-email"></i></div>
-                            <input type="text" class="form-control input-white home-input"
-                                    placeholder="Nuovo indirizzo email">
+                    <form action="{{route('profile.singleUpdate')}}" method="post">
+                        @csrf
+                        <input type="hidden" name="action" value="email">
+                        <div class="pass-text-1">Cambia email</div>
+                        <div class="form-group margin-btm-input-lg">
+                            <div class="input-group mb-1 @error('email') has-danger @enderror">
+                                <div class="input-group-addon input-white home-input-group"><i
+                                            class="mdi text-ash mdi-md mdi-email"></i></div>
+                                <input type="text" class="form-control input-white home-input"
+                                        placeholder="Nuovo indirizzo email" name="email">
+                            </div>
+                            @error('email')
+                                <small class="text-red">{{ $message }}</small>
+                            @enderror
                         </div>
-                    </div>
-                    <div class="form-group mb-25">
-                        <div class="input-group mb-1"></div>
-                    </div>
-                    <div class="form-group margin-btm-input-lg">
-                        <div class="input-group mb-1">
-                            <div class="input-group-addon input-white home-input-group"><i
-                                        class="mdi text-ash mdi-md mdi-email"></i></div>
-                            <input type="text" class="form-control input-white home-input"
-                                    placeholder="Conferma nuovo indirizzo email">
+                        <div class="form-group mb-25">
+                            <div class="input-group mb-1 @error('email_confirmation') has-danger @enderror"></div>
                         </div>
-                    </div>
-                    <div class="form-group text-right">
-                        <button class="btn btn-success btn-padding-65">Salva modifiche</button>
-                    </div>
-    
+                        <div class="form-group margin-btm-input-lg">
+                            <div class="input-group mb-1">
+                                <div class="input-group-addon input-white home-input-group"><i
+                                            class="mdi text-ash mdi-md mdi-email"></i></div>
+                                <input type="text" class="form-control input-white home-input"
+                                        placeholder="Conferma nuovo indirizzo email" name="email_confirmation">
+                            </div>
+                            @error('email_confirmation')
+                                <small class="text-red">{{ $message }}</small>
+                            @enderror
+                        </div>
+                        <div class="form-group text-right">
+                            <button class="btn btn-success btn-padding-65">Salva modifiche</button>
+                        </div>
+                    </form>    
                 </div>
             </div>
             <div class="col-md-12">
@@ -89,53 +112,20 @@
     new Vue({
         el: '#passChangeVue',
         data: {
-            ticket: '',
-            rangeValue: 0
+            rangeValue:0
         },
         methods: {
-            activityChange(activity = 'list') {
-                this.$set(this, 'activity', activity);
-            },
-            ticketCru(action = 'password') {
-				var that = this;
-				var formData = {
-					action: action,
-					ticket: this.ticket
-				}
-				axios.post("{{route('cru.ticket')}}", formData)
-				.then(function (response) {
-                    if (!response.data.success) return;
-					switch (action) {
-						case 'create':
-							that.tickets.push(response.data.ticket);
-                            that.$set(that, 'activity', 'list');
-                            that.clear();
-                            swal({
-                                icon: 'success',
-                                title: 'Created',
-                                text: 'Successfully created a new ticket!',
-                                timer: 1000
-                            })
-							break;
-						case 'update':
-							that.$set(that.categories, that.categories.findIndex(c => c.id === that.categoryId), response.data.category);							
-							break;
-						case 'delete':							
-							var tempCategory = that.categories.filter(category => category.id !== that.categoryId); 
-							that.$set(that, 'categories', tempCategory);
-							break;
-					}
-				})
-				.catch(function (response) {
-					// console.log(response.data.errors);
-				});
-			},
-
-            clear() {
-            }
+            
         },
         mounted() {
-            this.clear();
+            @if(Session::has('message'))
+                swal({
+                    icon: 'success',
+                    title: 'Successo',
+                    text: '{{Session::get('message')}}',
+                    timer: 2000
+                })
+            @endif
         },
     });
 </script>

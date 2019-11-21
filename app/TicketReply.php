@@ -12,8 +12,13 @@ class TicketReply extends Model
      * @var array
      */
     protected $fillable = [
-        'reply_id', 'user_id', 'message', 'file', 'status'
+        'ticket_id', 'user_id', 'message', 'file', 'status'
     ];
+
+    public function creator()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 
     public function replies()
     {

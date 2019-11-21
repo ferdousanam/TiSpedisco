@@ -16,22 +16,11 @@
             src='https://maps.google.com/maps/api/js?key={{ env('GOOGLE_MAP_API_KEY') }}&sensor=false&libraries=places'></script>
 
     <!-- Fonts -->
-    {{--    <link rel="dns-prefetch" href="//fonts.gstatic.com">--}}
-    {{--    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">--}}
-    {{--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />--}}
-    {{--    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">--}}
-    {{--    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">--}}
-    {{--    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">--}}
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,600,700&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/4.4.95/css/materialdesignicons.min.css"
           rel="stylesheet">
     <!-- Styles -->
-    {{--    <link href="{{ asset('css/style.css') }}" rel="stylesheet">--}}
-    {{--    <link href="{{ asset('css/responsive.css') }}" rel="stylesheet">--}}
-    {{--    <link rel="stylesheet" type="text/css" href="{{ asset('css/stripe-elements.css') }}" data-rel-css="" />--}}
-    {{--    <link rel="stylesheet" type="text/css" href="{{ asset('css/slick.css') }}">--}}
-    {{--    <link rel="stylesheet" type="text/css" href="{{ asset('css/slick-theme.css') }}">--}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">

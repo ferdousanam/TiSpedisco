@@ -302,6 +302,8 @@
                     altInput: true,
                     altFormat: 'F j, Y',
                     onChange: function (selectedDates, dateStr, instance) {
+                    disableMobile: "true",
+                    onChange: function(selectedDates, dateStr, instance) {
                         self.collection_date = dateStr;
                     }
                 });
