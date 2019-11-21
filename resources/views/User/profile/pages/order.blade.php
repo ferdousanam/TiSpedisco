@@ -36,7 +36,7 @@
                     <div class="margin-30"></div>
                     <div class="margin-30"></div>
                     <div class="col-sm-4">
-                        <div class="text-20">Ordine numero #@{{ order_details.order_code }} del 12/09/2019</div>
+                        <div class="text-20">Ordine numero #@{{ order_details.order_code }} del @{{moment(order_details.created_at).format('DD/MM/YYYY')}}</div>
                         <div class="margin-15"></div>
                         <div class="order-detail-box text-20">
                             <div class="text-20"><strong>Consegna a:</strong></div>
