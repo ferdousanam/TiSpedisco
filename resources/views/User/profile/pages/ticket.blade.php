@@ -68,6 +68,12 @@
                                 title="La sua richiesta sarà elaborata più rapidamente a condizione che, dopo un'analisi, il suo caso risulti veramente urgente e richieda il nostro intervento per essere sbloccata (gli abusi penalizzano i casi accertati)."
                             class="text-green mdi mdi-clock mdi-sm"></i></label>
                     </div>
+                    <div class="margin-30"></div>
+                    <div class="col-md-12 text-center">
+                        <button class="btn btn-success btn-padding-65" @click="ticketCru('create')">Invia ticket</button>
+                    </div>
+                    <div class="margin-30"></div>
+                    <div class="margin-30"></div>
                 </div>
                 <div class="col-md-offset-1 col-xs-12 col-md-3 col-sm-4">
                     <button type="button" class="btn btn-success w-100" @click="activityChange('list')">lista dei biglietti</button>
@@ -76,9 +82,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12 text-center">
-                    <button class="btn btn-success btn-padding-65" @click="ticketCru('create')">Invia ticket</button>
-                </div>
+
             </div>
         </div>
     </template>
@@ -87,7 +91,7 @@
             <div class="margin-30"></div>
             <div class="row mb-10">
                 <div class="col-md-7 col-sm-8 col-xs-12">
-                    <p class=" text-sm"><strong>Oggetto:</strong> @{{ showTicket.title }}</p>
+                    <p class=" text-sm"><strong>Oggetto: </strong> @{{ showTicket.title }}</p>
                     <div class="text-sm">@{{ showTicket.message }}</div>
                 </div>
                 <div class="col-md-offset-1 col-xs-12 col-md-3 col-sm-4">
