@@ -54,6 +54,7 @@ class InvoiceController extends Controller
     public function store(Request $request)
     {
         $order_success = app('\App\Http\Controllers\FrontEndCon\PaymentDesignController')->storeSave($request->all());
+//        $order_success = true;
         if ($order_success) {
             $shippingAddress = session('shippingAddress');
             $paymentDetails = session('paymentDetails');
@@ -63,6 +64,7 @@ class InvoiceController extends Controller
             $order_items = OrderItem::where('order_id', $order->id)->get();
             $xml_order_item_rows = "";
             foreach ($order_items as $key => $order_item) {
+                $volume = $order_item->height * $order_item->width * $order_item->length;
                 $xml_order_item_rows .= "<Row>";
                 $xml_order_item_rows .= "<Code>" . $order_item->id . "</Code>";
                 $xml_order_item_rows .= "<Description>" . $order_item->description . "</Description>";
@@ -71,8 +73,14 @@ class InvoiceController extends Controller
                 $xml_order_item_rows .= "<Price>" . $order_item->price . "</Price>";
                 $xml_order_item_rows .= "<Discounts></Discounts>";
                 $xml_order_item_rows .= "<VatCode>" . $order['sender_vat_no'] . "</VatCode>";
-                $xml_order_item_rows .= "<VatDescription>IVA 22%</VatDescription>";
+                $xml_order_item_rows .= "<VatDescription>" . $this->getRateFromVolume($volume)->vat . "%</VatDescription>";
                 $xml_order_item_rows .= "</Row>";
+            }
+
+            if (isset($shippingAddress["isInvoice"]) && $shippingAddress["isInvoice"] == "1") {
+                $isInvoice = "true";
+            } else {
+                $isInvoice = "false";
             }
 
             $xmlstring = '<Fattura24>';
@@ -94,29 +102,31 @@ class InvoiceController extends Controller
             $xmlstring .= '<DeliveryCity>' . $shippingAddress["recipient_city"] . '</DeliveryCity>';
             $xmlstring .= '<DeliveryProvince>' . $shippingAddress["recipient_province"] . '</DeliveryProvince>';
             $xmlstring .= '<DeliveryCountry>' . $shippingAddress["recipient_country"] . '</DeliveryCountry>';
-            $xmlstring .= '<Object>Object Name Goes Here</Object>';
+            $xmlstring .= '<Object></Object>';
             $xmlstring .= '<TotalWithoutTax>' . session("order_total_cost") . '</TotalWithoutTax>';
             $xmlstring .= '<PaymentMethodName>' . $paymentMethod->method_name . '</PaymentMethodName>';
             $xmlstring .= '<PaymentMethodDescription>' . $paymentMethod->description . '</PaymentMethodDescription>';
             $xmlstring .= '<VatAmount>' . $vat . '</VatAmount>';
             $xmlstring .= '<Total>' . ((double)session("order_total_cost") + $vat) . '</Total>';
             $xmlstring .= '<FootNotes>' . $paymentDetails["possible_notes"] . '</FootNotes>';
-            $xmlstring .= '<SendEmail>true</SendEmail>';
+            $xmlstring .= '<SendEmail>' . $isInvoice . '</SendEmail>';
             $xmlstring .= '<UpdateStorage>1</UpdateStorage>';
             $xmlstring .= '<F24InvoiceId>12345</F24InvoiceId>';
             $xmlstring .= '<IdTemplate>123</IdTemplate>';
             $xmlstring .= '<CustomField1></CustomField1>';
             $xmlstring .= '<CustomField2></CustomField2>';
             $xmlstring .= '<Payments>';
-            $xmlstring .= ' <Payment >';
-            $xmlstring .= '    <Date > ' . Carbon::now()->format("Y-m-d") . '</Date >';
-            $xmlstring .= '    <Amount > ' . ((double)session("order_total_cost") + $vat) . '</Amount >';
-            $xmlstring .= '    <Paid > true</Paid >';
-            $xmlstring .= '  </Payment >';
-            $xmlstring .= '</Payments >';
-            $xmlstring .= '<Rows >' . $xml_order_item_rows . '</Rows >';
-            $xmlstring .= '</Document >';
-            $xmlstring .= '</Fattura24 >';
+            $xmlstring .= ' <Payment>';
+            $xmlstring .= '    <Date> ' . Carbon::now()->format("Y-m-d") . '</Date>';
+            $xmlstring .= '    <Amount> ' . ((double)session("order_total_cost") + $vat) . '</Amount>';
+            $xmlstring .= '    <Paid> true</Paid>';
+            $xmlstring .= '  </Payment>';
+            $xmlstring .= '</Payments>';
+            $xmlstring .= '<Rows>' . $xml_order_item_rows . '</Rows>';
+            $xmlstring .= '</Document>';
+            $xmlstring .= '</Fattura24>';
+
+//            return $xmlstring;
 
             $xw = xmlwriter_open_memory();
             xmlwriter_start_document($xw, '1.0', 'UTF-8');
@@ -265,5 +275,13 @@ class InvoiceController extends Controller
         );
         $payment_method = collect([(object)$payment_method]);
         return $payment_method[0];
+    }
+
+    private function getRateFromVolume($volume = 0)
+    {
+        $locations = session('locations');
+        return Rate::where('distance_from', '<=', $locations['distance'])
+            ->where('distance_to', '>=', $locations['distance'])
+            ->where('volume', '>=', $volume)->first();
     }
 }

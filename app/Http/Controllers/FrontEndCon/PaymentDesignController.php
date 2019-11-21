@@ -121,13 +121,16 @@ class PaymentDesignController extends Controller
                 $order_items_data = [];
                 if ($shipDetails['shipments']) {
                     foreach ($shipDetails['shipments'] as $key => $shipment) {
+                        $volume = $shipment['length'] * $shipment['height'] * $shipment['width'];
                         $data = array(
+                            'shipment_name' => $shipment['name'],
                             'length' => $shipment['length'],
                             'height' => $shipment['height'],
                             'width' => $shipment['width'],
-                            'volume' => $shipment['length'] * $shipment['height'] * $shipment['width'],
+                            'volume' => $volume,
                             'weight' => $shipment['weight'],
                             'price' => $shipment['price'],
+                            'vat' => $this->getVatPercentage($volume),
                             'additional_cost' => $shipment['additional_cost'],
                             'total_cost' => $total_costs[$key],
                             'description' => $shipment['content'],
@@ -193,5 +196,12 @@ class PaymentDesignController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    private function getVatPercentage($volume = 0){
+        $locations = session('locations');
+        return Rate::where('distance_from', '<=', $locations['distance'])
+            ->where('distance_to', '>=', $locations['distance'])
+            ->where('volume', '>=', $volume)->first()->vat;
     }
 }

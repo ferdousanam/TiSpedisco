@@ -87,8 +87,8 @@
                                         <label for="">Servizi aggiuntivi</label>
                                         <select class="form-control custom-select input-gray profile-input"
                                                 v-model="shipmentInfo.total_additional_service">
-                                            <option value="">Assicurazione - 5€</option>
-                                            <option value="">Assicurazione - 5€</option>
+                                            <option value="5">Assicurazione - 5€</option>
+                                            <option value="5">Assicurazione - 5€</option>
                                         </select>
                                     </div>
                                 </div>
@@ -112,7 +112,8 @@
                             <div class="row">
                                 <div class="margin-30"></div>
                                 <div class="col-md-12">
-                                    <input type="text" class="form-control w-100 text-xl text-ash font-bold ship-detail-input-1" placeholder="Assegna un nome alla spedizione">
+                                    <input type="text" class="form-control w-100 text-xl text-ash font-bold ship-detail-input-1" placeholder="Assegna un nome alla spedizione"
+                                           v-model="shipment.name">
                                 </div>
                             </div>
                             <div class="row">
@@ -159,8 +160,8 @@
                                             <select class="form-control custom-select input-gray profile-input"
                                                     name="additional_service[]" id=""
                                                     v-model="shipment.additional_cost">
-                                                <option value="">Assicurazione - 5€</option>
-                                                <option value="">Assicurazione - 5€</option>
+                                                <option value="5">Assicurazione - 5€</option>
+                                                <option value="5">Assicurazione - 5€</option>
                                             </select>
                                         </div>
                                     </div>
@@ -228,7 +229,7 @@
             el: '#app-ship',
             data: {
                 shipmentInfo: {
-                    collection_date: '',
+                    collection_date: '{{\Carbon\Carbon::today()->format("Y-m-d")}}',
                     total_length: '',
                     total_height: '',
                     total_width: '',
@@ -243,6 +244,7 @@
             methods: {
                 DuplicateShipment(shipment) {
                     this.shipmentInfo.shipments.push({
+                        name: shipment.name,
                         width: shipment.width,
                         height: shipment.height,
                         length: shipment.length,
