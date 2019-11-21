@@ -112,7 +112,9 @@
                             <div class="row">
                                 <div class="margin-30"></div>
                                 <div class="col-md-12">
-                                    <input type="text" class="form-control w-100 text-xl text-ash font-bold ship-detail-input-1" placeholder="Assegna un nome alla spedizione"
+                                    <input type="text"
+                                           class="form-control w-100 text-xl text-ash font-bold ship-detail-input-1"
+                                           placeholder="Assegna un nome alla spedizione"
                                            v-model="shipment.name">
                                 </div>
                             </div>
@@ -238,7 +240,16 @@
                     total_additional_service: '5',
                     total_content: 'Total Content Total Content Total Content Total Content Total Content Total Content',
                     shipments: [
-                        {name: 'Slice 1', width: '5', height: '5', length: '5', weight: '5', price: '500', additional_cost: '5', content: 'Content 1 Content 1 Content 1 Content 1 Content 1 Content 1 Content 1 Content 1'},
+                        {
+                            name: 'Slice 1',
+                            width: '5',
+                            height: '5',
+                            length: '5',
+                            weight: '5',
+                            price: '500',
+                            additional_cost: '5',
+                            content: 'Content 1 Content 1 Content 1 Content 1 Content 1 Content 1 Content 1 Content 1'
+                        },
                     ]
                 }
             },
@@ -275,7 +286,7 @@
                     $.ajax({
                         url: '{{ route('api.ship-details.index') }}',
                         type: 'post',
-                        data: {shipmentInfo: self.shipmentInfo, _token : '{{csrf_token()}}'},
+                        data: {shipmentInfo: self.shipmentInfo, _token: '{{csrf_token()}}'},
                         success: function (res) {
                             console.log(res);
                             window.location = '{{ route('ship-address.index') }}'
@@ -290,7 +301,7 @@
                     minDate: 'today',
                     altInput: true,
                     altFormat: 'F j, Y',
-                    onChange: function(selectedDates, dateStr, instance) {
+                    onChange: function (selectedDates, dateStr, instance) {
                         self.collection_date = dateStr;
                     }
                 });
