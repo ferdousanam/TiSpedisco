@@ -39,7 +39,7 @@ Route::group(['namespace' => 'FrontEndCon'], function () {
     Route::resource('order-confirm', 'OrderConfirmController');
 
     Route::get('/home', 'UserController@home')->name('home');
-    Route::group(['middlware' => 'verified', 'prefix' => 'user'], function () {
+    Route::group(['middleware' => 'verified', 'prefix' => 'user'], function () {
         Route::get('/', 'HomeController@index');
         Route::get('/passChange', 'UserController@passChange')->name('user.passChange');
         Route::post('/singleUpdate', 'UserController@singleUpdate')->name('profile.singleUpdate');
@@ -50,7 +50,7 @@ Route::group(['namespace' => 'FrontEndCon'], function () {
         Route::get('/creditCard', 'UserController@creditCard')->name('user.creditCard');
         Route::get('/profile', 'UserController@profile')->name('user.profile');
         Route::get('/fatture', 'UserController@fatture')->name('user.fatture');
-        
+
         Route::get('/ticket', 'TicketController@ticket')->name('user.ticket');
         Route::get('/tickets', 'TicketController@getTickets')->name('user.getTickets');
         Route::get('/singleTicket', 'TicketController@singleTicket')->name('user.singleTicket');
