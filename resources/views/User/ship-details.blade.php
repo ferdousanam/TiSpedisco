@@ -62,7 +62,7 @@
                                         <label for="">Valore della merce</label>
                                         <input type="text" class="form-control input-gray profile-input"
                                                placeholder="€" name="total_amount"
-                                               v-model="shipmentInfo.total_amount">
+                                               v-model="shipmentInfo.total_price">
                                     </div>
                                 </div>
                             </div>
@@ -112,7 +112,9 @@
                             <div class="row">
                                 <div class="margin-30"></div>
                                 <div class="col-md-12">
-                                    <input type="text" class="form-control w-100 text-xl text-ash font-bold ship-detail-input-1" placeholder="Assegna un nome alla spedizione"
+                                    <input type="text"
+                                           class="form-control w-100 text-xl text-ash font-bold ship-detail-input-1"
+                                           placeholder="Assegna un nome alla spedizione"
                                            v-model="shipment.name">
                                 </div>
                             </div>
@@ -230,14 +232,24 @@
             data: {
                 shipmentInfo: {
                     collection_date: '{{\Carbon\Carbon::today()->format("Y-m-d")}}',
-                    total_length: '',
-                    total_height: '',
-                    total_width: '',
-                    total_weight: '',
-                    total_additional_service: '',
-                    total_content: '',
+                    total_length: '10',
+                    total_height: '10',
+                    total_width: '10',
+                    total_weight: '10',
+                    total_price: '1000',
+                    total_additional_service: '5',
+                    total_content: 'Total Content Total Content Total Content Total Content Total Content Total Content',
                     shipments: [
-                        {width: '', height: '', length: '', weight: '', price: '', additional_cost: '', content: ''},
+                        {
+                            name: 'Slice 1',
+                            width: '5',
+                            height: '5',
+                            length: '5',
+                            weight: '5',
+                            price: '500',
+                            additional_cost: '5',
+                            content: 'Content 1 Content 1 Content 1 Content 1 Content 1 Content 1 Content 1 Content 1'
+                        },
                     ]
                 }
             },
@@ -259,6 +271,7 @@
                 },
                 AddNewShipment() {
                     this.shipmentInfo.shipments.push({
+                        name: '',
                         width: '',
                         height: '',
                         length: '',
@@ -273,7 +286,7 @@
                     $.ajax({
                         url: '{{ route('api.ship-details.index') }}',
                         type: 'post',
-                        data: {shipmentInfo: self.shipmentInfo, _token : '{{csrf_token()}}'},
+                        data: {shipmentInfo: self.shipmentInfo, _token: '{{csrf_token()}}'},
                         success: function (res) {
                             console.log(res);
                             window.location = '{{ route('ship-address.index') }}'
@@ -289,7 +302,7 @@
                     altInput: true,
                     altFormat: 'F j, Y',
                     disableMobile: "true",
-                    onChange: function(selectedDates, dateStr, instance) {
+                    onChange: function (selectedDates, dateStr, instance) {
                         self.collection_date = dateStr;
                     }
                 });

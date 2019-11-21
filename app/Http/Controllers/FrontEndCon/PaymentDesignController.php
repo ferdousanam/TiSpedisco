@@ -108,7 +108,7 @@ class PaymentDesignController extends Controller
             'receiver_postcode' => $shippingAddress['recipient_post_code'],
             'receiver_country' => $shippingAddress['recipient_country'],
             'additional_cost' => $shipDetails['total_additional_service'],
-            'price' => $shipDetails['total_amount'],
+            'price' => $shipDetails['total_price'],
             'total_cost' => session('order_total_cost'),
             'description' => $shipDetails['total_content'],
             'possible_notes' => $paymentDetails['possible_notes'],
