@@ -47,15 +47,14 @@ class UserInvoiceController extends Controller
             'apiKey' => env('FATTURA24_API_KEY'),
             'docId' => $request->docId,
         );
-        $resource = fopen(storage_path("app/invoices/$request->docId.pdf"), 'w');
-        $stream = Psr7\stream_for($resource);
-        $response = $client->post($url, ['form_params' => $form_params, 'save_to' => $stream]);
-//        $response = $client->post($url, ['form_params' => $form_params]);
-//        dd($response);
-//        dd(explode("\"",$response->getHeaderLine('content-Disposition'))[1]);
-//        dd($response->getHeaderLine('Content-Type'));
-//        return response()->download($response->getBody()['uri']);
-        return response()->download(storage_path("app/invoices/$request->docId.pdf"));
+
+        $response = $client->post($url, ['form_params' => $form_params]);
+        $filename = explode('"', $response->getHeader('Content-Disposition')[0])[1];
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header("Content-Disposition: attachment; filename=\"" . $filename . "\"");
+        echo $response->getBody()->getContents();
+        exit;
     }
 
     /**
