@@ -82,6 +82,8 @@ $gray-light: #F6F6F9;
   }
 }
 /*input end*/
+
+
 /*global*/
 .float-right{
   float: right;
@@ -124,6 +126,9 @@ $gray-light: #F6F6F9;
 .text-ash{
   color: $gray-dark;
 }
+.text-comment-gray{
+  color: #989898;
+}
 .text-orange{
   color: $orange;
 }
@@ -159,6 +164,9 @@ $gray-light: #F6F6F9;
   @media only screen and (max-width: 767px) {
     font-size: 15px;
   }
+  @media only screen and (max-width: 640px) {
+    font-size: 13px;
+  }
 }
 .text-xs{
   font-size: 16px;
@@ -166,12 +174,16 @@ $gray-light: #F6F6F9;
     font-size: 14px;
   }
 }
+.text-11-mobile{
+  @media only screen and (max-width: 767px) {
+    font-size: 11px;
+  }
+}
 .font-responsive{
   @media only screen and (max-width: 400px) {
     font-size: 13px;
   }
 }
-
 .mdi{
   &.mdi-sm{
     font-size: 16px;
@@ -266,7 +278,6 @@ $gray-light: #F6F6F9;
 .display-flex{
   display: flex!important;
 }
-
 .c-pointer{
   cursor: pointer;
 }
@@ -281,7 +292,35 @@ $gray-light: #F6F6F9;
     padding-top: 8px;
   }
 }
+.min-height-comment{
+  min-height: 155px;
+  @media only screen and (max-width: 767px) {
+    min-height: 115px;
+  }
+}
+.bg-comment-reply{
+  background-color: #004e9014!important;
+}
+.mobile-hide{
+  display: table;
+  @media only screen and (max-width: 767px) {
+    display: none;
+  }
+}
+.mobile-show{
+  display: none;
+  @media only screen and (max-width: 767px) {
+    display: table;
+  }
+}
+.resposive-col-padding{
+  @media only screen and (max-width: 767px) {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
 /*global end*/
+
 /*Alret*/
 .alert-success{
   background-color: $green;
@@ -328,6 +367,10 @@ $gray-light: #F6F6F9;
 .btn-padding-65{
   padding-left: 65px;
   padding-right: 65px;
+  @media only screen and (max-width: 767px) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
 .btn-login{
   background-color: $green;
@@ -1435,6 +1478,14 @@ $gray-light: #F6F6F9;
     .comment-box-ticket{
       background-color: #EFEFEF;
       padding: 20px;
+      @media only screen and (max-width: 767px) {
+        padding: 10px 20px;
+      }
+      .left-box{
+        @media only screen and (max-width: 360px) {
+          text-align: left!important;
+        }
+      }
       .profile-pic{
         width: 40px;
         height: 40px;
