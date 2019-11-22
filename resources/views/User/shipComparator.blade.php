@@ -60,7 +60,7 @@
                                         <div class="box-1">
                                             <div class="c-info">preferito</div>
                                             <div class="c-logo">
-                                                <img class="img-responsive" src="{{asset($carrier->logo)}}" alt="">
+                                                <img class="ship-comparator-img" src="{{asset($carrier->logo)}}" alt="">
                                             </div>
                                         </div>
                                         <div class="box-2">
