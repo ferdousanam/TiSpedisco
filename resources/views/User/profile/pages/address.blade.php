@@ -16,23 +16,21 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-4 col-sm-6" v-for="address in addresses">
-                    <div class="address-box-wrapper">
-                        <div class="address-box">
-                            <div class="text-left">
-                                <i class="text-green mdi mdi-redo mdi-sm"></i>
-                                <span class="text-green text-sm">Spedisci</span>
-                            </div>
-                            <div class="add-text">@{{ address.first_name + ' ' + address.last_name }}</div>
-                            <div class="add-text">@{{ address.address }}</div>
-                            <div class="add-text">
-                                @{{ address.zipCode + ' ' + address.city + ' ' + address.country }}
-                            </div>
-                            <div data-toggle="modal" data-target="#editAddress" class="text-right c-pointer">
-                                <span class="text-green text-sm ">Modifica</span>
-                                <i class="text-green mdi-sm  mdi mdi-wrench"></i>
-                            </div>
+            <div class="row grid">
+                <div class="col-md-4 col-sm-6 col-xs-12 grid-item" v-for="address in addresses">
+                    <div class="address-box">
+                        <div class="text-left">
+                            <i class="text-green mdi mdi-redo mdi-sm"></i>
+                            <span class="text-green text-sm">Spedisci</span>
+                        </div>
+                        <div class="add-text">@{{ address.first_name + ' ' + address.last_name }}</div>
+                        <div class="add-text-2">@{{ address.address }}</div>
+                        <div class="add-text-2">
+                            @{{ address.zipCode + ' ' + address.city + ' ' + address.country }}
+                        </div>
+                        <div data-toggle="modal" data-target="#editAddress" class="text-right c-pointer">
+                            <span class="text-green text-sm ">Modifica</span>
+                            <i class="text-green mdi-sm  mdi mdi-wrench"></i>
                         </div>
                     </div>
                 </div>
@@ -167,6 +165,11 @@
                         .then(function (response) {
                             if (!response.data.success) return;
                             self.addresses = response.data.addresses;
+                            setTimeout(function () {
+                                $('.grid').masonry({
+                                    itemSelector: '.grid-item'
+                                });
+                            }, 200)
                         })
                 }
             },

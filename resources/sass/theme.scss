@@ -1254,22 +1254,22 @@ $gray-light: #F6F6F9;
       }
     }
     .state-address{
-      .address-box-wrapper{
+      .address-box{
+        display: inline-block;
         width: 100%;
-        display: table;
-        text-align: center;
-        .address-box{
-          display: inline-block;
-          width: 100%;
-          border-radius: 4px;
-          background-color: #f1f1f1;
-          margin-bottom: 25px;
-          padding: 18px;
-          .add-text{
-            font-size: 20px;
-            color: $text;
-            text-align: left;
-          }
+        border-radius: 4px;
+        background-color: #f1f1f1;
+        margin-bottom: 25px;
+        padding: 18px;
+        .add-text{
+          font-size: 20px;
+          color: $text;
+          text-align: left;
+        }
+        .add-text-2{
+          font-size: 16px;
+          color: $text;
+          text-align: left;
         }
       }
     }
