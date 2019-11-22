@@ -1,5 +1,7 @@
 @extends('User.layouts.app')
 
+@section('page_tagline', 'Calcolo della spedizione')
+
 @push('cssLib')
 @endpush
 

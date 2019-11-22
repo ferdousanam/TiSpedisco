@@ -46,7 +46,8 @@ Route::group(['namespace' => 'FrontEndCon'], function () {
 
         Route::get('/dashboard', 'UserController@dashboard')->name('user.dashboard');
         Route::resource('order', 'UserOrderController', ['as' => 'user']);
-        Route::get('/address', 'UserController@address')->name('user.address');
+        Route::resource('address', 'UserAddressController', ['as' => 'user']);
+//        Route::get('/address', 'UserController@address')->name('user.address');
         Route::get('/creditCard', 'UserController@creditCard')->name('user.creditCard');
         Route::get('/profile', 'UserController@profile')->name('user.profile');
         Route::resource('fatture', 'UserInvoiceController', ['as' => 'user']);
