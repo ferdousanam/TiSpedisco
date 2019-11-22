@@ -11,6 +11,6 @@ class CarriersTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(App\Address::class, 50)->create();
     }
 }
