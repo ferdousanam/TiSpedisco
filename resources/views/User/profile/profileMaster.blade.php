@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col-md-12 mb-10">
                     <div class="page-text">Il mio account</div>
-                    <div class="page-sub-text">Ciao Simone, da questo pannello puoi gestire il tuo account</div>
+                    <div class="page-sub-text">Ciao {{ Auth::user()->first_name }}, da questo pannello puoi gestire il tuo account</div>
                 </div>
             </div>
             <div class="row">
