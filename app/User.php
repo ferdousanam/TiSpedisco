@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Notifications\EmailChangeNotification;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -36,6 +37,17 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Send the email change notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendEmailChangeNotification($token, $new_email = '')
+    {
+        $this->notify(new EmailChangeNotification($token, $new_email));
+    }
 
     public function tickets()
     {

@@ -16,6 +16,17 @@
                         <input type="hidden" name="action" value="password">
                         <div class="pass-text-1">Cambia password</div>
                         <div class="form-group margin-btm-input-lg">
+                            <div class="input-group mb-1 @error('current_password') has-danger @enderror">
+                                <div class="input-group-addon input-white home-input-group"><i
+                                            class="mdi text-ash mdi-md mdi-lock"></i></div>
+                                <input type="password" class="form-control input-white home-input"
+                                        placeholder="Password attuale" name="current_password">
+                            </div>
+                            @error('current_password')
+                                <small class="text-red">{{ $message }}</small><br>
+                            @enderror
+                        </div>
+                        <div class="form-group margin-btm-input-lg">
                             <div class="input-group mb-1 @error('password') has-danger @enderror">
                                 <div class="input-group-addon input-white home-input-group"><i
                                             class="mdi text-ash mdi-md mdi-lock"></i></div>
@@ -51,6 +62,17 @@
                         <input type="hidden" name="action" value="email">
                         <div class="pass-text-1">Cambia email</div>
                         <div class="form-group margin-btm-input-lg">
+                            <div class="input-group mb-1 @error('current_email') has-danger @enderror">
+                                <div class="input-group-addon input-white home-input-group"><i
+                                            class="mdi text-ash mdi-md mdi-email"></i></div>
+                                <input type="text" class="form-control input-white home-input"
+                                        placeholder="Indirizzo email attuale" name="current_email">
+                            </div>
+                            @error('current_email')
+                                <small class="text-red">{{ $message }}</small>
+                            @enderror
+                        </div>
+                        <div class="form-group margin-btm-input-lg">
                             <div class="input-group mb-1 @error('email') has-danger @enderror">
                                 <div class="input-group-addon input-white home-input-group"><i
                                             class="mdi text-ash mdi-md mdi-email"></i></div>
@@ -60,9 +82,7 @@
                             @error('email')
                                 <small class="text-red">{{ $message }}</small>
                             @enderror
-                        </div>
-                        <div class="form-group mb-25">
-                            <div class="input-group mb-1 @error('email_confirmation') has-danger @enderror"></div>
+                            <small>Una e-mail verrà inviata per la verifica.</small>
                         </div>
                         <div class="form-group margin-btm-input-lg">
                             <div class="input-group mb-1">
@@ -123,6 +143,14 @@
                     icon: 'success',
                     title: 'Successo',
                     text: '{{Session::get('message')}}',
+                    timer: 2000
+                })
+            @endif
+            @if(Session::has('errMessage'))
+                swal({
+                    icon: 'error',
+                    title: 'Abortive',
+                    text: '{{Session::get('errMessage')}}',
                     timer: 2000
                 })
             @endif
