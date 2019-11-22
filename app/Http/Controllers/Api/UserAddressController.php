@@ -54,8 +54,8 @@ class UserAddressController extends Controller
      */
     public function show($id)
     {
-        $order = Order::findOrFail($id);
-        return response()->json(['success' => true, 'message' => "Successful", 'order' => $order]);
+        $address = Address::findOrFail($id);
+        return response()->json(['success' => true, 'message' => "Successful", 'address' => $address]);
     }
 
     /**

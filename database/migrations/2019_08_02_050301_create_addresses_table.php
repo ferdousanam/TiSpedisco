@@ -17,11 +17,14 @@ class CreateAddressesTable extends Migration
             $table->bigIncrements('id');
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
-            $table->string('address')->nullable();
+            $table->string('email')->nullable();
+            $table->string('address_1')->nullable();
+            $table->string('address_2')->nullable();
             $table->string('city')->nullable();
             $table->string('country')->nullable();
             $table->string('state')->nullable();
-            $table->string('zipCode')->nullable();
+            $table->string('province')->nullable();
+            $table->string('postcode')->nullable();
             $table->string('phone')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

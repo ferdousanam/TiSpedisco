@@ -9,11 +9,12 @@ $factory->define(Address::class, function (Faker $faker) {
     return [
         'first_name' => $faker->firstName,
         'last_name' => $faker->lastName,
-        'address' => $faker->address,
+        'address_1' => $faker->address,
+        'address_2' => $faker->address,
         'city' => $faker->city,
         'country' => $faker->country,
         'state' => $faker->state,
-        'zipCode' => $faker->postcode,
+        'postcode' => $faker->postcode,
         'phone' => $faker->phoneNumber,
         'user_id' => App\User::all()->random()->id,
     ];
