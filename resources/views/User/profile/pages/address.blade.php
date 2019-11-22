@@ -24,11 +24,12 @@
                             <span class="text-green text-sm">Spedisci</span>
                         </div>
                         <div class="add-text">@{{ address.first_name + ' ' + address.last_name }}</div>
-                        <div class="add-text-2">@{{ address.address }}</div>
+                        <div class="add-text-2">@{{ address.address_1 }}</div>
                         <div class="add-text-2">
-                            @{{ address.zipCode + ' ' + address.city + ' ' + address.country }}
+                            @{{ address.postcode + ' ' + address.city + ' ' + address.country }}
                         </div>
-                        <div data-toggle="modal" data-target="#editAddress" class="text-right c-pointer">
+                        <div data-toggle="modal" data-target="#editAddress" class="text-right c-pointer"
+                             @click="getSingleAddress(address.id)">
                             <span class="text-green text-sm ">Modifica</span>
                             <i class="text-green mdi-sm  mdi mdi-wrench"></i>
                         </div>
@@ -55,7 +56,8 @@
                                     <div class="mb-1">
                                         <label for="">Nome e Cognome</label>
                                         <input type="text" class="form-control input-gray profile-input"
-                                               placeholder="Scegli una password">
+                                               placeholder="Scegli una password"
+                                               v-model="address_details.first_name">
                                     </div>
                                 </div>
                             </div>
@@ -64,7 +66,8 @@
                                     <div class="mb-1">
                                         <label for="">Email</label>
                                         <input type="text" class="form-control input-gray profile-input"
-                                               placeholder="Ripeti la password">
+                                               placeholder="Ripeti la password"
+                                               v-model="address_details.email">
                                     </div>
                                 </div>
                             </div>
@@ -75,7 +78,8 @@
                                     <div class="mb-1">
                                         <label for="">Numero di cellulare</label>
                                         <input type="text" class="form-control input-gray profile-input"
-                                               placeholder="Scrivi il tuo recapito telefonico">
+                                               placeholder="Scrivi il tuo recapito telefonico"
+                                               v-model="address_details.phone">
                                     </div>
                                 </div>
                                 <div class="custom-p-logo">
@@ -89,14 +93,16 @@
                             <div class="mb-1">
                                 <label for="Indirizzo">Indirizzo</label>
                                 <input type="text" id="Indirizzo" class="form-control input-gray profile-input"
-                                       placeholder="Indirizzo riga 1">
+                                       placeholder="Indirizzo riga 1"
+                                       v-model="address_details.address_1">
                             </div>
                         </div>
 
                         <div class="form-group margin-btm-input-lg">
                             <div class="mb-1">
                                 <input type="text" class="form-control input-gray profile-input"
-                                       placeholder="Indirizzo riga 2">
+                                       placeholder="Indirizzo riga 2"
+                                       v-model="address_details.address_2">
                             </div>
                         </div>
 
@@ -104,7 +110,8 @@
                             <div class="mb-1">
                                 <label for="">Città</label>
                                 <input type="text" class="form-control input-gray profile-input"
-                                       placeholder="Seleziona la città">
+                                       placeholder="Seleziona la città"
+                                       v-model="address_details.city">
                             </div>
                         </div>
                         <div class="row">
@@ -113,7 +120,8 @@
                                     <div class="mb-1">
                                         <label for="">Provincia</label>
                                         <input type="text" class="form-control input-gray profile-input"
-                                               placeholder="Seleziona la provincia">
+                                               placeholder="Seleziona la provincia"
+                                               v-model="address_details.province">
                                     </div>
                                 </div>
                             </div>
@@ -122,7 +130,8 @@
                                     <div class="mb-1">
                                         <label for="">Cap</label>
                                         <input type="text" class="form-control input-gray profile-input"
-                                               placeholder="Seleziona il cap">
+                                               placeholder="Seleziona il cap"
+                                               v-model="address_details.postcode">
                                     </div>
                                 </div>
                             </div>
@@ -131,7 +140,8 @@
                             <div class="mb-1">
                                 <label for="">Paese</label>
                                 <input type="text" class="form-control input-gray profile-input"
-                                       placeholder="Seleziona il paese">
+                                       placeholder="Seleziona il paese"
+                                       v-model="address_details.country">
                             </div>
                         </div>
                     </div>
@@ -155,6 +165,7 @@
                 search: {
                     keyword: ''
                 },
+                address_details: {},
             },
             methods: {
                 clear() {
@@ -170,6 +181,15 @@
                                     itemSelector: '.grid-item'
                                 });
                             }, 50)
+                        })
+                },
+                getSingleAddress(address_id) {
+                    let self = this;
+                    axios.get("{{route('api.user-address.index')}}/" + address_id)
+                        .then(function (response) {
+                            if (!response.data.success) return;
+                            console.log(response.data.address);
+                            self.address_details = response.data.address;
                         })
                 }
             },
