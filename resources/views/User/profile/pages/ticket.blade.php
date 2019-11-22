@@ -50,7 +50,7 @@
                     <div class="form-group mb-35">
                         <label>Oggetto</label>
                         <input type="text" class="form-control theme-input"
-                                placeholder="Scrivi il motivo per cui ci stai contattando" v-model="ticket.title">
+                                placeholder="Scrivi il motivo per cui ci stai contattando" v-model="ticket.title" required>
                     </div>
                     <div class="form-group mb-35">
                         <label>Scrivi qualcosa</label>
@@ -63,7 +63,7 @@
                     <input type="file" id="ticketFile" style="visibility:hidden" @change="handleFileUpload($event, 'ticket')">
                     <div class="form-group">
                         <input class="form-check-input styled-checkbox" type="checkbox" value=""
-                                id="check-input" v-model="ticket.is_paralyzes">
+                                id="check-input" v-model="ticket.is_paralyzes" required>
                         <label for="check-input"> <span class="font-400">Si trova in una situazione che paralizza la sua attività?</span> &nbsp;<i  data-toggle="tooltip" data-placement="bottom"
                                 title="La sua richiesta sarà elaborata più rapidamente a condizione che, dopo un'analisi, il suo caso risulti veramente urgente e richieda il nostro intervento per essere sbloccata (gli abusi penalizzano i casi accertati)."
                             class="text-green mdi mdi-clock mdi-sm"></i></label>

@@ -169,7 +169,7 @@
                                 $('.grid').masonry({
                                     itemSelector: '.grid-item'
                                 });
-                            }, 200)
+                            }, 50)
                         })
                 }
             },

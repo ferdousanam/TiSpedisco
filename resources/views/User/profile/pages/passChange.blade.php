@@ -20,7 +20,7 @@
                                 <div class="input-group-addon input-white home-input-group"><i
                                             class="mdi text-ash mdi-md mdi-lock"></i></div>
                                 <input type="password" class="form-control input-white home-input"
-                                        placeholder="Scegli una password" name="password">
+                                        placeholder="Scegli una password" name="password" required>
                             </div>
                             @error('password')
                                 <small class="text-red">{{ $message }}</small><br>
@@ -32,7 +32,7 @@
                                 <div class="input-group-addon input-white home-input-group"><i
                                             class="mdi text-ash mdi-md mdi-lock"></i></div>
                                 <input type="password" class="form-control input-white home-input"
-                                        placeholder="Ripeti la password" name="password_confirmation">
+                                        placeholder="Ripeti la password" name="password_confirmation" required>
                             </div>
                             @error('password_confirmation')
                                 <small class="text-red">{{ $message }}</small>
@@ -55,7 +55,7 @@
                                 <div class="input-group-addon input-white home-input-group"><i
                                             class="mdi text-ash mdi-md mdi-email"></i></div>
                                 <input type="text" class="form-control input-white home-input"
-                                        placeholder="Nuovo indirizzo email" name="email">
+                                        placeholder="Nuovo indirizzo email" name="email" required>
                             </div>
                             @error('email')
                                 <small class="text-red">{{ $message }}</small>
@@ -69,7 +69,7 @@
                                 <div class="input-group-addon input-white home-input-group"><i
                                             class="mdi text-ash mdi-md mdi-email"></i></div>
                                 <input type="text" class="form-control input-white home-input"
-                                        placeholder="Conferma nuovo indirizzo email" name="email_confirmation">
+                                        placeholder="Conferma nuovo indirizzo email" name="email_confirmation" required>
                             </div>
                             @error('email_confirmation')
                                 <small class="text-red">{{ $message }}</small>
