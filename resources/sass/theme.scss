@@ -522,6 +522,13 @@ $gray-light: #F6F6F9;
     color: $green!important;
   }
 }
+.btn-transparent{
+  background-color: transparent;
+  border-color: transparent;
+  &:focus{
+    color: $text;
+  }
+}
 /*btn*/
 /*modal*/
 .modal-header-custom{

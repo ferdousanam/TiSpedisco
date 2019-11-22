@@ -22,7 +22,7 @@
                                     <form action="{{ route('user.fatture.store') }}" method="POST">
                                         @csrf
                                         <input type="hidden" name="docId" value="{{ $invoice->docId }}">
-                                        <button class="mdi mdi-md mdi-download"></button>
+                                        <button class="mdi btn-transparent btn mdi-md mdi-download"></button>
                                     </form>
                                 </td>
                             </tr>
