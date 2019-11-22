@@ -26,7 +26,7 @@
                                                 <div class="profile-text-2"><span>Mi serve la fattura</span>
                                                     <span class="toggle-logo">
                                                         <label class="switch">
-                                                            <input type="checkbox" name="isInvoice" value="1">
+                                                            <input type="checkbox" name="isInvoice" value="1" required>
                                                             <span class="slider round"></span>
                                                         </label>
                                                     </span>
@@ -40,7 +40,7 @@
                                                             <input type="text"
                                                                    class="form-control input-gray profile-input"
                                                                    placeholder="Inserisci il nome completo"
-                                                                   name="sender_first_name">
+                                                                   name="sender_first_name" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -51,7 +51,7 @@
                                                             <input type="text"
                                                                    class="form-control input-gray profile-input"
                                                                    placeholder="Inserisci il cognome "
-                                                                   name="sender_surname">
+                                                                   name="sender_surname" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -62,7 +62,7 @@
                                                     <input type="text"
                                                            class="form-control input-gray profile-input"
                                                            placeholder="Indirizzo email"
-                                                           name="sender_email">
+                                                           name="sender_email" required>
                                                     <br>
                                                     <small class="text-green" style="text-decoration: underline">Non hai
                                                         un account? Crealo qui</small>
@@ -76,7 +76,7 @@
                                                             <input type="text"
                                                                    class="form-control input-gray profile-input"
                                                                    placeholder="Scrivi il nome della società"
-                                                                   name="sender_company_name">
+                                                                   name="sender_company_name" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -87,7 +87,7 @@
                                                             <input type="text"
                                                                    class="form-control input-gray profile-input"
                                                                    placeholder="Indirizzo PEC"
-                                                                   name="sender_pec_address">
+                                                                   name="sender_pec_address" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -98,7 +98,7 @@
                                                             <input type="text"
                                                                    class="form-control input-gray profile-input"
                                                                    placeholder="Codice di interscambio"
-                                                                   name="sender_sdi_code">
+                                                                   name="sender_sdi_code" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -109,7 +109,7 @@
                                                             <input type="text"
                                                                    class="form-control input-gray profile-input"
                                                                    placeholder="Partita iva"
-                                                                   name="sender_vat_no">
+                                                                   name="sender_vat_no" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -122,7 +122,7 @@
                                                             <input type="text"
                                                                    class="form-control input-gray profile-input"
                                                                    placeholder="Scrivi il tuo recapito telefonico"
-                                                                   name="sender_phone">
+                                                                   name="sender_phone" required>
                                                         </div>
                                                     </div>
                                                     <div class="custom-p-logo">
@@ -137,7 +137,7 @@
                                                     <input type="text" id="Indirizzo"
                                                            class="form-control input-gray profile-input"
                                                            placeholder="Indirizzo riga 1"
-                                                           name="sender_address_1">
+                                                           name="sender_address_1" required>
                                                 </div>
                                             </div>
 
@@ -145,7 +145,7 @@
                                                 <div class="mb-1">
                                                     <input type="text" class="form-control input-gray profile-input"
                                                            placeholder="Indirizzo riga 2"
-                                                           name="sender_address_2">
+                                                           name="sender_address_2" required>
                                                 </div>
                                             </div>
 
@@ -154,7 +154,7 @@
                                                     <label for="">Città</label>
                                                     <input type="text" class="form-control input-gray profile-input"
                                                            placeholder="Seleziona la città"
-                                                           name="sender_city">
+                                                           name="sender_city" required>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -165,7 +165,7 @@
                                                             <input type="text"
                                                                    class="form-control input-gray profile-input"
                                                                    placeholder="Seleziona la provincia"
-                                                                   name="sender_province">
+                                                                   name="sender_province" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -176,7 +176,7 @@
                                                             <input type="text"
                                                                    class="form-control input-gray profile-input"
                                                                    placeholder="Seleziona il cap"
-                                                                   name="sender_post_code">
+                                                                   name="sender_post_code" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -186,7 +186,7 @@
                                                     <label for="">Paese</label>
                                                     <input type="text" class="form-control input-gray profile-input"
                                                            placeholder="Seleziona il paese"
-                                                           name="sender_country">
+                                                           name="sender_country" required>
                                                 </div>
                                             </div>
                                             <div class="form-group margin-btm-input-lg">
@@ -203,7 +203,7 @@
                                                             <input type="text"
                                                                    class="form-control input-gray profile-input"
                                                                    placeholder="Scrivi il tuo recapito telefonico"
-                                                                   name="departure_phone">
+                                                                   name="departure_phone" required>
                                                         </div>
                                                     </div>
                                                     <div class="custom-p-logo">
@@ -218,7 +218,7 @@
                                                     <input type="text" id="Indirizzo"
                                                            class="form-control input-gray profile-input"
                                                            placeholder="Indirizzo riga 1"
-                                                           name="departure_address_1">
+                                                           name="departure_address_1" required>
                                                 </div>
                                             </div>
 
@@ -226,7 +226,7 @@
                                                 <div class="mb-1">
                                                     <input type="text" class="form-control input-gray profile-input"
                                                            placeholder="Indirizzo riga 2"
-                                                           name="departure_address_2">
+                                                           name="departure_address_2" required>
                                                 </div>
                                             </div>
 
@@ -235,7 +235,7 @@
                                                     <label for="">Città</label>
                                                     <input type="text" class="form-control input-gray profile-input"
                                                            placeholder="Seleziona la città"
-                                                           name="departure_city">
+                                                           name="departure_city" required>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -246,7 +246,7 @@
                                                             <input type="text"
                                                                    class="form-control input-gray profile-input"
                                                                    placeholder="Seleziona la provincia"
-                                                                   name="departure_province">
+                                                                   name="departure_province" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -257,7 +257,7 @@
                                                             <input type="text"
                                                                    class="form-control input-gray profile-input"
                                                                    placeholder="Seleziona il cap"
-                                                                   name="departure_post_code">
+                                                                   name="departure_post_code" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -267,7 +267,7 @@
                                                     <label for="">Paese</label>
                                                     <input type="text" class="form-control input-gray profile-input"
                                                            placeholder="Seleziona il paese"
-                                                           name="departure_country">
+                                                           name="departure_country" required>
                                                 </div>
                                             </div>
                                             <div class="form-group margin-btm-input-lg"></div>
@@ -286,7 +286,7 @@
                                                             <input type="text"
                                                                    class="form-control input-gray profile-input"
                                                                    placeholder="Inserisci il nome completo"
-                                                                   name="recipient_first_name">
+                                                                   name="recipient_first_name" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -297,7 +297,7 @@
                                                             <input type="text"
                                                                    class="form-control input-gray profile-input"
                                                                    placeholder="Inserisci il cognome "
-                                                                   name="recipient_surname">
+                                                                   name="recipient_surname" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -308,7 +308,7 @@
                                                     <input type="text"
                                                            class="form-control input-gray profile-input"
                                                            placeholder="Indirizzo email"
-                                                           name="recipient_email">
+                                                           name="recipient_email" required>
                                                 </div>
                                             </div>
                                             <div class="form-group margin-btm-input-lg">
@@ -317,7 +317,7 @@
                                                     <input type="text" id="Indirizzo"
                                                            class="form-control input-gray profile-input"
                                                            placeholder="Indirizzo riga 1"
-                                                           name="recipient_address_1">
+                                                           name="recipient_address_1" required>
                                                 </div>
                                             </div>
 
@@ -325,7 +325,7 @@
                                                 <div class="mb-1">
                                                     <input type="text" class="form-control input-gray profile-input"
                                                            placeholder="Indirizzo riga 2"
-                                                           name="recipient_address_2">
+                                                           name="recipient_address_2" required>
                                                 </div>
                                             </div>
 
@@ -334,7 +334,7 @@
                                                     <label for="">Città</label>
                                                     <input type="text" class="form-control input-gray profile-input"
                                                            placeholder="Seleziona la città"
-                                                           name="recipient_city">
+                                                           name="recipient_city" required>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -345,7 +345,7 @@
                                                             <input type="text"
                                                                    class="form-control input-gray profile-input"
                                                                    placeholder="Seleziona la provincia"
-                                                                   name="recipient_province">
+                                                                   name="recipient_province" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -356,7 +356,7 @@
                                                             <input type="text"
                                                                    class="form-control input-gray profile-input"
                                                                    placeholder="Seleziona il cap"
-                                                                   name="recipient_post_code">
+                                                                   name="recipient_post_code" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -366,7 +366,7 @@
                                                     <label for="">Paese</label>
                                                     <input type="text" class="form-control input-gray profile-input"
                                                            name="recipient_country"
-                                                           placeholder="Seleziona il paese">
+                                                           placeholder="Seleziona il paese" required>
                                                 </div>
                                             </div>
                                         </div>

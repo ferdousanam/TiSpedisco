@@ -445,8 +445,8 @@ $gray-light: #F6F6F9;
     border-color: $primary;
   }
   &:focus{
-    border-color: $primary;
-    background-color: $primary;
+    border-color: $green;
+    background-color: $green;
   }
 }
 .btn-outline-success{
@@ -1254,22 +1254,22 @@ $gray-light: #F6F6F9;
       }
     }
     .state-address{
-      .address-box-wrapper{
+      .address-box{
+        display: inline-block;
         width: 100%;
-        display: table;
-        text-align: center;
-        .address-box{
-          display: inline-block;
-          width: 100%;
-          border-radius: 4px;
-          background-color: #f1f1f1;
-          margin-bottom: 25px;
-          padding: 18px;
-          .add-text{
-            font-size: 20px;
-            color: $text;
-            text-align: left;
-          }
+        border-radius: 4px;
+        background-color: #f1f1f1;
+        margin-bottom: 25px;
+        padding: 18px;
+        .add-text{
+          font-size: 20px;
+          color: $text;
+          text-align: left;
+        }
+        .add-text-2{
+          font-size: 16px;
+          color: $text;
+          text-align: left;
         }
       }
     }
@@ -1504,12 +1504,13 @@ $gray-light: #F6F6F9;
         position: relative;
         .profile-active{
           position: absolute;
-          right: 2px;
-          top: 30px;
-          background-color: $green;
-          width: 8px;
-          height: 8px;
+          right: 0px;
+          top: 28px;
+          background-color: #488b5e;
+          width: 12px;
+          height: 12px;
           border-radius: 50%;
+          border: 2px solid #f2f2f2;
         }
       }
     }
@@ -2232,7 +2233,9 @@ span.flatpickr-weekday {
   }
 }
 .over-scroll{
-  overflow: scroll;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scrollbar-width: none;
   &::-webkit-scrollbar {
     display: none;
   }

@@ -49,14 +49,14 @@
                                         <label for="">Dimensioni</label>
                                         <input type="text" class="form-control input-gray profile-input"
                                                placeholder="Lunghezza" name="total_length"
-                                               v-model="shipmentInfo.total_length">
+                                               v-model="shipmentInfo.total_length" required>
                                     </div>
                                 </div>
                                 <div class="form-group margin-btm-input-lg">
                                     <div class="mb-1">
                                         <input type="text" class="form-control input-gray profile-input"
                                                placeholder="Lunghezza" name="total_width"
-                                               v-model="shipmentInfo.total_width">
+                                               v-model="shipmentInfo.total_width" required>
                                     </div>
                                 </div>
                                 <div class="form-group margin-btm-input-lg">
@@ -64,7 +64,7 @@
                                         <label for="">Valore della merce</label>
                                         <input type="text" class="form-control input-gray profile-input"
                                                placeholder="€" name="total_amount"
-                                               v-model="shipmentInfo.total_price">
+                                               v-model="shipmentInfo.total_price" required>
                                     </div>
                                 </div>
                             </div>
@@ -74,21 +74,21 @@
                                         <label for="">&nbsp;</label>
                                         <input type="text" class="form-control input-gray profile-input"
                                                placeholder="Altezza" name="total_height"
-                                               v-model="shipmentInfo.total_height">
+                                               v-model="shipmentInfo.total_height" required>
                                     </div>
                                 </div>
                                 <div class="form-group margin-btm-input-lg">
                                     <div class="mb-1">
                                         <input type="text" class="form-control input-gray profile-input"
                                                placeholder="Peso" name="total_weight"
-                                               v-model="shipmentInfo.total_weight">
+                                               v-model="shipmentInfo.total_weight" required>
                                     </div>
                                 </div>
                                 <div class="form-group margin-btm-input-lg">
                                     <div class="mb-1">
                                         <label for="">Servizi aggiuntivi</label>
                                         <select class="form-control custom-select input-gray profile-input"
-                                                v-model="shipmentInfo.total_additional_service">
+                                                v-model="shipmentInfo.total_additional_service" required>
                                             <option value="5">Assicurazione - 5€</option>
                                             <option value="5">Assicurazione - 5€</option>
                                         </select>
@@ -117,7 +117,7 @@
                                     <input type="text"
                                            class="form-control w-100 text-xl text-ash font-bold ship-detail-input-1"
                                            placeholder="Assegna un nome alla spedizione"
-                                           v-model="shipment.name">
+                                           v-model="shipment.name" required>
                                 </div>
                             </div>
                             <div class="row">
@@ -127,20 +127,20 @@
                                         <div class="mb-1">
                                             <label for="">Dimensioni</label>
                                             <input type="text" class="form-control input-gray profile-input"
-                                                   placeholder="Lunghezza" name="length[]" v-model="shipment.width">
+                                                   placeholder="Lunghezza" name="length[]" v-model="shipment.width" required>
                                         </div>
                                     </div>
                                     <div class="form-group margin-btm-input-lg">
                                         <div class="mb-1">
                                             <input type="text" class="form-control input-gray profile-input"
-                                                   placeholder="Lunghezza" name="length2[]" v-model="shipment.length">
+                                                   placeholder="Lunghezza" name="length2[]" v-model="shipment.length" required>
                                         </div>
                                     </div>
                                     <div class="form-group margin-btm-input-lg">
                                         <div class="mb-1">
                                             <label for="">Valore della merce</label>
                                             <input type="text" class="form-control input-gray profile-input"
-                                                   placeholder="€" name="amount[]" v-model="shipment.price">
+                                                   placeholder="€" name="amount[]" v-model="shipment.price" required>
                                         </div>
                                     </div>
                                 </div>
@@ -149,13 +149,13 @@
                                         <div class="mb-1">
                                             <label for="">&nbsp;</label>
                                             <input type="text" class="form-control input-gray profile-input"
-                                                   placeholder="Altezza" name="height[]" v-model="shipment.height">
+                                                   placeholder="Altezza" name="height[]" v-model="shipment.height" required>
                                         </div>
                                     </div>
                                     <div class="form-group margin-btm-input-lg">
                                         <div class="mb-1">
                                             <input type="text" class="form-control input-gray profile-input"
-                                                   placeholder="Peso" name="weight[]" v-model="shipment.weight">
+                                                   placeholder="Peso" name="weight[]" v-model="shipment.weight" required>
                                         </div>
                                     </div>
                                     <div class="form-group margin-btm-input-lg">
@@ -163,7 +163,7 @@
                                             <label for="">Servizi aggiuntivi</label>
                                             <select class="form-control custom-select input-gray profile-input"
                                                     name="additional_service[]" id=""
-                                                    v-model="shipment.additional_cost">
+                                                    v-model="shipment.additional_cost" required>
                                                 <option value="5">Assicurazione - 5€</option>
                                                 <option value="5">Assicurazione - 5€</option>
                                             </select>

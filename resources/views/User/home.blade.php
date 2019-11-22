@@ -96,7 +96,7 @@
                                                         class="mdi mdi-md mdi-map-marker"></i></div>
                                                 <input type="text" class="form-control home-input"
                                                        id="autocomplete-input-from"
-                                                       placeholder="Cerca il luogo di partenza" name="from">
+                                                       placeholder="Cerca il luogo di partenza" name="from" required>
                                             </div>
                                         </div>
                                         <div class="form-group margin-btm-input">
@@ -105,7 +105,7 @@
                                                         class="mdi mdi-md mdi-map-marker-outline"></i></div>
                                                 <input type="text" class="form-control home-input"
                                                        id="autocomplete-input-to"
-                                                       placeholder="Cerca il luogo di destinazione..." name="to">
+                                                       placeholder="Cerca il luogo di destinazione..." name="to" required>
                                             </div>
                                         </div>
                                         <div class="form-group margin-btm-input">
@@ -113,7 +113,7 @@
                                                 <div class="input-group-addon home-input-group"><i
                                                         class="mdi mdi-md mdi-view-dashboard"></i></div>
                                                 <input type="text" class="form-control home-input"
-                                                       placeholder="Inserisci il peso..." name="size">
+                                                       placeholder="Inserisci il peso..." name="size" required>
                                             </div>
                                         </div>
                                         <div class="col-auto">
