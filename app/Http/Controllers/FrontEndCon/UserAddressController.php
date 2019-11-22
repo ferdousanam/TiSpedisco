@@ -4,9 +4,6 @@ namespace App\Http\Controllers\FrontEndCon;
 
 use App\Address;
 use App\Http\Controllers\Controller;
-use App\Invoice;
-use GuzzleHttp\Client;
-use GuzzleHttp\Psr7;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
@@ -42,21 +39,7 @@ class UserAddressController extends Controller
      */
     public function store(Request $request)
     {
-        $client = new Client();
-        $url = "https://www.app.fattura24.com/api/v0.3/GetFile";
-
-        $form_params = array(
-            'apiKey' => env('FATTURA24_API_KEY'),
-            'docId' => $request->docId,
-        );
-
-        $response = $client->post($url, ['form_params' => $form_params]);
-        $filename = explode('"', $response->getHeader('Content-Disposition')[0])[1];
-        header('Content-Description: File Transfer');
-        header('Content-Type: application/octet-stream');
-        header("Content-Disposition: attachment; filename=\"" . $filename . "\"");
-        echo $response->getBody()->getContents();
-        exit;
+        //
     }
 
     /**

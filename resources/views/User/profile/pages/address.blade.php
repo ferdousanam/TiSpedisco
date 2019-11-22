@@ -10,33 +10,32 @@
                             <div class="input-group-addon home-input-group"><i
                                     class="mdi mdi-md mdi-magnify"></i></div>
                             <input type="text" class="form-control home-input"
-                                   placeholder="Cerca indirizzo...">
+                                   placeholder="Cerca indirizzo..."
+                                   v-model="search.keyword" @keyup="getAllAddress()">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
-                @foreach($addresses as $address)
-                    <div class="col-md-4 col-sm-6">
-                        <div class="address-box-wrapper">
-                            <div class="address-box">
-                                <div class="text-left">
-                                    <i class="text-green mdi mdi-redo mdi-sm"></i>
-                                    <span class="text-green text-sm">Spedisci</span>
-                                </div>
-                                <div class="add-text">{{ $address->first_name . ' ' . $address->last_name }}</div>
-                                <div class="add-text">{{ $address->address }}</div>
-                                <div class="add-text">
-                                    {{ $address->zipCode . ' ' . $address->city . ' ' . $address->country }}
-                                </div>
-                                <div data-toggle="modal" data-target="#editAddress" class="text-right c-pointer">
-                                    <span class="text-green text-sm ">Modifica</span>
-                                    <i class="text-green mdi-sm  mdi mdi-wrench"></i>
-                                </div>
+                <div class="col-md-4 col-sm-6" v-for="address in addresses">
+                    <div class="address-box-wrapper">
+                        <div class="address-box">
+                            <div class="text-left">
+                                <i class="text-green mdi mdi-redo mdi-sm"></i>
+                                <span class="text-green text-sm">Spedisci</span>
+                            </div>
+                            <div class="add-text">@{{ address.first_name + ' ' + address.last_name }}</div>
+                            <div class="add-text">@{{ address.address }}</div>
+                            <div class="add-text">
+                                @{{ address.zipCode + ' ' + address.city + ' ' + address.country }}
+                            </div>
+                            <div data-toggle="modal" data-target="#editAddress" class="text-right c-pointer">
+                                <span class="text-green text-sm ">Modifica</span>
+                                <i class="text-green mdi-sm  mdi mdi-wrench"></i>
                             </div>
                         </div>
                     </div>
-                @endforeach
+                </div>
             </div>
         </div>
 
@@ -153,13 +152,27 @@
     <script type="text/javascript">
         new Vue({
             el: '#addressVue',
-            data: {},
+            data: {
+                addresses: [],
+                search: {
+                    keyword: ''
+                },
+            },
             methods: {
                 clear() {
+                },
+                getAllAddress() {
+                    let self = this;
+                    axios.post("{{route('api.user-address.index')}}", this.search)
+                        .then(function (response) {
+                            if (!response.data.success) return;
+                            self.addresses = response.data.addresses;
+                        })
                 }
             },
             mounted() {
                 this.clear();
+                this.getAllAddress();
             },
         });
     </script>
