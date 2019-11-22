@@ -84,7 +84,7 @@
             </div>
         </div>
     </div>
-          
+
     <!-- /.modal-edit-address -->
     <div class="modal fade" id="editAddress" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
@@ -188,7 +188,7 @@
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->  
+    </div><!-- /.modal -->
 </div>
 @endsection
 

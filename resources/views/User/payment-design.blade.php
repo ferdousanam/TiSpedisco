@@ -129,7 +129,7 @@
                                                     <label for="">Numero carta di credito</label>
                                                     <input type="text" class="form-control input-gray profile-input"
                                                            placeholder="0000 0000 0000 0000"
-                                                           name="credit_card_no">
+                                                           name="credit_card_no" required>
                                                     <img class="input-img" src="{{asset('images/home-img/cards.png')}}"
                                                          alt="">
                                                 </div>
@@ -142,7 +142,7 @@
                                                             <input type="text"
                                                                    class="form-control input-gray profile-input"
                                                                    placeholder="00 / 00"
-                                                                   name="card_exp">
+                                                                   name="card_exp" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -153,7 +153,7 @@
                                                             <input type="text"
                                                                    class="form-control input-gray profile-input"
                                                                    placeholder="000"
-                                                                   name="card_cvv">
+                                                                   name="card_cvv" required>
                                                         </div>
                                                     </div>
                                                 </div>
