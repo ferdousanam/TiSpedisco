@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Rate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\DB;
 use function foo\func;
 
 class ShipComparatorController extends Controller
@@ -18,14 +19,14 @@ class ShipComparatorController extends Controller
      */
     public function index()
     {
-        $locations = array(
-            'from' => 0,
-            'to' => 1,
-            'size' => 20,
-        );
-        session(['locations' => $locations]);
         $locations = session('locations');
-        $carriers = Carrier::with('rates')->get();
+        DB::connection()->enableQueryLog();
+        $carriers = Carrier::with('rates')->whereHas('rates', function($rates) use($locations) {
+            $rates->where('distance_from', '<=', $locations['distance']);
+            $rates->where('distance_to', '>=', $locations['distance']);
+            $rates->where('weight_to', '>=', $locations['weight']);
+        })->get();
+        $queries = DB::getQueryLog();
         return view('User.shipComparator', compact('locations', 'carriers'));
     }
 

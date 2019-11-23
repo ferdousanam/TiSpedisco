@@ -258,7 +258,7 @@ class InvoiceController extends Controller
         $locations = session('locations');
         $rate = Rate::where('distance_from', '<=', $locations['distance'])
             ->where('distance_to', '>=', $locations['distance'])
-            ->where('volume', '>=', $locations['size'])->first();
+            ->where('weight_to', '>=', $locations['weight'])->first();
         if ($rate) {
             if ($rate->vat != 0) {
                 $total_cost += $total_cost * $rate->vat / 100;

@@ -10,10 +10,9 @@
     <title>{{ config('app.name', 'Laravel') }} - Home</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/vue.min.js') }}"></script>
-    <script type="text/javascript"
-            src='https://maps.google.com/maps/api/js?key={{ env('GOOGLE_MAP_API_KEY') }}&sensor=false&libraries=places'></script>
+    <script src="{{ asset('js/vue.js') }}"></script>
+    <script src="https://unpkg.com/axios@0.19.0/dist/axios.min.js"></script>
+    <script type="text/javascript" src='https://maps.google.com/maps/api/js?key={{ env('GOOGLE_MAP_API_KEY') }}&sensor=false&libraries=places'></script>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,600,700&amp;display=swap" rel="stylesheet">
@@ -22,12 +21,13 @@
           rel="stylesheet">
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{asset('css/theme.css')}}">
 </head>
 <body>
-<section id="app">
+<section>
 <div id="home_view_wrapper">
     {{--home 1st page--}}
     <header class="header" style="background-image: url('{{asset('images/home-img/home-bg.png')}}')">
@@ -113,21 +113,25 @@
                                                 <div class="input-group-addon home-input-group"><i
                                                         class="mdi mdi-md mdi-view-dashboard"></i></div>
                                                 <input type="text" class="form-control home-input"
+                                                       v-model="weight"
                                                        placeholder="Inserisci il peso..." name="size" required>
                                             </div>
                                         </div>
                                         <div class="col-auto">
                                             <div class="form-group">
                                                 <input class="form-check-input styled-checkbox" type="checkbox" value=""
+                                                       v-model="accepted"
                                                        id="check-input" required>
                                                 <label for="check-input"> <span class="form-check-label font-responsive text-black"> Accetto la privacy policy del sito web</span></label>
                                             </div>
                                         </div>
                                         <div class="col-auto">
                                             <div class="form-group">
-                                                <button class="btn btn-home-box">Calcola il costo della spedizione
-                                                    <span class="btn-logo"><i
-                                                            class="mdi mdi-md mdi-chevron-right"></i></span>
+                                                <button class="btn btn-home-box"
+                                                        @click="submitForm"
+                                                >Calcola il costo della spedizione
+                                                    <span class="btn-logo">
+                                                        <i class="mdi mdi-md mdi-chevron-right"></i></span>
                                                 </button>
                                             </div>
                                         </div>
@@ -335,13 +339,14 @@
         </div>
     </footer>
     {{--footer emd--}}
-
 </div>
 </section>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 {{--<script src="{{ asset('js/slick.js') }}" type="text/javascript" charset="utf-8"></script>--}}
 <script>
     // Slick slider initialization
@@ -371,6 +376,7 @@
         el: '#home_view_wrapper',
         data: {
             step: 1,
+            accepted: false,
             errors: [],
             success: null,
             autocomplete_from: null,
@@ -394,33 +400,72 @@
                 lat: null,
                 long: null,
             },
+            distance: 0,
         },
         methods: {
-            generateAutoCompleteFrom: function () {
-                let _this = this;
+            AutoCompleteFrom: function () {
+                let self = this;
+                let place1 = {lat:0,lon:0};
+                let place2 = {lat:0,lon:0};
                 let from = document.getElementById('autocomplete-input-from');
-                this.autocomplete_from = new google.maps.places.Autocomplete(from, {types: ['geocode']});
-                this.autocomplete_from.addListener('place_changed', function () {
-                    let place = _this.autocomplete_from.getPlace();
-                    _this.location_from.formatted_address = place.formatted_address;
-                    _this.location_from.lat = place.geometry.location.lat();
-                    _this.location_from.long = place.geometry.location.lng();
+                let autocomplete_from = new google.maps.places.Autocomplete(from);
+                autocomplete_from.addListener('place_changed', function () {
+                    let place = autocomplete_from.getPlace();
+                    self.location_from.formatted_address = place.formatted_address;
+                    place1 = {lat:place.geometry.location.lat(),lon:place.geometry.location.lng()};
+                    self.location_from.lat = place1.lat;
+                    self.location_from.long = place1.lon;
+                })
+
+                let to = document.getElementById('autocomplete-input-to');
+                let autocomplete_to = new google.maps.places.Autocomplete(to);
+                autocomplete_to.addListener('place_changed', function () {
+                    let place = autocomplete_to.getPlace();
+                    self.location_to.formatted_address = place.formatted_address;
+                    place2 = {lat:place.geometry.location.lat(),lon:place.geometry.location.lng()};
+                    self.location_to.lat = place2.lat;
+                    self.location_to.long = place2.lon;
+
+                    let lat1=place1.lat,
+                        lon1=place1.lon,
+                        lat2=place2.lat,
+                        lon2=place2.lon;
+                    var R = 6371;
+                    var dLat = (lat2-lat1) * Math.PI / 180;
+                    var dLon = (lon2-lon1) * Math.PI / 180;
+                    var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                        Math.cos(lat1 * Math.PI / 180 ) * Math.cos(lat2 * Math.PI / 180 ) *
+                        Math.sin(dLon/2) * Math.sin(dLon/2);
+                    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+                    var d = R * c;
+                    self.distance = Math.round(d); // unit = KM
                 })
             },
-            generateAutoCompleteTo: function () {
-                let _this = this;
-                this.autocomplete_to = new google.maps.places.Autocomplete(document.getElementById('autocomplete-input-to'), {types: ['geocode']});
-                this.autocomplete_to.addListener('place_changed', function () {
-                    let place = _this.autocomplete_to.getPlace();
-                    _this.location_to.formatted_address = place.formatted_address;
-                    _this.location_to.lat = place.geometry.location.lat();
-                    _this.location_to.long = place.geometry.location.lng();
-                })
-            },
+            submitForm(e){
+                e.preventDefault();
+                let self = this;
+                let data = {
+                    location_from: this.location_from,
+                    location_to: this.location_to,
+                    distance: this.distance,
+                    weight: this.weight,
+                };
+                axios.post("{{route('api.google-api.index')}}", data)
+                    .then(function (response) {
+                        if (!response.data.success) {
+                            toastr.error('Something Went Wrong!');
+                            return;
+                        }else {
+                            window.location = '{{ route('ship-comparator.index') }}';
+                        }
+                    })
+            }
         },
         mounted() {
-            this.generateAutoCompleteFrom();
-            this.generateAutoCompleteTo();
+            let self = this;
+            setTimeout(function () {
+                self.AutoCompleteFrom();
+            }, 1000);
         },
         created() {
             // $('.owl-carousel').owlCarousel({
@@ -441,7 +486,6 @@
         }
     });
 </script>
-
 </body>
 </html>
 

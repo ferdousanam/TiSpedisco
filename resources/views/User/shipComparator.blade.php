@@ -12,9 +12,9 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="page-text">Risultati della ricerca</div>
-                    <div class="page-sub-text">Da {{ $locations['from'] }} a {{ $locations['to'] }} -
-                        Peso: {{ $locations['size'] }}kg
-                        Distance: {{ $locations['distance'] }}
+                    <div class="page-sub-text">Da {{ $locations['location_from']['formatted_address'] }} a {{ $locations['location_to']['formatted_address'] }} -
+                        Peso: {{ $locations['weight'] }}kg
+{{--                        Distance: {{ $locations['distance'] }}--}}
                     </div>
                 </div>
                 <div class="col-md-4">

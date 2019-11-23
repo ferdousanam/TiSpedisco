@@ -19,5 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::group(['namespace' => 'Api', 'as' => 'api.'], function () {
     Route::apiResource('order', 'OrderController');
+    Route::apiResource('google-api', 'GoogleApiController');
     Route::apiResource('user-address', 'UserAddressController');
 });
