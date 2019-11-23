@@ -34,16 +34,17 @@ class UserAddressController extends Controller
         if ($request->keyword) {
             $sql->where(function ($q) use ($request) {
                 $q->Where(DB::raw("CONCAT(first_name, ' ', last_name)"), 'LIKE', '%' . $request->keyword . '%')
-                    ->orWhere('address', 'LIKE', '%' . $request->keyword . '%')
+                    ->orWhere('address_1', 'LIKE', '%' . $request->keyword . '%')
+                    ->orWhere('address_2', 'LIKE', '%' . $request->keyword . '%')
                     ->orWhere('city', 'LIKE', '%' . $request->keyword . '%')
                     ->orWhere('country', 'LIKE', '%' . $request->keyword . '%')
                     ->orWhere('state', 'LIKE', '%' . $request->keyword . '%')
-                    ->orWhere('zipCode', 'LIKE', '%' . $request->keyword . '%')
+                    ->orWhere('postcode', 'LIKE', '%' . $request->keyword . '%')
                     ->orWhere('phone', 'LIKE', '%' . $request->keyword . '%');
             });
         }
         $addresses = $sql->get();
-        return response()->json(['success' => true, 'message' => "Successful", 'addresses' => $addresses]);
+        return response()->json(['success' => true, 'message' => "Successful", 'addresses' => $addresses], 200);
     }
 
     /**
