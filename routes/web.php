@@ -50,6 +50,7 @@ Route::group(['namespace' => 'FrontEndCon'], function () {
         Route::get('/creditCard', 'UserController@creditCard')->name('user.creditCard');
         Route::get('/profile', 'UserController@profile')->name('user.profile');
         Route::resource('fatture', 'UserInvoiceController', ['as' => 'user']);
+        Route::get('/email/change/{token}', 'UserController@emailChange')->name('changeEmail.confirm');
 
         Route::get('/ticket', 'TicketController@ticket')->name('user.ticket');
         Route::get('/tickets', 'TicketController@getTickets')->name('user.getTickets');
