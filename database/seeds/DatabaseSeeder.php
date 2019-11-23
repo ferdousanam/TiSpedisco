@@ -11,13 +11,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Address::class, 50)->create();
-//        factory(App\Carrier::class, 50)->create();
-        $this->call(RolesTableSeeder::class);
-        $this->call(AdminsTableSeeder::class);
-        $this->call(TypesTableSeeder::class);
-        $this->call(CarriersTableSeeder::class);
-        $this->call(RatesTableSeeder::class);
         // $this->call(UsersTableSeeder::class);
         $user = App\User::create([
             'first_name' => 'hasan',
@@ -40,6 +33,13 @@ class DatabaseSeeder extends Seeder
             'status' => 'unread',
             'state' => 'closed'
         ]);
+        factory(App\Address::class, 50)->create();
+//        factory(App\Carrier::class, 50)->create();
+        $this->call(RolesTableSeeder::class);
+        $this->call(AdminsTableSeeder::class);
+        $this->call(TypesTableSeeder::class);
+        $this->call(CarriersTableSeeder::class);
+        $this->call(RatesTableSeeder::class);
         echo "email: hasan@dev.com\npassword: 12345678\n";
     }
 }

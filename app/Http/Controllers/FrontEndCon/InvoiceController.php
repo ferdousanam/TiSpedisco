@@ -126,7 +126,7 @@ class InvoiceController extends Controller
             $xmlstring .= '</Document>';
             $xmlstring .= '</Fattura24>';
 
-//            return $xmlstring;
+//            dd($xmlstring);
 
             $xw = xmlwriter_open_memory();
             xmlwriter_start_document($xw, '1.0', 'UTF-8');
@@ -140,6 +140,7 @@ class InvoiceController extends Controller
             /* LEGGO I DATI RICEVUTI DA FATTURA24 */
             $xml = simplexml_load_string($xml_res);
 
+//            dd($xml);
             $invoice = new Invoice();
             $invoice->returnCode = $xml->returnCode;
             $invoice->description = $xml->description;

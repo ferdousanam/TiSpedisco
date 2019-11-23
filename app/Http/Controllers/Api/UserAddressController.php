@@ -15,7 +15,7 @@ class UserAddressController extends Controller
     {
         $this->middleware(['auth', 'verified']);
     }
-    
+
     /**
      * Display a listing of the resource.
      *
