@@ -41,23 +41,23 @@ Route::group(['namespace' => 'FrontEndCon'], function () {
     Route::get('/home', 'UserController@home')->name('home');
     Route::group(['middleware' => 'verified', 'prefix' => 'user'], function () {
         Route::get('/', 'HomeController@index');
-        Route::get('/passChange', 'UserController@passChange')->name('user.passChange');
-        Route::post('/singleUpdate', 'UserController@singleUpdate')->name('profile.singleUpdate');
+        Route::get('/pass-change', 'UserController@passChange')->name('user.passChange');
+        Route::post('/single-update', 'UserController@singleUpdate')->name('profile.singleUpdate');
 
         Route::get('/dashboard', 'UserController@dashboard')->name('user.dashboard');
         Route::resource('order', 'UserOrderController', ['as' => 'user']);
         Route::resource('address', 'UserAddressController', ['as' => 'user']);
-        Route::get('/creditCard', 'UserController@creditCard')->name('user.creditCard');
+        Route::get('/credit-card', 'UserController@creditCard')->name('user.creditCard');
         Route::get('/profile', 'UserController@profile')->name('user.profile');
         Route::resource('fatture', 'UserInvoiceController', ['as' => 'user']);
         Route::get('/email/change/{token}', 'UserController@emailChange')->name('changeEmail.confirm');
 
         Route::get('/ticket', 'TicketController@ticket')->name('user.ticket');
         Route::get('/tickets', 'TicketController@getTickets')->name('user.getTickets');
-        Route::get('/singleTicket', 'TicketController@singleTicket')->name('user.singleTicket');
+        Route::get('/single-ticket', 'TicketController@singleTicket')->name('user.singleTicket');
         Route::post('/ticket', 'TicketController@cruTicket')->name('cru.ticket');
         Route::post('/reply', 'TicketController@cruReply')->name('cru.reply');
-        Route::post('/fileUpload', 'TicketController@fileUpload')->name('ticket.fileUpload');
+        Route::post('/file-upload', 'TicketController@fileUpload')->name('ticket.fileUpload');
     });
 });
 
